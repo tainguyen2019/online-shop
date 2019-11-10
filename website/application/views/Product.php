@@ -8,7 +8,7 @@
 <body>
      <div id="product-panel">
      <?php include_once "template/navbar.php" ?>
-     <img src="<?php echo base_url(); ?>public/images/jsss-homepage-desktop.png.imgw.1888.1888.jpeg" alt="panel">
+     <img src="<?php echo base_url(); ?>public/images/other_images/jsss-homepage-desktop.png.imgw.1888.1888.jpeg" alt="panel">
      <div id ="intro-panel">
      <div id="title" >
           <h1 class="title-text">Âm Thanh Sống Động</h1>
