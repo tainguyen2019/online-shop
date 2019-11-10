@@ -44,7 +44,6 @@ ul,li,p{
     margin-right : -50px;   
 }
 .global-nav .right li:first-child{
-    border-right : 1px solid rgba(255,255,255,.5);
     padding-right: 12px;
 }
 .nav-link{

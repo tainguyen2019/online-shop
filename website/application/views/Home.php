@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>DoanWeb-LandingPage</title>
-  <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/home.css" type="text/css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/aos.css" type="text/css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/home.css?v=<?php echo time(); ?>" type="text/css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/aos.css?v=<?php echo time(); ?>" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 
@@ -27,6 +27,11 @@
             <li class="nav-item">
               <!--điều hướng đến trang đăng nhập-->
               <a href="<?php echo base_url(); ?>login/gotologin" class="nav-link login">Tài khoản của tôi</a>
+            </li>
+            <li class="nav-item">
+            <a  href="<?php echo base_url(); ?>cart/gotocart" class="nav-link cart">
+            Your's Cart
+            </a>
             </li>
           </ul>
         </div>
