@@ -8,19 +8,19 @@
 <body>
      <div id="product-panel">
      <?php include_once "template/navbar.php" ?>
-     <img src="<?php echo base_url(); ?>public/images/other_images/jsss-homepage-desktop.png.imgw.1888.1888.jpeg" alt="panel">
+     <img src="<?php echo base_url(); ?>public/images/slide_show-4.jpeg" alt="panel">
      <div id ="intro-panel">
      <div id="title" >
-          <h1 class="title-text">Âm Thanh Sống Động</h1>
-          <p class="sub-title-text">Đẳng cấp Hiện đại và Chân thực trong từng tiếng động</p>
+          <h1 class="title-text">Chuyển động tinh tế</h1>
+          <p class="sub-title-text">Tốc dộ di chuyển vượt trội ,thiết kế thời thượng, kiểu dáng hiện đại</p>
      </div>
      </div>
      </div>
      <div class="khoangtrang"></div>
-     <div class="cart-container float-right">
+     <a class="cart-container float-right" href="<?php echo base_url(); ?>cart/gotocart" >
      <img src="https://img.icons8.com/cute-clipart/48/000000/shopping-cart.png">
      <span>Your's Cart</span>
-     </div>
+     </a>
      <div class="khoangtrang"></div>
      <div class="content">
 <div class="sidebar float-left" >

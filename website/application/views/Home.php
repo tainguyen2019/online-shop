@@ -28,15 +28,6 @@
               <!--điều hướng đến trang đăng nhập-->
               <a href="<?php echo base_url(); ?>login/gotologin" class="nav-link login">Tài khoản của tôi</a>
             </li>
-            <li class="nav-item">
-              <!--điều hướng đến trang sản phẩm-->
-              <a href="<?php echo base_url(); ?>product/gotoproduct" class="nav-link login">Sản phẩm</a>
-            </li>
-            <li class="nav-item">
-              <!--điều hướng đến trang giỏ hàng-->
-              <a href="<?php echo base_url(); ?>cart/gotocart" class="nav-link login">Giỏ hàng</a>
-            </li>
-
           </ul>
         </div>
       </div>
@@ -122,7 +113,7 @@
               </div>
               <div class="col-3 full-size">
                 <div class="product-items mouse-item contain-img full-size">
-                  <a href="#" class="full-size">
+                  <a href="<?php echo base_url(); ?>product/gotoproduct" class="full-size">
                     <p class="product-item-name">CHUỘT CHƠI GAME</p>
                     <img src="<?php echo base_url(); ?>public/images/chuot_button.jpeg" alt="2">
                     <button id="btn-muasam" class="btn-muasam-chuot">MUA SẮM CHUỘT</button>
