@@ -1,0 +1,82 @@
+﻿/*
+CREATE TABLE ACCOUNT(
+AccountID int auto_increment primary key,
+FirstName varchar(255),
+LastName varchar(255),
+Email varchar(255),
+Password varchar(255),
+Mobile varchar(11)
+);
+*/
+
+CREATE TABLE ADDRESS(
+AddressID int auto_increment primary key,
+Commune varchar(50),
+District varchar(50),
+Province varchar(50)
+);
+
+CREATE TABLE ADMIN(
+AdminID int auto_increment primary key,
+UserName varchar(255),
+Password varchar(255),
+Email varchar(255),
+Status enum('0', '1') #0: disable, 1: enable
+);
+
+CREATE TABLE CATEGORY(
+CategoryID int auto_increment primary key,
+CategoryName varchar(255)
+);
+
+CREATE TABLE DESCRIPTION(
+DescriptionID int auto_increment primary key,
+ProductID int,
+DescriptionName varchar(50),
+Infomation varchar(255)
+);
+
+CREATE TABLE DETAIL_ORDER(
+OrderID int ,
+ProductID int,
+Quantity int,
+RealPrice double,
+PRIMARY KEY (OrderID, ProductID)
+);
+
+CREATE TABLE IMAGE(
+ImageID int auto_increment primary key,
+ProductID int,
+Image varchar(255)
+);
+
+CREATE TABLE PRODUCT(
+ProductID int auto_increment primary key,
+ProductName varchar(255),
+CategoryID int,
+Quantity int,
+Cost double
+);
+
+CREATE TABLE PROMOTION(
+PromotionID int auto_increment primary key,
+PromotionName varchar(255),
+ProductID int,
+Discount float,
+Start date,
+Finish date
+);
+
+CREATE TABLE _ORDER(
+OrderID int auto_increment primary key,
+CreateAt datetime,
+UpdateAt datetime,
+Total double,
+Status enum('0', '1') #0: đang xử lý, 1: đã xác nhận
+);
+
+
+
+
+
+
