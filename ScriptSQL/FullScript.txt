@@ -1,4 +1,4 @@
-﻿/*
+
 CREATE TABLE ACCOUNT(
 AccountID int auto_increment primary key,
 FirstName varchar(255),
@@ -7,7 +7,6 @@ Email varchar(255),
 Password varchar(255),
 Mobile varchar(11)
 );
-*/
 
 CREATE TABLE ADDRESS(
 AddressID int auto_increment primary key,
