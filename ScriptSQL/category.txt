@@ -1,0 +1,7 @@
+﻿insert into CATEGORY values(1, 'tai nghe nhét trong');
+insert into CATEGORY values(null, 'tai nghe chụp tai');
+insert into CATEGORY values(null, 'chuột có dây');
+insert into CATEGORY values(null, 'chuột không dây');
+insert into CATEGORY values(null, 'loa vi tính');
+insert into CATEGORY values(null, 'loa bluetooth');
+insert into CATEGORY values(null, 'bàn phím');
