@@ -11,7 +11,7 @@ class Admin extends CI_Controller
         if ($this->session->userdata('isLogged')) {
             $this->load->view('admin/AdminPage');
         } else {
-            redirect(base_url().'admin/get_login');
+            redirect('admin/get_login');
         }
     }
 
@@ -29,13 +29,13 @@ class Admin extends CI_Controller
         } else {
             $this->session->set_userdata('isLogged', false);
         }
-        redirect(base_url() . 'admin');
+        redirect('admin');
     }
 
     public function logout()
     {
         $this->session->unset_userdata('isLogged');
-        redirect(base_url() . 'admin');
+        redirect('admin');
     }
 
     public function get_login(){
