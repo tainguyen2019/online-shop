@@ -12,7 +12,7 @@
 
 <body>
     <body class="text-center">
-        <form class="form-signin" action="<?php echo base_url() ?>admin/post_login" method="post">
+        <form class="form-signin" action="<?php echo base_url() ?>admin/login/login" method="post">
             <h1 class="h3 mb-3 font-weight-normal">Đăng nhập Admin</h1>
             <label for="inputEmail" class="sr-only">Email</label>
             <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Địa chỉ email" 

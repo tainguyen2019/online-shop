@@ -14,7 +14,7 @@
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Tên công ty</a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="<?php echo base_url() ?>admin/logout">Đăng xuất</a>
+                <a class="nav-link" href="<?php echo base_url() ?>admin/login/logout">Đăng xuất</a>
             </li>
         </ul>
     </nav>
