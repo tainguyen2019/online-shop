@@ -14,11 +14,5 @@ $(document).ready(function()
         $(".login-form").css("display","none");
         $(".signup-form").css("display","block");
     });
-   $('#signin-email').on('click', function()
-   {
-        $('.email-label').css({
-            'top' : '2px' ,
-            'left' : '0'
-        })
-   })
+   
 })

@@ -87,10 +87,8 @@ a:hover {
 .global-nav .right li {
     padding-right: 12px;
 }
-.global-nav .right li:first-child{
-    border-right : 1px solid whitesmoke;
-}
-.login,.cart {
+
+.login {
     font-size: 18px;
 }
 
