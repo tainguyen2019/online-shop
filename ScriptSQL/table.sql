@@ -74,9 +74,3 @@ UpdateAt datetime,
 Total double,
 Status enum('0', '1') #0: đang xử lý, 1: đã xác nhận
 );
-
-
-
-
-
-

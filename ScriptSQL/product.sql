@@ -1,4 +1,4 @@
-﻿#Tai nghe
+﻿--Tai nghe
 
 INSERT INTO PRODUCT VALUES(1,'Tai nghe Earpods Apple MNHF2',1,10,790000);
 INSERT INTO PRODUCT VALUES(null,'Tai nghe nhét trong EarPods Lightning Apple MMTN2',1,10,790000);
@@ -7,9 +7,7 @@ INSERT INTO PRODUCT VALUES(null,'Tai nghe EP Sony MDR-EX15AP',1,10,290000);
 INSERT INTO PRODUCT VALUES(null,'Tai nghe EP Sony MDR-EX155AP',1,10,440000);
 INSERT INTO PRODUCT VALUES(null,'Tai nghe nhét trong Samsung EG920B',1,10,280000);
 INSERT INTO PRODUCT VALUES(null,'Tai nghe nhét trong Samsung IG935B',1,10,300000);
-INSERT INTO PRODUCT VALUES(null,'Tai nghe EP Awei Q26Hi Đen
-
-',1,10,150000);
+INSERT INTO PRODUCT VALUES(null,'Tai nghe EP Awei Q26Hi Đen',1,10,150000);
 INSERT INTO PRODUCT VALUES(null,'Tai nghe EP Awei Q27Hi Đen',1,10,150000);
 INSERT INTO PRODUCT VALUES(null,'Tai nghe EP Awei Q21Hi Đen',1,10,200000);
 INSERT INTO PRODUCT VALUES(null,'Tai nghe nhét trong Awei ES500Ni',1,10,200000);
@@ -26,7 +24,7 @@ INSERT INTO PRODUCT VALUES(null,'Tai nghe chụp tai Kanen IP-952',2,10,350000);
 INSERT INTO PRODUCT VALUES(null,'Tai nghe chụp tai Kanen IP-2090',2,10,350000);
 
 
-#Chuột
+--Chuột
 
 INSERT INTO PRODUCT VALUES(null,'Chuột có dây Genius DX-125 Đen',3,10,100000);
 INSERT INTO PRODUCT VALUES(null,'Chuột dây rút Zadez M218',3,10,100000);
@@ -41,7 +39,7 @@ INSERT INTO PRODUCT VALUES(null,'Chuột Bluetooth Logitech M337',4,10,500000);
 INSERT INTO PRODUCT VALUES(null,'Chuột không dây Logitech MX Anywhere 2S Đen',4,10,1700000);
 INSERT INTO PRODUCT VALUES(null,'Chuột không dây Logitech MX Master 2S Đen',4,10,2300000);
 
-#Loa
+--Loa
 
 INSERT INTO PRODUCT VALUES(null,'Loa vi tính Fenda U213A - 2.0',5,10,220000);
 INSERT INTO PRODUCT VALUES(null,'Loa vi tính Fenda F203G - 2.1',5,10,550000);
@@ -55,7 +53,7 @@ INSERT INTO PRODUCT VALUES(null,'Loa Bluetooth MozardX BM01 Đen
 INSERT INTO PRODUCT VALUES(null,'Loa Bluetooth Wetop H8008 Bạc',6,10,1500000);
 INSERT INTO PRODUCT VALUES(null,'Loa Bluetooth Wetop A3 Đen',6,10,700000);
 
-#Bàn phím
+--Bàn phím
 
 INSERT INTO PRODUCT VALUES(null,'Bàn phím Magic Keyboard US Apple MLA22 Trắng',7,10,3190000);
 INSERT INTO PRODUCT VALUES(null,'Bàn phím Gaming Cliptec RGK815',7,10,1000000);
@@ -64,11 +62,3 @@ INSERT INTO PRODUCT VALUES(null,'Bàn phím Gaming Cliptec RGK817 Đen',7,10,100
 INSERT INTO PRODUCT VALUES(null,'Bàn phím Gaming Cliptec RGK833 Đen bạc',7,10,1200000);
 INSERT INTO PRODUCT VALUES(null,'Bàn phím Gaming Cliptec RGK700 Bạc',7,10,1050000);
 INSERT INTO PRODUCT VALUES(null,'Bàn Phím Game Fuhlen L411',7,10,230000);
-
-
-
-
-
-
-
-
