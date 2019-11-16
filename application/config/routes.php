@@ -53,5 +53,6 @@ $route['default_controller'] = 'home/gotohome';
 $route['admin'] = 'admin/home';
 $route['admin/login']['post'] = 'admin/login/login';
 $route['admin/login']['get'] = 'admin/login';
+$route['admin/logout'] = 'admin/login/logout';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

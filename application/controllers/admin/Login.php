@@ -23,12 +23,12 @@ class Login extends CI_Controller
         } else {
             $this->session->set_userdata('isLogged', false);
         }
-        redirect('admin/home');
+        redirect('admin');
     }
 
     public function logout()
     {
         $this->session->unset_userdata('isLogged');
-        redirect('admin/home');
+        redirect('admin');
     }
 }
