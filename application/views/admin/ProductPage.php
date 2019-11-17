@@ -24,11 +24,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($records as $row) { ?>
+                    <?php foreach ($records as $record) { ?>
                         <tr>
-                            <td><?php echo $row['ProductName'] ?></td>
-                            <td><?php echo $row['Quantity'] ?></td>
-                            <td><?php echo number_format($row['Cost'], 0, '', '.').' VND'; ?></td>
+                            <td><?php echo $record['ProductName'] ?></td>
+                            <td><?php echo $record['Quantity'] ?></td>
+                            <td><?php echo number_format($record['Cost'], 0, '', '.') . ' VND'; ?></td>
                             <td>
                                 <a href="#" class="m-4">
                                     <i class="far fa-edit"></i>
@@ -45,20 +45,18 @@
                 <nav>
                     <ul class="pagination">
                         <?php
-                        $page > 1 ? $page_pre = $page - 1: $page_pre = $page;
-                        $page < $total_pages ? $page_next = $page + 1: $page_next = $page;
-                        $url_pre = base_url('admin/products/?page=' . $page_pre);
-                        $url_next = base_url('admin/products/?page=' . $page_next);
+                        $pre_page = $page > 1 ? $page - 1 : $page;
+                        $next_page = $page < $total_pages ? $page + 1 : $page;
+                        $pre_url = base_url('admin/products/?page=' . $pre_page);
+                        $next_url = base_url('admin/products/?page=' . $next_page);
                         ?>
-                        <li class="page-item"><a class="page-link" href="<?php echo $url_pre ?>">&laquo;</a></li>
+                        <li class="page-item"><a class="page-link" href="<?php echo $pre_url ?>">&laquo;</a></li>
                         <?php for ($i = 1; $i <= $total_pages; $i++) {
                             $url_page = base_url('admin/products/?page=' . $i);
-                            if($i == $page){ ?>
-                            <li class="page-item active"><a class="page-link" href="<?php echo $url_page ?>"><?php echo $i; ?></a></li>
-                            <?php }else{ ?>
-                            <li class="page-item"><a class="page-link" href="<?php echo $url_page ?>"><?php echo $i; ?></a></li>
-                            <?php }} ?>
-                        <li class="page-item"><a class="page-link" href="<?php echo $url_next ?>">&raquo;</a></li>
+                            ?>
+                            <li class="page-item <?php if($i == $page) echo 'active'; ?>"><a class="page-link" href="<?php echo $url_page ?>"><?php echo $i; ?></a></li>
+                        <?php } ?>
+                        <li class="page-item"><a class="page-link" href="<?php echo $next_url ?>">&raquo;</a></li>
                     </ul>
                 </nav>
             </div>
