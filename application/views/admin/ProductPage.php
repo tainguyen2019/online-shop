@@ -14,26 +14,35 @@
         <div class="col-md-10 bg-light">
             <h1>Thông tin sản phẩm</h1>
             <hr>
+            <a href="<?php echo base_url('admin/products/new'); ?>" 
+                class="float-right mr-4" title="Thêm mới">
+                <i class="fas fa-plus"></i>
+            </a>
             <table class="table">
                 <thead>
                     <tr>
                         <th>Tên sản phẩm</th>
+                        <th>Loại sản phẩm</th>
                         <th>Số lượng</th>
                         <th>Giá</th>
+                        <th>Trạng thái</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($records as $record) { ?>
+                    <?php foreach ($records as $record) { 
+                        $status = $record['Status'] == '1' ? 'Đang kinh doanh' : 'Ngừng kinh doanh' ?>
                         <tr>
                             <td><?php echo $record['ProductName'] ?></td>
+                            <td><?php echo $record['CategoryName'] ?></td>
                             <td><?php echo $record['Quantity'] ?></td>
                             <td><?php echo number_format($record['Cost'], 0, '', '.') . ' VND'; ?></td>
+                            <td><?php echo $status ?></td>
                             <td>
-                                <a href="#" class="m-4">
+                                <a href="<?php echo base_url('admin/products/edit?id='.$record['ProductID']) ?>" class="text-decoration-none m-4">
                                     <i class="far fa-edit"></i>
                                 </a>
-                                <a href="#">
+                                <a href="<?php echo base_url('admin/products/delete?id='.$record['ProductID']) ?>" class="text-decoration-none">
                                     <i class="far fa-trash-alt"></i>
                                 </a>
                             </td>
@@ -54,7 +63,7 @@
                         <?php for ($i = 1; $i <= $total_pages; $i++) {
                             $url_page = base_url('admin/products/?page=' . $i);
                             ?>
-                            <li class="page-item <?php if($i == $page) echo 'active'; ?>"><a class="page-link" href="<?php echo $url_page ?>"><?php echo $i; ?></a></li>
+                            <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a class="page-link" href="<?php echo $url_page ?>"><?php echo $i; ?></a></li>
                         <?php } ?>
                         <li class="page-item"><a class="page-link" href="<?php echo $next_url ?>">&raquo;</a></li>
                     </ul>
