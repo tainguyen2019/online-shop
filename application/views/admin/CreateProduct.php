@@ -14,7 +14,8 @@
 		<div class="col-md-10 bg-light">
 			<h1>Thêm sản phẩm</h1>
 			<hr>
-			<form action="<?php echo base_url('admin/products/insert_product') ?>" method="post" class="text-center mr-4">
+			<form action="<?php echo base_url('admin/products/insert_product') ?>" method="post" 
+			class="mr-4 text-center" enctype="multipart/form-data">
 				<h4>Thông tin cơ bản</h4>
 				<label for="product_name" class="col-md-2">Tên sản phẩm: </label>
 				<input class="p-2 m-2 col-md-6 rounded" type="text" name="product_name" id="product_name" required autofocus><br />
@@ -28,6 +29,8 @@
 				<input class="p-2 m-2 col-md-6 rounded" type="text" name="quantity" id="quantity" required><br />
 				<label for="cost" class="col-md-2">Giá tiền: </label>
 				<input class="p-2 m-2 col-md-6 rounded" type="text" name="cost" id="cost" required><br />
+				<label for="images" class="col-md-2">Ảnh mô tả: </label>
+				<input type="file" id="images" name="files[]" multiple class="p-2 m-2 col-md-6"><br>
 				<div class="col-md-8 ml-4 p-4 d-inline">
 					<button type="submit" class="btn bg-success m-2 text-dark font-weight-bold">Lưu</button>
 					<button type="button" class="btn bg-danger m-2 text-decoration-none">

@@ -2,75 +2,106 @@
 <html lang="en">
 
 <head>
-    <?php include_once('template/header.php'); ?>
-    <link rel="stylesheet" href="<?php echo base_url('public/css/admin/AdminPage.css'); ?>">
-    <title>Trang sản phẩm</title>
+	<?php include_once('template/header.php'); ?>
+	<link rel="stylesheet" href="<?php echo base_url('public/css/admin/AdminPage.css'); ?>">
+	<title>Trang sản phẩm</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <?php include_once('template/navigation.php'); ?>
-    <div class="row flex-grow-1 m-0">
-        <?php include_once('template/sidebar.php') ?>
-        <div class="col-md-10 bg-light">
-            <h1>Thông tin sản phẩm</h1>
-            <hr>
-            <a href="<?php echo base_url('admin/products/new'); ?>" 
-                class="float-right mr-4" title="Thêm mới">
-                <i class="fas fa-plus"></i>
-            </a>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Tên sản phẩm</th>
-                        <th>Loại sản phẩm</th>
-                        <th>Số lượng</th>
-                        <th>Giá</th>
-                        <th>Trạng thái</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($records as $record) { 
-                        $status = $record['Status'] == '1' ? 'Đang kinh doanh' : 'Ngừng kinh doanh' ?>
-                        <tr>
-                            <td><?php echo $record['ProductName'] ?></td>
-                            <td><?php echo $record['CategoryName'] ?></td>
-                            <td><?php echo $record['Quantity'] ?></td>
-                            <td><?php echo number_format($record['Cost'], 0, '', '.') . ' VND'; ?></td>
-                            <td><?php echo $status ?></td>
-                            <td>
-                                <a href="<?php echo base_url('admin/products/edit?id='.$record['ProductID']) ?>" class="text-decoration-none m-4">
-                                    <i class="far fa-edit"></i>
-                                </a>
-                                <a href="<?php echo base_url('admin/products/delete?id='.$record['ProductID']) ?>" class="text-decoration-none">
-                                    <i class="far fa-trash-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-            <div class="float-right mr-2">
-                <nav>
-                    <ul class="pagination">
-                        <?php
-                        $pre_page = $page > 1 ? $page - 1 : $page;
-                        $next_page = $page < $total_pages ? $page + 1 : $page;
-                        $pre_url = base_url('admin/products/?page=' . $pre_page);
-                        $next_url = base_url('admin/products/?page=' . $next_page);
-                        ?>
-                        <li class="page-item"><a class="page-link" href="<?php echo $pre_url ?>">&laquo;</a></li>
-                        <?php for ($i = 1; $i <= $total_pages; $i++) {
-                            $url_page = base_url('admin/products/?page=' . $i);
-                            ?>
-                            <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a class="page-link" href="<?php echo $url_page ?>"><?php echo $i; ?></a></li>
-                        <?php } ?>
-                        <li class="page-item"><a class="page-link" href="<?php echo $next_url ?>">&raquo;</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
+	<?php include_once('template/navigation.php'); ?>
+	<div class="row flex-grow-1 m-0">
+		<?php include_once('template/sidebar.php') ?>
+		<div class="col-md-10 bg-light">
+			<h1>Thông tin sản phẩm</h1>
+			<hr>
+			<form method="get" action="<?php echo base_url('admin/products'); ?>">
+				<div class="row">
+					<div class="col-md-5">
+						<label for="category" class="col-md-4">Loại sản phẩm: </label>
+						<select class="custom-select col-md-5 rounded " id="category" name="category">
+							<option value="0" selected>Tất cả sản phẩm</option>
+							<?php foreach ($categories as $category) {?>
+								<option value="<?php echo $category['CategoryID']; ?>" 
+								<?php if($category['CategoryID'] == $cate) echo 'selected' ?>>
+								<?php echo $category['CategoryName']; ?>
+							</option>
+							<?php } ?>
+						</select><br />
+					</div>
+					<div class="col-md-5">
+						<label for="product_name" class="col-md-4">Tên sản phẩm: </label>
+						<input class="col-md-6 rounded" type="text" name="query" value="<?php echo $query ?>">
+					</div>
+					<div class="col-md-2">
+						<button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
+					</div>
+				</div>
+			</form>
+
+			<a href="<?php echo base_url('admin/products/new'); ?>" class="float-right mr-4" title="Thêm mới">
+				<i class="fas fa-plus"></i>
+			</a>
+			<?php if ($total_products > 0) { ?>
+			 <p class="font-weight-bold m-2 text-success">Tìm thấy <?php echo $total_products ?> sản phẩm</p>
+			<?php }else{ ?>
+				<p class="font-weight-bold mt-2 p-3 text-success">Không tìm thấy sản phẩm phù hợp</p>
+			<?php } ?>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Tên sản phẩm</th>
+						<th>Loại sản phẩm</th>
+						<th>Số lượng</th>
+						<th>Giá</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+					foreach ($records as $record) { ?>
+						<tr>
+							<td>
+								<a href="<?php echo base_url('admin/products/detail?id=' . $record['ProductID']) ?>" class="text-decoration-none" title="Xem chi tiết">
+									<?php echo $record['ProductName'] ?>
+								</a>
+							</td>
+							<td><?php echo $record['CategoryName'] ?></td>
+							<td><?php echo $record['Quantity'] ?></td>
+							<td><?php echo number_format($record['Cost'], 0, '', '.') . ' VND'; ?></td>
+							<td>
+								<a href="<?php echo base_url('admin/products/edit?id=' . $record['ProductID']) ?>" class="text-decoration-none m-4" title="Sửa">
+									<i class="far fa-edit"></i>
+								</a>
+								<a href="<?php echo base_url('admin/products/delete?id=' . $record['ProductID']) ?>" class="text-decoration-none" title="Xóa">
+									<i class="far fa-trash-alt"></i>
+								</a>
+							</td>
+						</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+			<div class="float-right mr-2">
+				<nav>
+					<ul class="pagination">
+						<?php
+						$pre_page = $page > 1 ? $page - 1 : $page;
+						$next_page = $page < $total_pages ? $page + 1 : $page;
+						$search = '&query='.$query.'&category='.$cate;
+						$pre_url = base_url('admin/products/?page=' . $pre_page.$search);
+						$next_url = base_url('admin/products/?page=' . $next_page.$search);
+						?>
+						<li class="page-item"><a class="page-link" href="<?php echo $pre_url ?>">&laquo;</a></li>
+						<?php for ($i = 1; $i <= $total_pages; $i++) {
+							$url_page = base_url('admin/products/?page=' . $i.$search);
+							?>
+							<li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a class="page-link" href="<?php echo $url_page ?>"><?php echo $i; ?></a></li>
+						<?php } ?>
+						<li class="page-item"><a class="page-link" href="<?php echo $next_url ?>">&raquo;</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
