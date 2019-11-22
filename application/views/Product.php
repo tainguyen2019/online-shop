@@ -3,11 +3,12 @@
 <head>
 <title>Product</title>
 <?php require_once "template/top.php"; ?>
-<link rel="stylesheet" href="<?php echo base_url(); ?>public/css/product.css" type="text/css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>public/css/product.css?v=<?php echo time(); ?>" type="text/css">
 </head>
 <body>
      <div id="product-panel">
      <?php include_once "template/navbar.php" ?>
+     <?php include_once 'template/category_list.php'?>
      <img src="<?php echo base_url(); ?>public/images/other_images/jsss-homepage-desktop.png.imgw.1888.1888.jpeg" alt="panel">
      <div id ="intro-panel">
      <div id="title" >
@@ -18,10 +19,10 @@
      </div>
      <div class="khoangtrang"></div>
      <div class="cart-container float-right">
-     
-     <a href="<?php echo base_url(); ?>Cart/GotoCart">
+     <a href="<?php echo base_url(); ?>Cart" >
      <img src="https://img.icons8.com/cute-clipart/48/000000/shopping-cart.png">
-     <span>Your's Cart</span>
+     <span> GIỎ HÀNG </span>
+     <span>( <?php echo $this->cart->total_items(); ?> )</span>
      </a>
      </div>
      <div class="khoangtrang"></div>
@@ -46,7 +47,7 @@
            ?>
                 <li>
                 <label class="checkbox-inline"> 
-                    <input type="checkbox" class="checkbox-form border-primary category" value="">
+                    <input type="checkbox" class="checkbox-form border-primary category" value="<?=$val['CategoryName']?>">
                     <span class="checkmark"></span>       
                     <p class="filter-text"><?=$val['CategoryName']?></p>
                </label>
@@ -73,9 +74,9 @@
       ?>
               <li>
                <label class="checkbox-inline"> 
-                    <input type="checkbox" class="checkbox-form border-primary brand" value="">
+                    <input type="checkbox" class="checkbox-form border-primary brand" value="<?php echo $val['Infomation']?>">
                     <span class="checkmark"></span>       
-                    <p class="filter-text"><?php echo $val['Infomation']?></p>
+                    <p class="filter-text brand-text"><?php echo $val['Infomation']?></p>
                </label>
                </li>
         <?php }?>
@@ -110,21 +111,24 @@
 </div>
        
           <div class="main-content  float-right">
-            <div class="list-product">
-            <?php
-              foreach($show_product as $key=>$val)
-              {
-          ?>
-          <div class="card product-card">
-            <img class="card-img-top bg-light img-product-effect" src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg" alt="Chuột có dây Genius DX-125 Đen">
-            <div class="card-body card-body-size">
-               <h5 class="card-title"><?=$val->ProductName?></h5>
-               <p class="card-text"><?=$val->Cost?></p>
-               <a href="<?php echo base_url(); ?>Cart/arr_id_select/<?=$val->ProductID?>" class="btn btn-effect btn-primary">Mua ngay</a>
-            </div>
+          <div class="list-product">
+              <?php
+                foreach($show_product as $key=>$val)
+                {
+              ?>
+          <div class="card product-card" >
+          <a href="<?php echo base_url('product/show_product_info/'.$val->ProductID)?>">
+          <img class="card-img-top bg-light img-product-effect" src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg" alt="Chuột có dây Genius DX-125 Đen">
+        </a>
+          <div class="card-body card-body-size" style="position : relative">       
+          <strong class="card-title product-name"><?=$val->ProductName?></strong>  
+          <p class="card-text product-price" ><?=$val->Cost?></p> 
+          <a class="btn btn-effect btn-primary" type="button" href="<?php echo base_url('cart/AddtoCart/'.$val->ProductID)?>">Mua ngay</a>
           </div>
-          <?php }?>
-            </div>
+          </div>
+              <?php }?>
+        </div>
+
             <div class="pagination-box">
                 <?=$this->pagination_bootstrap->render()?>
             </div> 
@@ -135,21 +139,9 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script>
-    $(document).ready(function()
-    {
-      $('#price_range').slider{
-        range : true,
-        min : 0,
-        max : 5000000,
-        values : [0,5000000],
-        slide: function(event,ui)
-        {
-          $('#amount').val("$"+ui.values[0]+"- $"+ui.values[1]);
-        } 
-      }
-    });
-    </script>
+    <script src="<?php echo base_url(); ?>public/js/template.js"></script>
+    <script src="<?php echo base_url(); ?>public/js/product.js"></script>
 </body>
 </html>
+
 

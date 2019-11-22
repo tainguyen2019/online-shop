@@ -113,21 +113,13 @@ body{
     font-weight: 600;
 }
 .shopping-cart-item .col-right .quantity-block{
-    width: 86px;
+    width: 70px ;
     float: right;
 }
 .col-right .quantity-block .input-group{
     display: table;
     position : relative;    
     margin-right : 30px;
-}
-.input-group-btn{
-    position: relative;
-    white-space: nowrap;
-    display: table-cell;
-    vertical-align: middle;
-    font-size: 0;
-    width: 1%;
 }
 .btn-default{
     background-color: transparent;
@@ -144,10 +136,9 @@ body{
     display: block;
 }
 .quantity{
- width: 35px !important;
+ width: 100% !important;
  padding-right: 5px !important;
  padding-left: 5px !important;
-
  color:  rgb(92, 88, 88) !important;
 }
 .bootstrap-touchspin-up{
@@ -196,8 +187,8 @@ body{
 .total2 .amount p strong
 {
     color: #fe3834;
-    font-size: 22px;
-    font-weight: 400;
+    font-size: 24px;
+    font-weight: 700;
 }
 .btn-danger{
     color: #fff;
@@ -250,9 +241,11 @@ body{
     border-color: #c8c8c8;
     width : 100%;
 }
+
 .panel-body .input-group .input-group-btn{
     display: table-cell;
 }
+
 .panel-body .input-group .input-group-btn .btn-coupon
 {
     background: #fdd835;

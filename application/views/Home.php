@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>DoanWeb-LandingPage</title>
-  <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/home.css" type="text/css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/aos.css" type="text/css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/home.css?v=<?php echo time(); ?>" type="text/css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/aos.css?v=<?php echo time(); ?>" type="text/css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/template.css?v=<?php echo time(); ?>" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-
 </head>
 
 <body>
@@ -30,47 +30,18 @@
             </li>
             <li class="nav-item">
               <!--điều hướng đến trang giỏ hàng-->
-              <a href="<?php echo base_url(); ?>cart/gotocart" class="nav-link login">Giỏ hàng</a>
+              <a href="<?php echo base_url(); ?>Cart/" class="nav-link login">Giỏ hàng</a>
             </li>
 
           </ul>
         </div>
       </div>
     </nav>
-    <div class="main-nav navbar navbar-expand-md bg-transparent navbar-dark flex-center">
-      <div class="container">
-        <div class="left">
-          <div class="menu-toggle">
-            <div class="hamburger">
-            </div>
-
-          </div>
-        </div>
-        <div class="right">
-          <div class="icon-search">
-            <div class="btn btn-search">
-              <span class="fa fa-search"></span>
-            </div>
-            <div class="btn btn-close">
-              <span class="fa fa-times"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php include_once 'template/category_list.php'?>
   </header>
   <main>
     <!--carousel-->
     <div id="myCarousel" class="carousel slide border" data-ride="carousel">
-      <!-- Indicators -->
-      <!--
-                   <ol class="carousel-indicators">
-             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-             <li data-target="#myCarousel" data-slide-to="1"></li>
-             <li data-target="#myCarousel" data-slide-to="2"></li>
-          </ol>
-          -->
-
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img class="d-block w-100" src="<?php echo base_url(); ?>public/images/slide_show-1.jpeg" alt="Cat">
@@ -108,7 +79,7 @@
           <div class="col-md-12 ">
             <div id="product-utilities">
               <div class="col-3 full-size">
-                <div class="product-items mouse-item contain-img full-size">
+                <div class="product-items  contain-img full-size">
                   <a href="<?php echo base_url();?>product/show_products/Headphone" class="full-size">
                     <p class="product-item-name">ÂM THANH TRÒ CHƠI</p>
                     <img src="<?php echo base_url(); ?>public/images/tainghe_button.jpeg" alt="1">
@@ -117,7 +88,7 @@
                 </div>
               </div>
               <div class="col-3 full-size">
-                <div class="product-items mouse-item contain-img full-size">
+                <div class="product-items contain-img full-size">
                   <a href="<?php echo base_url();?>product/show_products/Mouse" class="full-size">
                     <p class="product-item-name">CHUỘT CHƠI GAME</p>
                     <img src="<?php echo base_url(); ?>public/images/chuot_button.jpeg" alt="2">
@@ -126,7 +97,7 @@
                 </div>
               </div>
               <div class="col-3 full-size">
-                <div class="product-items mouse-item contain-img full-size">
+                <div class="product-items contain-img full-size">
                   <a href="<?php echo base_url();?>product/show_products/Keyboard" class="full-size">
                       <p class="product-item-name">BÀN PHÍM CHUYÊN DỤNG</p>
                     <img src="<?php echo base_url(); ?>public/images/banphim_button.jpeg" alt="3">
@@ -134,13 +105,14 @@
                   </a>
                 </div>
               </div>
-              <div class="col-3 full-size">
-                <div class="product-items mouse-item contain-img full-size">
+              <div class="col-3  speaker-contain-img full-size">
+                <div class="product-items contain-img full-size">
                   <a href="<?php echo base_url();?>product/show_products/Speaker" class="full-size">
                     <p class="product-item-name">LOA CHUYÊN DỤNG</p>
-                    <img src="<?php echo base_url(); ?>public/images/loa_button.jpg" alt="4">
+                    <img class="speaker-img" src="<?php echo base_url(); ?>public/images/loa_button.jpg" alt="4">
+                    <button id="btn-muasam" class="btn-muasam-loa">MUA SẮM LOA</button>
                   </a>
-                  <button id="btn-muasam" class="btn-muasam-loa">MUA SẮM LOA</button>
+                 
                 </div>
               </div>
             </div>
@@ -247,6 +219,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/aos.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/template.js"></script>
   <script type="text/javascript">
     AOS.init();
   </script>

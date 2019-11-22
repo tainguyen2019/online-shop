@@ -3,18 +3,23 @@
 <head>
     <?php include_once 'template/top.php'?>
     <title>Cart</title>
-    <link rel="stylesheet" href="../public/css/cart.css?v=<?php echo time(); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo base_url();?>public/css/cart.css?v=<?php echo time(); ?>" type="text/css">
 </head>
 <body>
     <?php include_once 'template/navbar.php'?>
     <div class="cart-container row">
         <div class="col-xs-12">
         <h5 class="lbl-shopping-cart"> Giỏ hàng
-        <span>(1 sản phẩm)</span>
+        <span>(<?php echo $this->cart->total_items() .' sản phẩm'?>)</span>
         </h5>
         </div>
         <div class="col-xs-8 cart-col-1">
             <form id="shopping cart">
+            <?php 
+                if($this->cart->total_items() > 0 )
+                {
+                foreach($cartItems as $Item){
+            ?>
              <div class="row shopping-cart-item">
                 <div class="col-xs-3 img-thumbnail-custom">
                      <p class="image">
@@ -26,43 +31,32 @@
                          <input type="hidden" class="hidden-quantity" value="1">
                          <div class="badge-cart-a">
                              <p class="name">
-                                 <a href="#">Chuột có dây Genius DX-125 Đen</a>
+                                 <a href="#"><?=$Item['name']?></a>
                              </p>
                          </div>
-                         <div class="badge-cart-a-link">
-                            <p class="name">
-                                 <a href="#">Chuột có dây Genius DX-125 Đen</a>
-                             </p>
-                         </div>
-                         <p class="note">
-                            - Hãng : Genius
-                         </p>
-                         <p class="note">
-                            - Mã sản phẩm : DX-125
-                         </p>
-                         <p class="action">
-                            <a href="#" class="btn btn-link btn-item-del"> Xóa </a>
+                         <p class="action" style="margin-top: 31px">
+                            <a href="<?php echo base_url('cart/RemoveItem/'.$Item['rowid'])?>" class="btn btn-danger btn-item-del"
+                            onclick ="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này ?')">
+                            <i class="fa fa-trash-o fa-1x" aria-hidden="true"></i>
+                            </a>
                          </p>
                      </div>
                      <div class="badge-cart-a">
                          <div class="box-size">
-                             <p class="price">139.995đ</p>
+                             <p>Giá sản phẩm : </p>
+                             <p class="price"><?=$Item['price']?></p>
                          </div>
                      </div>
                      <div class="badge-cart-a-link"></div>
                      <div class="quantity-block">
                         <div class="input-group">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default bootstrap-touchspin-down">-</button>
-                            </span>
-                            <input type="tel" class="form-control quantity" min="0" value="2">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default bootstrap-touchspin-up">+</button>
-                            </span>
+                            <input type="number" class="form-control quantity" value="<?php echo $Item['qty']?>"
+                            onchange = "updateCartItem( this , '<?php echo $Item['rowid']?>' ,'<?php echo base_url()?>cart/updateCartItem')">   
                         </div>
                      </div>
                 </div>
             </div>
+                <?php }?>
             </form>
         </div>
         <div class="col-xs-4 cart-col-2">
@@ -71,7 +65,7 @@
                    <div class="box-style fee">
                      <p class="list-info-price">
                         <span>Tạm tính</span>
-                        <strong>139.995đ</strong>
+                        <strong><?php echo $this->cart->total().' đ'?></strong>
                     </p>  
                     </div>     
                     <div class="box-style fee">
@@ -79,7 +73,7 @@
                             <span class="text-label">Thành tiền: </span>
                             <div class="amount">
                                 <p>
-                                    <strong>139.995đ</strong>
+                                    <strong><?php echo $this->cart->total().' đ'?></strong>
                                 </p>
                                 <p class="text-right">
                                     <small>(Đã bao gồm VAT nếu có)</small>
@@ -91,6 +85,7 @@
                         Tiến hành đặt hàng 
                     </button>                     
                 </div>
+               
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="panel-group coupon">
@@ -112,7 +107,19 @@
                         </div>
                     </div>
                 </div>
+                <?php }else
+                echo "ko có sản phẩm nào trong giỏ hàng !!"?>
             </div>
         </div>
     </div>
-<?php include_once 'template/footer.php'?>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>public/js/template.js"></script>
+    
+    <script src="<?php echo base_url(); ?>public/js/cart.js">
+    </script>
+</body>
+</html>

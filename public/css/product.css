@@ -123,6 +123,18 @@ input[type=checkbox]::selection {
     width: 17rem;
     margin: 15px 22px;
 }
+.product-name{
+    position: absolute;
+    top: 20px;
+    left: 7px;
+    font-size: 18px;
+}
+.product-price{
+    position: absolute;
+    top: 80px;
+    left: 7px;
+    font-size: 24px;
+}
 .card-body-size{
 height : 180px;
 }

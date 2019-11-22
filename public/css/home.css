@@ -119,25 +119,6 @@ a:hover {
     margin-top: 15px;
     opacity: 0;
 }
-
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-    content: '';
-    display: block;
-    height: 3px;
-    width: 1.5rem;
-    background: whitesmoke;
-}
-
-.hamburger::before {
-    transform: translateY(-8px);
-}
-
-.hamburger::after {
-    transform: translateY(5px);
-}
-
 .main-nav .container .right .icon-search {
     position: absolute;
     right: 1%;
@@ -160,17 +141,12 @@ a:hover {
     opacity: 0;
 }
 
-.menu-items {
-    width: 100vw;
-    height: 500px;
-    background-color: blanchedalmond;
-}
-
 
 /*carousel*/
 
 #myCarousel {
     border: none !important;
+    z-index: 1;
 }
 
 #myCarousel .carousel-inner {
@@ -222,11 +198,12 @@ a:hover {
     border-radius: 6px;
     box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.2);
 }
-
-#product-utilities .contain-img img:last-child {
-    height: 240px;
-    object-fit: cover;
-    overflow: hidden;
+.speaker-contain-img{
+    height : 240px;
+}
+.speaker-img {
+    height: 100%;
+    object-fit: cover !important;
 }
 
 #btn-muasam {
@@ -452,6 +429,7 @@ footer {
 footer .row {
     padding: 20px;
 }
+
 
 
 /*chỉnh responsive*/
