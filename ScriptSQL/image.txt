@@ -1,4 +1,4 @@
-﻿insert into IMAGE values(1, 1, 'tainghe1-1');
+﻿insert into IMAGE values(1, 1, 'tainghe1-1.jpg');
 insert into IMAGE values(null, 1, 'tainghe1-2.jpg');
 insert into IMAGE values(null, 1, 'tainghe1-3.jpg');
 insert into IMAGE values(null, 1, 'tainghe1-4.jpg');
@@ -348,7 +348,7 @@ insert into IMAGE values(null, 48, 'banphim4-7.jpg');
 insert into IMAGE values(null, 48, 'banphim4-8.jpg');
 insert into IMAGE values(null, 48, 'banphim4-9.jpg');
 insert into IMAGE values(null, 49, 'banphim5-1.jpg');
-insert into IMAGE values(null, 49, 'banphim5-2.jpg');
+insert into IMAGE values(null, 49, 'banphim5-2.gif');
 insert into IMAGE values(null, 49, 'banphim5-3.jpg');
 insert into IMAGE values(null, 49, 'banphim5-4.jpg');
 insert into IMAGE values(null, 49, 'banphim5-5.jpg');
