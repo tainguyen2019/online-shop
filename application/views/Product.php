@@ -135,28 +135,29 @@ $url = explode("?",$query[4]);
         
       </div>
       </form>
-</div>
+
        
           <div class="main-content  float-right">
           <div class="list-product">
               <?php
-                foreach($show_product as $val)
+                foreach($show_product as $key=>$val)
                 {
               ?>
           <div class="card product-card" >
-          <a href="<?php echo base_url('product/show_product_info/'.$val->ProductID)?>">
+          <a href="<?php echo base_url('product/show_product_info/'.$val['ProductID'])?>">
           <img class="card-img-top bg-light img-product-effect" src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg" alt="Chuột có dây Genius DX-125 Đen">
         </a>
           <div class="card-body card-body-size" style="position : relative">       
-          <strong class="card-title product-name"><?=$val->ProductName?></strong>  
-          <p class="card-text product-price" ><?=$val->Cost?></p> 
-          <a class="btn btn-effect btn-primary" type="button" href="<?php echo base_url('cart/AddtoCart/'.$val->ProductID)?>">Mua ngay</a>
+          <strong class="card-title product-name"><?php echo $val['ProductName']?></strong>  
+          <p class="card-text product-price" ><?php echo $val['Cost']?></p> 
+          <a class="btn btn-effect btn-primary" type="button" href="<?php echo base_url('cart/AddtoCart/'.$val['ProductID'])?>">Mua ngay</a>
           </div>
           </div>
               <?php }?>
         </div>
               
           
+          </div>
           </div>
   </div>
   </div>

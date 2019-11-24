@@ -27,7 +27,7 @@ class Product extends CI_Controller{
         }
         $category = (isset($_GET['brand']) && $_GET['category']!== 'Chọn Tất Cả')?$_GET['category']:'';
         //
-        $page =1 ;
+        $page = 1 ;
         $limit = 9; 
         $request_page = $this->input->get('page', TRUE);
         if(is_numeric($request_page))
@@ -37,9 +37,8 @@ class Product extends CI_Controller{
         $data['page'] = $page;
         $offset = ($page -1) * $limit;
         $total_product = $this->product_model->count_products($category_name,$brand,$category);
-       
         $data['show_product'] = $this->product_model->show_products($category_name,$limit,$offset,$brand,$category);
-        print_r($data['show_product']);
+       print_r($data['show_product']);
         $data['total_products'] = $total_product;
         $data['total_pages'] = ceil($total_product/$limit);
         // load on view Product page  

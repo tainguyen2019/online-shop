@@ -35,23 +35,22 @@ class product_model extends CI_Model
       $CategoryName = $this->find_category_name($category_name);
       $data = $this->make_query($CategoryName,$brand,$category);
       $result = $this->db->query($data);
-       return $result->num_rows();
-       
+      return $result->num_rows();
    }
    public function make_query($CategoryName,$brand,$category)
    {
-      $result = "SELECT * FROM product , category, description
+      $result = "SELECT product.ProductID, Cost, ProductName FROM product , category, description
       WHERE product.CategoryID = category.CategoryID
       AND description.ProductID = product.ProductID
       AND category.CategoryName like '%".$CategoryName."%'
       ";
       if(isset($brand) && !empty($brand))
       {
-         $result.="AND description.information = ".$brand;
+         $result.="AND description.information = '".$brand."'";
       }
       if(isset($category) && !empty($category))
       {
-         $result.="AND CategoryName = ".$category;
+         $result.="AND CategoryName = '".$category."'";
       }
       return $result;
    }
@@ -60,9 +59,9 @@ class product_model extends CI_Model
    {
       $CategoryName = $this->find_category_name($category_name);
       $result = $this->make_query($CategoryName,$brand,$category);
-      $result.=" LIMIT ".$limit." OFFSET ".$offset;
-      $data = $this->db->query($result);
-      return  $data; 
+      $result.=" LIMIT ".$limit." OFFSET ".$offset."";
+      $data = $this->db->query($result)->result_array();
+      return $data; 
    }
    public function show_categories($category_name)
    {
