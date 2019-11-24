@@ -33,36 +33,26 @@ class product_model extends CI_Model
    public function count_products($category_name,$brand,$category)
    {
       $CategoryName = $this->find_category_name($category_name);
-      $result = "SELECT COUNT(*) FROM product , category, description
-      WHERE product.CategoryID = category.CategoryID
-      AND description.ProductID = product.ProductID
-      AND category.CategoryName like '%".$CategoryName."%' ";
-       if(isset($brand) || !empty($brand) || $brand != 'on')
-       {
-          $result.="AND description.information = ".$brand;
-       }
-       if(isset($category) || !empty($category) || $category != 'on')
-       {
-          $result.="AND CategoryName = ".$category;
-       }
-       return $result;
+      $data = $this->make_query($CategoryName,$brand,$category);
+      $result = $this->db->query($data);
+       return $result->num_rows();
+       
    }
    public function make_query($CategoryName,$brand,$category)
    {
-      $result = "SELECT distinct(*) FROM product , category, description
+      $result = "SELECT * FROM product , category, description
       WHERE product.CategoryID = category.CategoryID
       AND description.ProductID = product.ProductID
       AND category.CategoryName like '%".$CategoryName."%'
       ";
-      if(!isset($brand) || empty($brand))
+      if(isset($brand) && !empty($brand))
       {
          $result.="AND description.information = ".$brand;
       }
-      if(!isset($category) || empty($category))
+      if(isset($category) && !empty($category))
       {
          $result.="AND CategoryName = ".$category;
       }
-      $result.="ORDER BY product.ProductID asc";
       return $result;
    }
   
@@ -70,8 +60,9 @@ class product_model extends CI_Model
    {
       $CategoryName = $this->find_category_name($category_name);
       $result = $this->make_query($CategoryName,$brand,$category);
-      $result.="LIMIT ".$offset.",".$limit;
-      return  $result; 
+      $result.=" LIMIT ".$limit." OFFSET ".$offset;
+      $data = $this->db->query($result);
+      return  $data; 
    }
    public function show_categories($category_name)
    {
@@ -88,8 +79,8 @@ class product_model extends CI_Model
    }
    public function GetProductInfo($id)
     {
-        $query = "SELECT ProductName, DescriptionName ,Information, Cost FROM description , Product
-         where Description.ProductID = Product.ProductID  and Description.ProductID=".$id;
+        $query = "SELECT product.ProductID ,ProductName, DescriptionName ,Information, Cost FROM description , product
+         where Description.ProductID = product.ProductID  and Description.ProductID=".$id;
         $result = $this->db->query($query)->result_array();
         return $result;
     }

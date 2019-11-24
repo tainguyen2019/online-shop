@@ -140,7 +140,7 @@ $url = explode("?",$query[4]);
           <div class="main-content  float-right">
           <div class="list-product">
               <?php
-                foreach($show_product as $key=>$val)
+                foreach($show_product as $val)
                 {
               ?>
           <div class="card product-card" >
@@ -155,10 +155,8 @@ $url = explode("?",$query[4]);
           </div>
               <?php }?>
         </div>
-
-            <div class="pagination-box">
-                <?=$this->pagination_bootstrap->render()?>
-            </div> 
+              
+          
           </div>
   </div>
   </div>

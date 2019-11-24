@@ -60,8 +60,8 @@
                     </div>
                 </div>
                 <div class="addtocart">
-                    <button class="btn btn_add bg-danger">+ THÊM VÀO GIỎ HÀNG</button>
-                </div>
+                <a class="btn btn-danger btn_add" type="button" href="<?php echo base_url('cart/AddtoCart/'.$info[0]['ProductID'])?>">+ MUA NGAY </a>
+                </div>       
             </div>
             <div class="col-5 ">
                 <div class=" product-info">
@@ -73,7 +73,7 @@
                 ?>
                     <li>
                         <h5><?=$val['DescriptionName']?></h5>
-                        <p><?=$val['Infomation']?></p>
+                        <p><?=$val['Information']?></p>
                     </li>
                 <?php }?>
                 </ul>
