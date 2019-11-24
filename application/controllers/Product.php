@@ -7,14 +7,6 @@ class Product extends CI_Controller{
         $this->load->model('detail_model');
         $this->load->library('cart');
     }
-    public function show_filter($category_name = false)
-    {
-        $data['show_category'] = $this->product_model->show_categories($category_name);
-        $data['show_brand'] = $this->product_model->show_brands($category_name);
-       // $data['filter_category'] = $this->product_model->fetch_filter_type($category_id);
-        //load views
-        $this->load->view('Product',$data);
-    }
     public function show_product_info($id)
     {
          $data['info'] = $this->product_model->GetProductInfo($id);
@@ -22,20 +14,36 @@ class Product extends CI_Controller{
     }
     public function show_products($category_name = false)
     {
+        // Get Category and Brand from Database
         $data['show_category'] = $this->product_model->show_categories($category_name);
-        $data['show_brand'] = $this->product_model->show_brands($category_name);   
-        // load pagination library
-        $this->load->library('Pagination_bootstrap');
-        // customize link 
-        $link = array('next'=>'Next','prev'=>'Previous', 'last'=>'Last', 'first'=>'First');
-        $this->pagination_bootstrap->set_links($link);
-        //load data from database
-        $sql = $this->product_model->show_products($category_name);
-        // set number of rows per page
-        $this->pagination_bootstrap->offset(9);
-        // Get number of page
-       $data['show_product']=  $this->pagination_bootstrap->config("/product/show_products/".$category_name ,$sql);
-       $this->load->view('Product',$data);
+        $data['show_brand'] = $this->product_model->show_brands($category_name);
+        // Get brand and category were selected when we click to filter
+        if (isset($_GET['brand']) || $_GET['brand'] !== 'Chọn Tất Cả')
+        {
+            $brand =  $_GET['brand'];
+        }
+        else{
+            $brand = '';
+        }
+        $category = (isset($_GET['brand']) || $_GET['category']!== 'Chọn Tất Cả')?$_GET['category']:'';
+        //
+        $page =1 ;
+        $limit = 7; 
+        $request_page = $this->input->get('page', TRUE);
+        if(is_numeric($request_page))
+        {
+            $page = $request_page;
+        }
+        $data['page'] = $page;
+        $offset = ($page -1) * $limit;
+        $total_product = $this->product_model->count_products($category_name,$brand,$category);
+        $data['record'] = $this->product_model->show_products($category_name,$limit,$offset,$brand,$category);
+        $data['total_products'] = $total_product;
+        $data['total_pages'] = ceil($total_product/$limit);
+        echo $data['total_pages'];
+  
+        // load on view Product page  
+        $this->load->view('Product',$data);
     }
 }
 ?>
