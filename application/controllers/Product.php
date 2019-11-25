@@ -18,14 +18,14 @@ class Product extends CI_Controller{
         $data['show_category'] = $this->product_model->show_categories($category_name);
         $data['show_brand'] = $this->product_model->show_brands($category_name);
         // Get brand and category were selected when we click to filter
-        if (isset($_GET['brand']) && $_GET['brand'] !== 'Chọn Tất Cả')
+        if (isset($_GET['brand']) && !empty($_GET['brand']))
         {
             $brand =  $_GET['brand'];
         }
         else{
             $brand = '';
         }
-        if(isset($_GET['category']) && $_GET['category']!== 'Chọn Tất Cả')
+        if(isset($_GET['category']) && !empty($_GET['category']))
         { 
             $category =$_GET['category'];
         }else{

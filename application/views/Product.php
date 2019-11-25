@@ -52,7 +52,7 @@ $categoryName = $url[0];
                   <ul>
                       <li>
                       <label class="checkbox-inline"> 
-                              <input type="radio" name="category" class="checkbox-form border-primary brand">
+                              <input type="radio" name="category" class="checkbox-form border-primary brand" value="">
                               <span class="checkmark"></span>       
                               <p class="filter-text brand-text">Chọn Tất Cả</p>
                         </label>
@@ -87,7 +87,7 @@ $categoryName = $url[0];
               <ul>
               <li>
                  <label class="checkbox-inline"> 
-                        <input type="radio" name="brand" class="checkbox-form border-primary brand">
+                        <input type="radio" name="brand" class="checkbox-form border-primary brand" value="">
                         <span class="checkmark"></span>       
                         <p class="filter-text brand-text">Chọn Tất Cả</p>
                    </label>

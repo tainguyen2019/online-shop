@@ -26,7 +26,7 @@
           <ul class="utility-items nav">
             <li class="nav-item">
               <!--điều hướng đến trang đăng nhập-->
-              <a href="<?php echo base_url(); ?>login/gotologin" class="nav-link login">Tài khoản của tôi</a>
+              <a href="<?php echo base_url(); ?>login" class="nav-link login">Tài khoản của tôi</a>
             </li>
             <li class="nav-item">
               <!--điều hướng đến trang giỏ hàng-->

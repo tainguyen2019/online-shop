@@ -81,9 +81,10 @@
                             </div>
                         </div>
                     </div> 
-                    <button type="button" class="btn btn-large btn-block btn-danger btn-checkout">
+                    <a type="button" class="btn btn-large btn-block btn-danger btn-checkout text-white"
+                    href ="<?php echo base_url('Order')?>">
                         Tiến hành đặt hàng 
-                    </button>                     
+                    </a>                     
                 </div>
                
                 <div class="row">

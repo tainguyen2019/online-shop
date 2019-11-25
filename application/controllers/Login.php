@@ -1,6 +1,6 @@
 <?php
 class Login extends CI_Controller{
-    function GotoLogin(){
+    function index(){
         // goi view - login
         $this->load->view("login");
     }

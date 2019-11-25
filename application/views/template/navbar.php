@@ -9,7 +9,7 @@
 			<ul class="utility-items ">
 				<li class="nav-item">
 					<!--điều hướng đến trang đăng nhập-->
-					<a href="<?php echo base_url(); ?>Login/GotoLogin" id="btn-login" class="nav-link ">ĐĂNG NHẬP</a>
+					<a href="<?php echo base_url(); ?>Login" id="btn-login" class="nav-link ">ĐĂNG NHẬP</a>
 				</li>
 			</ul>
 		</div>
