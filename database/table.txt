@@ -1,0 +1,66 @@
+﻿CREATE TABLE account(
+account_id int auto_increment primary key,
+email varchar(255),
+password varchar(255),
+role enum('1', '2')
+);
+
+CREATE TABLE customer(
+customer_id int auto_increment primary key,
+customer_name varchar(255),
+account_id int
+);
+
+CREATE TABLE sale_order(
+order_id int auto_increment primary key,
+create_date datetime DEFAULT CURRENT_TIMESTAMP,
+write_date datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+address text,
+total double,
+status enum('1', '2', '3') DEFAULT '1'
+);
+
+CREATE TABLE sale_order_line(
+order_id int,
+product_id int,
+quantity int,
+price double,
+discount float DEFAULT 0,
+amount double,
+primary key(order_id, product_id)
+);
+
+CREATE TABLE product(
+product_id int auto_increment primary key,
+product_name varchar(255),
+category_id int,
+brand_id int,
+quantity int,
+price double,
+image varchar(100),
+status enum('1', '2')
+);
+
+CREATE TABLE brand(
+brand_id int auto_increment primary key,
+brand_name varchar(255)
+);
+
+CREATE TABLE category(
+category_id int auto_increment primary key,
+category_name varchar(255)
+);
+
+CREATE TABLE category_brand(
+category_id int,
+brand_id int,
+primary key(category_id, brand_id)
+);
+
+CREATE TABLE promotion(
+promotion_code varchar(255) primary key,
+product_id int,
+discount float,
+valid_date date,
+expiry_date date
+);
