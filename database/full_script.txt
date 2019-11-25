@@ -166,3 +166,9 @@ insert into category_brand values(3,11);
 insert into category_brand values(3,12);
 insert into category_brand values(3,13);
 insert into category_brand values(3,14);
+
+alter table product 
+add column description text;
+
+update product 
+set description = 'Thông tin mô tả cho sản phẩm';

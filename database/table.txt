@@ -64,3 +64,10 @@ discount float,
 valid_date date,
 expiry_date date
 );
+
+
+alter table product 
+add column description text;
+
+update product 
+set description = 'Thông tin mô tả cho sản phẩm';
