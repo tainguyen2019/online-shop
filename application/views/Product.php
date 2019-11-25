@@ -1,6 +1,7 @@
 <?php
 $query = explode("/",$_SERVER["REQUEST_URI"]);
 $url = explode("?",$query[4]);
+$categoryName = $url[0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +33,7 @@ $url = explode("?",$query[4]);
      <div class="khoangtrang"></div>
      <div class="content">
       <div class="sidebar float-left" >
-        <form action="<?php echo base_url('product/show_products/'.$url[0])?>" method="GET">
+        <form action="<?php echo base_url('product/show_products/'.$categoryName)?>" method="GET">
         <input type="submit" class = "btn btn-info btn-large" value="Search"
         style ="margin-left: 70px;">
            <div id="accordion">
@@ -138,25 +139,49 @@ $url = explode("?",$query[4]);
 
        
           <div class="main-content  float-right">
-          <div class="list-product">
-              <?php
-                foreach($show_product as $key=>$val)
-                {
-              ?>
-          <div class="card product-card" >
-          <a href="<?php echo base_url('product/show_product_info/'.$val['ProductID'])?>">
-          <img class="card-img-top bg-light img-product-effect" src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg" alt="Chuột có dây Genius DX-125 Đen">
-        </a>
-          <div class="card-body card-body-size" style="position : relative">       
-          <strong class="card-title product-name"><?php echo $val['ProductName']?></strong>  
-          <p class="card-text product-price" ><?php echo $val['Cost']?></p> 
-          <a class="btn btn-effect btn-primary" type="button" href="<?php echo base_url('cart/AddtoCart/'.$val['ProductID'])?>">Mua ngay</a>
-          </div>
-          </div>
-              <?php }?>
-        </div>
-              
-          
+              <div class="list-product">
+                  <?php
+                    foreach($show_product as $key=>$val)
+                    {
+                  ?>
+              <div class="card product-card" >
+                <a href="<?php echo base_url('product/show_product_info/'.$val['ProductID'])?>">
+                  <img class="card-img-top bg-light img-product-effect" src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg" alt="Chuột có dây Genius DX-125 Đen">
+                </a>
+                <div class="card-body card-body-size" style="position : relative">       
+                  <strong class="card-title product-name"><?php echo $val['ProductName']?></strong>  
+                  <p class="card-text product-price" ><?php echo $val['Cost']?></p> 
+                  <a class="btn btn-effect btn-primary" type="button" href="<?php echo base_url('cart/AddtoCart/'.$val['ProductID'])?>">Mua ngay</a>
+                </div>
+              </div>
+                  <?php }?>
+            </div>                 
+            <div class="pagination-container">
+                <ul class="paginaion">
+                  <?php
+                    $pre_page = $page > 1 ? $page -1 : $page;
+                    $next_page = $page < $total_pages ? $page+1 : $page;
+                    $search = '?category='.urlencode($category).'&brand='.$brand;
+                    $pre_url = base_url('product/show_products/'.$categoryName.'?page='.$pre_page.$search);
+                    $next_url = base_url('product/show_products/'.$categoryName.'?page='.$next_page.$search);
+                  ?>
+                  <li class="page-item">
+                    <a class="page-link" href="<?php echo $pre_page?>"><</a>
+                  </li>
+                  <?php
+                    for($i =1; $i <= $total_pages;$i++)
+                    {
+                      $url_page= base_url('product/show_products/'.$categoryName.'?page='.$i.$search);
+                  ?>
+                  <li class="page-item <?php if ($i == $page) echo 'active'; ?>">
+                  <a class="page-link" href="<?php echo $url_page?>"><?php echo $i?></a>
+                  </li>
+                  <?php }?>
+                  <li class="page-item">
+                    <a class="page-link" href="<?php echo $next_page?>">></a>
+                  </li>
+                </ul>
+            </div>       
           </div>
           </div>
   </div>

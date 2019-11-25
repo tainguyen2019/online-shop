@@ -25,7 +25,15 @@ class Product extends CI_Controller{
         else{
             $brand = '';
         }
-        $category = (isset($_GET['brand']) && $_GET['category']!== 'Chọn Tất Cả')?$_GET['category']:'';
+        if(isset($_GET['category']) && $_GET['category']!== 'Chọn Tất Cả')
+        { 
+            $category =$_GET['category'];
+        }else{
+            $category ='';
+        }
+            
+        $data['brand'] = $brand;
+        $data['category'] = $category;
         //
         $page = 1 ;
         $limit = 9; 
