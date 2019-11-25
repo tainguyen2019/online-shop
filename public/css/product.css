@@ -114,11 +114,6 @@ input[type=checkbox]::selection {
     width: 100%;
     height: auto;
 }
-.pagination-box{
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-}
 .product-card{
     width: 17rem;
     margin: 15px 22px;
@@ -204,6 +199,12 @@ label .filter-text{
 }
 .cart-container:hover{
  background-color: rgba(0,184,252,0.99);
+}
+.pagination{
+    list-style: none;
+}
+.page-item{
+    display: inline-block;
 }
 
 

@@ -157,11 +157,11 @@ $categoryName = $url[0];
                   <?php }?>
             </div>                 
             <div class="pagination-container">
-                <ul class="paginaion">
+                <ul class="pagination">
                   <?php
                     $pre_page = $page > 1 ? $page -1 : $page;
-                    $next_page = $page < $total_pages ? $page+1 : $page;
-                    $search = '?category='.urlencode($category).'&brand='.$brand;
+                    $next_page = $page < $total_pages ? $page + 1 : $page;
+                    $search = '&category='.urlencode($category).'&brand='.$brand;
                     $pre_url = base_url('product/show_products/'.$categoryName.'?page='.$pre_page.$search);
                     $next_url = base_url('product/show_products/'.$categoryName.'?page='.$next_page.$search);
                   ?>

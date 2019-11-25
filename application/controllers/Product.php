@@ -30,14 +30,13 @@ class Product extends CI_Controller{
             $category =$_GET['category'];
         }else{
             $category ='';
-        }
-            
+        }   
         $data['brand'] = $brand;
         $data['category'] = $category;
         //
         $page = 1 ;
         $limit = 9; 
-        $request_page = $this->input->get('page', TRUE);
+        $request_page = $this->input->get('page');
         if(is_numeric($request_page))
         {
             $page = $request_page;
@@ -46,7 +45,6 @@ class Product extends CI_Controller{
         $offset = ($page -1) * $limit;
         $total_product = $this->product_model->count_products($category_name,$brand,$category);
         $data['show_product'] = $this->product_model->show_products($category_name,$limit,$offset,$brand,$category);
-       print_r($data['show_product']);
         $data['total_products'] = $total_product;
         $data['total_pages'] = ceil($total_product/$limit);
         // load on view Product page  
