@@ -33,11 +33,15 @@ class Login extends CI_Controller{
                 // call model function to confirm 
                 if($this->login_model->login($username,$password))
                 {
-                    $this->session->set_userdata('islogged',true);
-                    redirect(base_url().'Order');
+                    $this->session->set_userdata('isLogged',true);
+                    $user_email = array(
+                        'user_email' => $username
+                    );
+                    $this->session->set_userdata($user_email);
+                    redirect(base_url('Login/GotoOrder'));
                 }
                 else{
-                    $this->session->set_userdata('islogged',false);
+                   // $this->session->set_userdata('islogged',false);
                     $this->session->set_flashdata('error', 'Invalid username add password');
                     redirect(base_url().'Login/login_order');
                 }
@@ -47,9 +51,20 @@ class Login extends CI_Controller{
                 $this->login_order();
             } 
     }
+    public function GotoOrder()
+    {
+        if($this->session->userdata('user_email') != '')
+        {
+            redirect(base_url('Order'));
+        }
+        else{
+            redirect(base_url('Login/login_order'));
+        }
+    }
     public function logout()
     {
         $this->session->unset_userdata('isLogged');
+        $this->session->unset_userdata('user_email');
         redirect(base_url());
     }
 }

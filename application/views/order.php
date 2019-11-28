@@ -39,7 +39,7 @@
 
                         <div class="box-size">
                             <p>Giá : </p>
-                            <p class="price"><?=$Item['price']?></p>
+                            <p class="price"><?=$this->cart->format_number($Item['price'])?></p>
                         </div>
 
                         <div class="box-size">
@@ -52,6 +52,12 @@
                 <?php
                     }?>
             </div>
+            <div class="order_total-box">
+                <div class="order_total">
+                    <span>TỔNG TIỀN : </span>
+                    <span><?=$this->cart->format_number($this->cart->total())?></span>
+                </div>
+            </div>
             <div class="btn-order-box">
                 <a href="#" type="button" class="btn btn-large btn-danger btn-order">ĐẶT MUA</a>
             </div>
@@ -63,10 +69,9 @@
                     <a href="#" type="button" class="btn btn-warning btn-sm btn-update"> Sửa </a>
                 </div>
                 <div class="address-content">
-                    <span class="name">Nguyễn Sỹ Cảnh Hưng</span>
-                    <p class="address">kí túc xá khu A, Phường Linh Trung, Quận Thủ Đức, Hồ Chí Minh,
-                        Việt Nam</p>
-                    <span class="sdt">0394796850</span>
+                    <span class="name"><?=$user_info[0]['customer_name']?></span>
+                    <p class="address"><?=$user_info[0]['address']?></p>
+                    <span class="sdt"><?=$user_info[0]['phone']?></span>
                 </div>
             </div>
             <div class="payment-methods">

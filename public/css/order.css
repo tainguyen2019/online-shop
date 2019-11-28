@@ -82,7 +82,25 @@ body{
 #shopping-cart{
     border : 1px solid rgba(0,0,0,0.2);
     border-radius : 3px;
-    margin-bottom: 20px;
+}
+#shopping-cart::after{
+    clear : both;
+}
+.order_total-box
+{
+    width : 100%;
+    height: 50px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-top: none;
+   margin-bottom : 50px;
+}
+.order_total-box .order_total{
+    margin : 13px 15px 0 0 ;
+    float: right;
+}
+.order_total-box .order_total span:first-child{
+    font-size: 20px;
+    font-weight: 600;
 }
 .shopping-cart-item{
     padding : 18px;
@@ -91,6 +109,7 @@ body{
     width: 100%;
     height: 200px;
 }
+
 .shopping-cart-item .col-xs-3{
     padding-left: 0px;
 }

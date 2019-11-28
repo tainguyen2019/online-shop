@@ -47,7 +47,7 @@
                         <div class="badge-cart-a">
                             <div class="box-size">
                                 <p>Giá sản phẩm : </p>
-                                <p class="price"><?=$Item['price']?></p>
+                                <p class="price"><?=$this->cart->format_number($Item['price'])?></p>
                             </div>
                         </div>
                         <div class="badge-cart-a-link"></div>
@@ -68,7 +68,7 @@
                     <div class="box-style fee">
                         <p class="list-info-price">
                             <span>Tạm tính</span>
-                            <strong><?php echo $this->cart->total().' đ'?></strong>
+                            <strong><?php echo $this->cart->format_number($this->cart->total()).' đ'?></strong>
                         </p>
                     </div>
                     <div class="box-style fee">
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <a type="button" class="btn btn-large btn-block btn-danger btn-checkout text-white"
-                        href="<?php echo base_url('Order/index')?>">
+                        href="<?php echo base_url('Order')?>">
                         Tiến hành đặt hàng
                     </a>
                 </div>

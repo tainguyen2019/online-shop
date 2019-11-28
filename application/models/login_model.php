@@ -8,8 +8,8 @@ class login_model extends CI_Model
     public function login($email,$password)
     {
         $result = $this->db->query("SELECT *  FROM account WHERE email ='".$email."'AND password = 
-        '".$password."' AND role = 2");
-        if($result->num_rows() > 0 )
+        '".$password."' AND role = 2")->result_array();
+        if(count($result) == 1 )
         {
             return true;
         }
