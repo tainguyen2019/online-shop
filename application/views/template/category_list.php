@@ -14,7 +14,7 @@
       <ul class="nav col-12">
           <li class="nav-item col-3 acitve">
                   <div class="product-items contain-img full-size">
-                    <a href="<?php echo base_url();?>product/show_products/Headphone" class="full-size">
+                    <a href="<?php echo base_url();?>product/show_products/1" class="full-size">
                      <span class="category-img">
                      <img src="<?php echo base_url(); ?>public/images/other_images/navigation-products-headphone.jpg" alt="1">               
                      </span>                      
@@ -24,7 +24,7 @@
           </li>
           <li class="nav-item col-3">
                <div class="product-items contain-img full-size">
-                  <a href="<?php echo base_url();?>product/show_products/Mouse" class="full-size">
+                  <a href="<?php echo base_url();?>product/show_products/2" class="full-size">
                     <span class="category-img">
                      <img src="<?php echo base_url(); ?>public/images/other_images/navigation-products-mice.jpg" alt="2">               
                      </span>                      
@@ -34,7 +34,7 @@
           </li>
           <li class="nav-item col-3">
                 <div class="product-items contain-img full-size">
-                  <a href="<?php echo base_url();?>product/show_products/Keyboard" class="full-size">
+                  <a href="<?php echo base_url();?>product/show_products/4" class="full-size">
                     <span class="category-img">
                      <img src="<?php echo base_url(); ?>public/images/other_images/navigation-products-keyboard.jpg" alt="3">               
                      </span>                      
@@ -44,7 +44,7 @@
           </li>
           <li class="nav-item col-3">
               <div class="product-items contain-img full-size">
-                  <a href="<?php echo base_url();?>product/show_products/Speaker" class="full-size">
+                  <a href="<?php echo base_url();?>product/show_products/3" class="full-size">
                     <span class="category-img">
                      <img src="<?php echo base_url(); ?>public/images/other_images/navigation-products-speaker.png" alt="4">               
                      </span>                      

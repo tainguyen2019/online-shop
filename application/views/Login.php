@@ -17,30 +17,25 @@
                     <h3 class="title-header">Đăng nhập bằng tài khoản của bạn</h3>
                 </div>
                 <div class="login-form-content">
-                    <form action="" id="email-sign-in-form">
+                    <form action="<?php base_url('Login/login')?>" id="email-sign-in-form" class="login" method="POST">
                         <div class="form-field-box">
-                         <label for="signin-email" class="email-label">
-                                <img src="https://img.icons8.com/windows/25/000000/user.png"> 
-                           </label>
-                        <div class="form-field">
-                            <input id="signin-email" type="text" name="email" placeholder="Địa chỉ email">
+                            <label for="signin-email" class="email-label">
+                                <img src="https://img.icons8.com/windows/25/000000/user.png">
+                            </label>
+                            <div class="form-field">
+                                <input id="signin-email" type="text" name="email" placeholder="Địa chỉ email">
+                            </div>
                         </div>
-                        </div>
-                            <div class="form-field-box">
+                        <div class="form-field-box">
                             <label for="signin-password">
                                 <img src="https://img.icons8.com/wired/25/000000/password.png">
                             </label>
-                            <div class="form-field">              
-                            <input type="password" id="signin-password" name="password" placeholder="Mật Khẩu">
-                            <button class="show-password"></button>
-                             </div>
-                        </div>
-                       
-                        <div class="form-field-row-group">
-                            <div class="form-field forgot-pass">
-                                <button class="forgot-password">Quên mật khẩu</button>
+                            <div class="form-field">
+                                <input type="password" id="signin-password" name="password" placeholder="Mật Khẩu">
+                                <button class="show-password"></button>
                             </div>
                         </div>
+
                         <div class="component-btn-submit form-field">
                             <input class="btn-submit" type="submit" value="ĐĂNG NHẬP">
                         </div>
@@ -60,36 +55,37 @@
                     <h3 class="title-header">Hoàn thành các trường sau để tạo tài khoản </h3>
                 </div>
                 <div class="signup-content">
-                    <form action="" id="user-signup-form">
+                    <form action="" id="user-signup-form" class="register">
                         <div class="form-field-box">
-                            <label for="signup-email">      
+                            <label for="signup-email">
                             </label>
-                        <div class="form-field ">
-                            <input id="signup-email" type="text" name="email" placeholder="Địa chỉ email">
-                        </div>
-                        </div>
-                        <div class="form-field-box">
-                             <label for="signup-password">                                  
-                            </label>
-                            <div class="form-field ">                          
-                            <input id="signup-password" type="password" name="password" placeholder="Mật khẩu">
+                            <div class="form-field ">
+                                <input id="signup-email" type="text" name="email" placeholder="Địa chỉ email">
                             </div>
                         </div>
                         <div class="form-field-box">
-                            <label for="signup-confirm-password">                            
+                            <label for="signup-password">
                             </label>
-                         <div class="form-field ">                          
-                            <input id="signup-confirm-password" type="password" name="confirm-password" placeholder="Xác nhận mật khẩu">
-                        </div>
+                            <div class="form-field ">
+                                <input id="signup-password" type="password" name="password" placeholder="Mật khẩu">
+                            </div>
                         </div>
                         <div class="form-field-box">
-                        <label for="signup-name">                               
+                            <label for="signup-confirm-password">
                             </label>
-                        <div class="form-field ">                         
-                         <input id="signup-name" type="text" name="name" placeholder=" Họ và Tên">
+                            <div class="form-field ">
+                                <input id="signup-confirm-password" type="password" name="confirm-password"
+                                    placeholder="Xác nhận mật khẩu">
+                            </div>
                         </div>
+                        <div class="form-field-box">
+                            <label for="signup-name">
+                            </label>
+                            <div class="form-field ">
+                                <input id="signup-name" type="text" name="name" placeholder=" Họ và Tên">
+                            </div>
                         </div>
-                        
+
                         <div class="component-btn-submit form-field">
                             <input class="btn-submit" type="submit" value="TẠO TÀI KHOẢN">
                         </div>

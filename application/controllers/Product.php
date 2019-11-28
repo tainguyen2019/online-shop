@@ -4,7 +4,6 @@ class Product extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('product_model');
-        $this->load->model('detail_model');
         $this->load->library('cart');
     }
     public function show_product_info($id)
@@ -12,11 +11,10 @@ class Product extends CI_Controller{
          $data['info'] = $this->product_model->GetProductInfo($id);
         $this->load->view('detail',$data);
     }
-    public function show_products($category_name = false)
+    public function show_products($category_id = false)
     {
-        // Get Category and Brand from Database
-        $data['show_category'] = $this->product_model->show_categories($category_name);
-        $data['show_brand'] = $this->product_model->show_brands($category_name);
+        // Get Brand list from Database
+        $data['show_brand'] = $this->product_model->show_brands($category_id);
         // Get brand and category were selected when we click to filter
         if (isset($_GET['brand']) && !empty($_GET['brand']))
         {
@@ -24,15 +22,8 @@ class Product extends CI_Controller{
         }
         else{
             $brand = '';
-        }
-        if(isset($_GET['category']) && !empty($_GET['category']))
-        { 
-            $category =$_GET['category'];
-        }else{
-            $category ='';
-        }   
+        } 
         $data['brand'] = $brand;
-        $data['category'] = $category;
         //
         $page = 1 ;
         $limit = 9; 
@@ -43,8 +34,8 @@ class Product extends CI_Controller{
         }
         $data['page'] = $page;
         $offset = ($page -1) * $limit;
-        $total_product = $this->product_model->count_products($category_name,$brand,$category);
-        $data['show_product'] = $this->product_model->show_products($category_name,$limit,$offset,$brand,$category);
+        $total_product = $this->product_model->count_products($category_id,$brand);
+        $data['show_product'] = $this->product_model->show_products($category_id,$limit,$offset,$brand);
         $data['total_products'] = $total_product;
         $data['total_pages'] = ceil($total_product/$limit);
         // load on view Product page  

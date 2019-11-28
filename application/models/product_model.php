@@ -1,85 +1,76 @@
 <?php
 class product_model extends CI_Model
 {
-   function find_category_name($name)
+   function find_category_name($id)
    {
-      switch($name)
+      switch($id)
       {
-         case 'Mouse':
+         case '2':
             {
-               $CategoryName = 'chuot';
+               $CategoryName = 'chuột';
                break;
             }
-          case 'Headphone':
+          case '1':
             {
-               $CategoryName = 'Tai nghe';
+               $CategoryName = 'tai nghe';
                break;
             }
-          case 'Speaker':
+          case '3':
             {
                $CategoryName = 'loa';
                break;
             } 
-            case 'Keyboard':
+            case '4':
             {
-               $CategoryName = 'ban phim';
+               $CategoryName = 'bàn phím';
                break;
             }   
             default :
          break;
       }
       return $CategoryName;
-   }
-   public function count_products($category_name,$brand,$category)
+   } 
+   
+   public function count_products($category_id,$brand)
    {
-      $CategoryName = $this->find_category_name($category_name);
-      $data = $this->make_query($CategoryName,$brand,$category);
+     //$CategoryName = $this->find_category_name($category_id);
+      $data = $this->make_query($category_id,$brand);
       $result = $this->db->query($data);
       return $result->num_rows();
    }
-   public function make_query($CategoryName,$brand,$category)
+   public function make_query($category_id,$brand)
    {
-      $result = "SELECT product.ProductID, Cost, ProductName FROM product , category, description
-      WHERE product.CategoryID = category.CategoryID
-      AND description.ProductID = product.ProductID
-      AND category.CategoryName like '%".$CategoryName."%'
-      ";
+      $result = "SELECT product.product_id, product_name, price FROM product,category,brand 
+      WHERE product.category_id = category.category_id
+      AND product.brand_id = brand.brand_id
+      AND category.category_id = ".$category_id;
       if(isset($brand) && !empty($brand))
       {
-         $result.="AND description.information = '".$brand."'";
-      }
-      if(isset($category) && !empty($category))
-      {
-         $result.="AND CategoryName = '".$category."'";
+         $result.=" AND brand_name = '".$brand."'";
       }
       return $result;
    }
   
-   public function show_products($category_name,$limit,$offset,$brand,$category)
+   public function show_products($category_id,$limit,$offset,$brand)
    {
-      $CategoryName = $this->find_category_name($category_name);
-      $result = $this->make_query($CategoryName,$brand,$category);
+      //$CategoryName = $this->find_category_name($category_name);
+      $result = $this->make_query($category_id ,$brand);
       $result.=" LIMIT ".$limit." OFFSET ".$offset."";
       $data = $this->db->query($result)->result_array();
       return $data; 
    }
-   public function show_categories($category_name)
+   public function show_brands($category_id)
    {
-      $CategoryName = $this->find_category_name($category_name);
-      $result = $this->db->query("SELECT CategoryName FROM category WHERE category.CategoryName like '%".$CategoryName."%'")->result_array();
-      return $result; 
-   }
-   public function show_brands($category_name)
-   {
-      $CategoryName = $this->find_category_name($category_name);
-      $result = $this->db->query("SELECT distinct(Information) from description, category,product  where product.CategoryID=category.CategoryID and description.ProductID = product.ProductID
-                                 and category.CategoryName like '%".$CategoryName."%' and DescriptionName like '%Thuong hieu%'")->result_array();
-      return $result; 
+    // $CategoryName = $this->find_category_name($category_id);
+     $result = $this->db->query("SELECT brand_name FROM brand, category,category_brand WHERE brand.brand_id = category_brand.brand_id 
+     AND category.category_id = category_brand.category_id
+     AND category.category_id = ".$category_id);
+      return $result->result_array(); 
    }
    public function GetProductInfo($id)
     {
-        $query = "SELECT product.ProductID ,ProductName, DescriptionName ,Information, Cost FROM description , product
-         where Description.ProductID = product.ProductID  and Description.ProductID=".$id;
+        $query = "SELECT * FROM product, brand
+        WHERE product.brand_id=brand.brand_id AND product_id =".$id;
         $result = $this->db->query($query)->result_array();
         return $result;
     }

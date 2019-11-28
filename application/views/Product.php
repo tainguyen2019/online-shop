@@ -1,114 +1,85 @@
 <?php
 $query = explode("/",$_SERVER["REQUEST_URI"]);
 $url = explode("?",$query[4]);
-$categoryName = $url[0];
+$category_id = $url[0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>Product</title>
-<?php require_once "template/top.php"; ?>
-<link rel="stylesheet" href="<?php echo base_url(); ?>public/css/product.css?v=<?php echo time(); ?>" type="text/css">
+    <title>Product</title>
+    <?php require_once "template/top.php"; ?>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/product.css?v=<?php echo time(); ?>"
+        type="text/css">
 </head>
+
 <body>
-     <div id="product-panel">
+    <div id="product-panel">
         <?php include_once "template/navbar.php" ?>
         <?php include_once 'template/category_list.php'?>
-        <img src="<?php echo base_url(); ?>public/images/other_images/jsss-homepage-desktop.png.imgw.1888.1888.jpeg" alt="panel">
-      <div id ="intro-panel">
-        <div id="title" >
-              <h1 class="title-text">Âm Thanh Sống Động</h1>
-              <p class="sub-title-text">Đẳng cấp Hiện đại và Chân thực trong từng tiếng động</p>
-        </div>
-      </div>
-     </div>
-     <div class="khoangtrang"></div>
-     <div class="cart-container float-right">
-      <a href="<?php echo base_url(); ?>Cart" >
-        <img src="https://img.icons8.com/cute-clipart/48/000000/shopping-cart.png">
-        <span> GIỎ HÀNG </span>
-        <span>( <?php echo $this->cart->total_items(); ?> )</span>
-      </a>
-     </div>
-     <div class="khoangtrang"></div>
-     <div class="content">
-      <div class="sidebar float-left" >
-        <form action="<?php echo base_url('product/show_products/'.$categoryName)?>" method="GET">
-        <input type="submit" class = "btn btn-info btn-large" value="Search"
-        style ="margin-left: 70px;">
-           <div id="accordion">
-             <div class="card card-size border-none">
-
-                <div class="card-header bg-white border-bottom-none" id="headingOne">
-                  <h5 class="mb-0">
-                    <button class="btn btn-size" data-toggle="collapse" data-target="#collapseOne" aria-expanded="flase" aria-controls="collapseOne">
-                      LOẠI SẢN PHẨM
-                    </button>
-                  </h5>
-                </div>
-
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body column">
-                  <ul>
-                      <li>
-                      <label class="checkbox-inline"> 
-                              <input type="radio" name="category" class="checkbox-form border-primary brand" value="">
-                              <span class="checkmark"></span>       
-                              <p class="filter-text brand-text">Chọn Tất Cả</p>
-                        </label>
-                    </li>
-                  <?php
-                  foreach($show_category as $val)
-                  {
-                  ?>
-                        <li>
-                        <label class="checkbox-inline"> 
-                            <input type="radio" name="category" class="checkbox-form border-primary category" value="<?=$val['CategoryName']?>">
-                            <span class="checkmark"></span>       
-                            <p class="filter-text"><?=$val['CategoryName']?></p>
-                      </label>
-                      </li>
-                  <?php }?>
-                  </ul>       
-                </div>
-              </div>
-
-          </div>
-          <div class="card card-size border-none">
-            <div class="card-header bg-white border-bottom-none" id="headingTwo">
-              <h5 class="mb-0">
-                <button class="btn btn-size collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  THƯƠNG HIỆU
-                </button>
-              </h5>
+        <img src="<?php echo base_url(); ?>public/images/other_images/jsss-homepage-desktop.png.imgw.1888.1888.jpeg"
+            alt="panel">
+        <div id="intro-panel">
+            <div id="title">
+                <h1 class="title-text">Âm Thanh Sống Động</h1>
+                <p class="sub-title-text">Đẳng cấp Hiện đại và Chân thực trong từng tiếng động</p>
             </div>
-            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-              <div class="card-body column">
-              <ul>
-              <li>
-                 <label class="checkbox-inline"> 
-                        <input type="radio" name="brand" class="checkbox-form border-primary brand" value="">
-                        <span class="checkmark"></span>       
-                        <p class="filter-text brand-text">Chọn Tất Cả</p>
-                   </label>
-              </li>
-                <?php
+        </div>
+    </div>
+    <div class="khoangtrang"></div>
+    <div class="cart-container float-right">
+        <a href="<?php echo base_url(); ?>Cart">
+            <img src="https://img.icons8.com/cute-clipart/48/000000/shopping-cart.png">
+            <span> GIỎ HÀNG </span>
+            <span>( <?php echo $this->cart->total_items(); ?> )</span>
+        </a>
+    </div>
+    <div class="khoangtrang"></div>
+    <div class="content">
+        <div class="sidebar float-left">
+            <form action="<?php echo base_url('product/show_products/'.$category_id)?>" method="GET">
+                <input type="submit" class="btn btn-info btn-large" value="Search" style="margin-left: 70px;">
+                <div id="accordion">
+                    <div class="card card-size border-none">
+                    <div class="card card-size border-none">
+                        <div class="card-header bg-white border-bottom-none" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-size collapsed" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="false" aria-controls="collapseOne">
+                                    THƯƠNG HIỆU
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            data-parent="#accordion">
+                            <div class="card-body column">
+                                <ul>
+                                    <li>
+                                        <label class="checkbox-inline">
+                                            <input type="radio" name="brand" class="checkbox-form border-primary brand"
+                                                value="">
+                                            <span class="checkmark"></span>
+                                            <p class="filter-text brand-text">Chọn Tất Cả</p>
+                                        </label>
+                                    </li>
+                                    <?php
                   foreach($show_brand as $key=>$val)
                   {
                 ?>
-                      <li>
-                      <label class="checkbox-inline"> 
-                            <input type="radio" name="brand" class="checkbox-form border-primary brand" value="<?=$val['Information']?>">
-                            <span class="checkmark"></span>       
-                            <p class="filter-text brand-text"><?=$val['Information']?></p>
-                      </label>
-                      </li>
-                  <?php }?>
-                </ul>       
-              </div>
-            </div>
-          </div>
-             <!-- 
+                                    <li>
+                                        <label class="checkbox-inline">
+                                            <input type="radio" name="brand" class="checkbox-form border-primary brand"
+                                                value="<?=$val['brand_name']?>">
+                                            <span class="checkmark"></span>
+                                            <p class="filter-text brand-text"><?=$val['brand_name']?></p>
+                                        </label>
+                                    </li>
+                                    <?php }?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 
           <div class="card card-size border-none">
             <div class="card-header bg-white border-bottom-none" id="headingFour">
               <h5 class="mb-0">
@@ -132,60 +103,63 @@ $categoryName = $url[0];
               </div>
             </div>
             -->
+                </div>
         </div>
-        
-      </div>
-      </form>
-
-       
-          <div class="main-content  float-right">
-              <div class="list-product">
-                  <?php
+        </form>
+                  </div>
+        <div class="main-content  float-right">
+            <div class="list-product">
+                <?php
+                if($total_products > 0){
                     foreach($show_product as $key=>$val)
                     {
                   ?>
-              <div class="card product-card" >
-                <a href="<?php echo base_url('product/show_product_info/'.$val['ProductID'])?>">
-                  <img class="card-img-top bg-light img-product-effect" src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg" alt="Chuột có dây Genius DX-125 Đen">
-                </a>
-                <div class="card-body card-body-size" style="position : relative">       
-                  <strong class="card-title product-name"><?php echo $val['ProductName']?></strong>  
-                  <p class="card-text product-price" ><?php echo $val['Cost']?></p> 
-                  <a class="btn btn-effect btn-primary" type="button" href="<?php echo base_url('cart/AddtoCart/'.$val['ProductID'])?>">Mua ngay</a>
+                <div class="card product-card">
+                    <a href="<?php echo base_url('product/show_product_info/'.$val['product_id'])?>">
+                        <img class="card-img-top bg-light img-product-effect"
+                            src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg"
+                            alt="Chuột có dây Genius DX-125 Đen">
+                    </a>
+                    <div class="card-body card-body-size" style="position : relative">
+                        <strong class="card-title product-name"><?php echo $val['product_name']?></strong>
+                        <p class="card-text product-price"><?php echo $val['price']?></p>
+                        <a class="btn btn-effect btn-primary" type="button"
+                            href="<?php echo base_url('cart/AddtoCart/'.$val['product_id'])?>">Mua ngay</a>
+                    </div>
                 </div>
-              </div>
-                  <?php }?>
-            </div>                 
+                <?php }?>
+                   
+            </div>
             <div class="pagination-container">
                 <ul class="pagination">
-                  <?php
+                    <?php
                     $pre_page = $page > 1 ? $page -1 : $page;
                     $next_page = $page < $total_pages ? $page + 1 : $page;
-                    $search = '&category='.urlencode($category).'&brand='.$brand;
-                    $pre_url = base_url('product/show_products/'.$categoryName.'?page='.$pre_page.$search);
-                    $next_url = base_url('product/show_products/'.$categoryName.'?page='.$next_page.$search);
+                    $search = '&brand='.$brand;
+                    $pre_url = base_url('product/show_products/'.$category_id.'?page='.$pre_page.$search);
+                    $next_url = base_url('product/show_products/'.$category_id.'?page='.$next_page.$search);
                   ?>
-                  <li class="page-item">
-                    <a class="page-link" href="<?php echo $pre_page?>"><</a>
-                  </li>
-                  <?php
+                    <li class="page-item">
+                        <a class="page-link" href="<?php echo $pre_page?>">
+                            <</a> </li> <?php
                     for($i =1; $i <= $total_pages;$i++)
                     {
-                      $url_page= base_url('product/show_products/'.$categoryName.'?page='.$i.$search);
-                  ?>
-                  <li class="page-item <?php if ($i == $page) echo 'active'; ?>">
-                  <a class="page-link" href="<?php echo $url_page?>"><?php echo $i?></a>
-                  </li>
-                  <?php }?>
-                  <li class="page-item">
-                    <a class="page-link" href="<?php echo $next_page?>">></a>
-                  </li>
+                      $url_page= base_url('product/show_products/'.$category_id.'?page='.$i.$search);
+                  ?> <li class="page-item <?php if ($i == $page) echo 'active'; ?>">
+                                <a class="page-link" href="<?php echo $url_page?>"><?php echo $i?></a>
+                    </li>
+                    <?php }?>
+                    <li class="page-item">
+                        <a class="page-link" href="<?php echo $next_page?>">></a>
+                    </li>
                 </ul>
-            </div>       
-          </div>
-          </div>
-  </div>
-  </div>
+            </div>
+            <?php } else {?>
+            <p> KHÔNG TÌM THẤY SẢN PHẨM </p>
+                <?php }?>
+        </div>
+    </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -193,6 +167,5 @@ $categoryName = $url[0];
     <script src="<?php echo base_url(); ?>public/js/template.js"></script>
     <script src="<?php echo base_url(); ?>public/js/product.js"></script>
 </body>
+
 </html>
-
-
