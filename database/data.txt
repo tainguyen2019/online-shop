@@ -1,0 +1,101 @@
+﻿insert into account values(1, 'admin@gmail.com', '1234', 1);
+insert into account values(NULL, 'customer1@gmail.com', '1234', 2);
+insert into account values(NULL, 'customer2@gmail.com', '1234', 2);
+
+insert into customer values(1, 'customer1', 2);
+insert into customer values(NULL, 'customer2', 3);
+
+insert into product values(NULL,' Tai nghe Earpods Apple MNHF2',1,1, 10, 790000, 'tainghe-1.jpg' , 1);
+insert into product values(NULL,' Tai nghe nhét trong EarPods Lightning Apple MMTN2',1,1, 10, 790000, 'tainghe-2.jpg' , 1);
+insert into product values(NULL,' Tai nghe nhét trong Sony MDR-E9LP',1,2, 10, 200000, 'tainghe-3.jpg' , 1);
+insert into product values(NULL,' Tai nghe EP Sony MDR-EX15AP',1,2, 10, 290000, 'tainghe-4.jpg' , 1);
+insert into product values(NULL,' Tai nghe EP Sony MDR-EX155AP',1,2, 10, 440000, 'tainghe-5.jpg' , 1);
+insert into product values(NULL,' Tai nghe nhét trong Samsung EG920B',1,3, 10, 280000, 'tainghe-6.jpg' , 1);
+insert into product values(NULL,' Tai nghe nhét trong Samsung IG935B',1,3, 10, 300000, 'tainghe-7.jpg' , 1);
+insert into product values(NULL,' Tai nghe EP Awei Q26Hi Đen
+
+',1,4, 10, 150000, 'tainghe-8.jpg' , 1);
+insert into product values(NULL,' Tai nghe EP Awei Q27Hi Đen',1,4, 10, 150000, 'tainghe-9.jpg' , 1);
+insert into product values(NULL,' Tai nghe EP Awei Q21Hi Đen',1,4, 10, 200000, 'tainghe-10.jpg' , 1);
+insert into product values(NULL,' Tai nghe nhét trong Awei ES500Ni',1,4, 10, 200000, 'tainghe-11.jpg' , 1);
+insert into product values(NULL,' Tai nghe chụp tai Sony MDR - ZX110AP',1,2, 10, 590000, 'tainghe-12.jpg' , 1);
+insert into product values(NULL,' Tai nghe chụp tai Sony MDR - ZX310AP',1,2, 10, 890000, 'tainghe-13.jpg' , 1);
+insert into product values(NULL,' Tai nghe chụp tai Sony MDR-XB550AP',1,2, 10, 1190000, 'tainghe-14.jpg' , 1);
+insert into product values(NULL,' Tai nghe chụp tai Sony MDR-100AAPYCE',1,2, 10, 2990000, 'tainghe-15.jpg' , 1);
+insert into product values(NULL,' Tai nghe chụp tai Gaming Logitech G331 Đen Đỏ',1,5, 10, 1699000, 'tainghe-16.jpg' , 1);
+insert into product values(NULL,' Tai nghe chụp tai Gaming Logitech G431 7.1 Đen Xanh',1,5, 10, 2099000, 'tainghe-17.jpg' , 1);
+insert into product values(NULL,' Tai nghe chụp tai Gaming Logitech G Pro Đen',1,5, 10, 2490000, 'tainghe-18.jpg' , 1);
+insert into product values(NULL,' Tai nghe chụp tai Kanen IP-350 Tím',1,6, 10, 150000, 'tainghe-19.jpg' , 1);
+insert into product values(NULL,' Tai nghe chụp tai Kanen IP-2050',1,6, 10, 350000, 'tainghe-20.jpg' , 1);
+insert into product values(NULL,' Tai nghe chụp tai Kanen IP-952',1,6, 10, 350000, 'tainghe-21.jpg' , 1);
+insert into product values(NULL,' Tai nghe chụp tai Kanen IP-2090',1,6, 10, 350000, 'tainghe-22.jpg' , 1);
+
+insert into product values(NULL,' Chuột có dây Genius DX-125 Đen',2,7, 10, 100000, 'chuot-23.jpg', 1 );
+insert into product values(NULL,' Chuột dây rút Zadez M218',2,8, 10, 100000, 'chuot-24.jpg', 1 );
+insert into product values(NULL,' Chuột Gaming Zadez G-610M Đen',2,8, 10, 190000, 'chuot-25.jpg', 1 );
+insert into product values(NULL,' Chuột Gaming Zadez GT - 613M',2,8, 10, 390000, 'chuot-26.jpg', 1 );
+insert into product values(NULL,' Chuột Gaming Logitech G102 Đen',2,5, 10, 590000, 'chuot-27.jpg', 1 );
+insert into product values(NULL,' Chuột không dây Genius NX 7010',2,7, 10, 200000, 'chuot-28.jpg', 1 );
+insert into product values(NULL,' Chuột không dây Anitech MW315',2,9, 10, 200000, 'chuot-29.jpg', 1 );
+insert into product values(NULL,' Chuột không dây Logitech M170 Đen',2,5, 10, 200000, 'chuot-30.jpg', 1 );
+insert into product values(NULL,' Chuột không dây Microsoft 1850',2,10, 10, 350000, 'chuot-31.jpg', 1 );
+insert into product values(NULL,' Chuột Bluetooth Logitech M337',2,5, 10, 500000, 'chuot-32.jpg', 1 );
+insert into product values(NULL,' Chuột không dây Logitech MX Anywhere 2S Đen',2,5, 10, 1700000, 'chuot-33.jpg', 1 );
+insert into product values(NULL,' Chuột không dây Logitech MX Master 2S Đen',2,5, 10, 2300000, 'chuot-34.jpg', 1 );
+
+insert into product values(NULL,' Loa vi tính Fenda U213A - 2.0',3,11, 10, 220000, 'loa-35.jpg', 1 );
+insert into product values(NULL,' Loa vi tính Fenda F203G - 2.1',3,11, 10, 550000, 'loa-36.jpg', 1 );
+insert into product values(NULL,' Loa vi tính Enkor E300 Plus - 2.1',3,12, 10, 550000, 'loa-37.jpg', 1 );
+insert into product values(NULL,' Loa vi tính Fenda A111 - 2.1',3,12, 10, 750000, 'loa-38.jpg', 1 );
+insert into product values(NULL,' Loa vi tính Fenda A521 - 2.1',3,12, 10, 1050000, 'loa-39.jpg', 1 );
+insert into product values(NULL,' Loa Bluetooth Fenda W5',3,12, 10, 400000, 'loa-40.jpg', 1 );
+insert into product values(NULL,' Loa Bluetooth Mozard Y550 Xám',3,13, 10, 500000, 'loa-41.jpg', 1 );
+insert into product values(NULL,' Loa Bluetooth MozardX BM01 Đen
+',3,13, 10, 1500000, 'loa-42.jpg', 1 );
+insert into product values(NULL,' Loa Bluetooth Wetop H8008 Bạc',3,14, 10, 1500000, 'loa-43.jpg', 1 );
+insert into product values(NULL,' Loa Bluetooth Wetop A3 Đen',3,14, 10, 700000, 'loa-44.jpg', 1 );
+
+insert into product values(NULL,' Bàn phím Magic Keyboard US Apple MLA22 Trắng',4,null, 10, 3190000, 'banphim-45.jpg', 1 );
+insert into product values(NULL,' Bàn phím Gaming Cliptec RGK815',4,null, 10, 1000000, 'banphim-46.jpg', 1 );
+insert into product values(NULL,' Bàn phím Gaming Cliptec RGK830 Đen xám',4,null, 10, 1200000, 'banphim-47.jpg', 1 );
+insert into product values(NULL,' Bàn phím Gaming Cliptec RGK817 Đen',4,null, 10, 1000000, 'banphim-48.jpg', 1 );
+insert into product values(NULL,' Bàn phím Gaming Cliptec RGK833 Đen bạc',4,null, 10, 1200000, 'banphim-49.jpg', 1 );
+insert into product values(NULL,' Bàn phím Gaming Cliptec RGK700 Bạc',4,null, 10, 1050000, 'banphim-50.jpg', 1 );
+insert into product values(NULL,' Bàn Phím Game Fuhlen L411',4,null, 10, 230000, 'banphim-51.jpg', 1 );
+
+
+insert into category values(1, 'tai nghe');
+insert into category values(NULL, 'chuột');
+insert into category values(NULL, 'loa');
+insert into category values(NULL, 'bàn phím');
+
+insert into brand values(1, 'Apple');
+insert into brand values(NULL, 'Sony');
+insert into brand values(NULL, 'Samsung');
+insert into brand values(NULL, 'Awei');
+insert into brand values(NULL, 'Logitech');
+insert into brand values(NULL, 'Kanen');
+insert into brand values(NULL, 'Genius');
+insert into brand values(NULL, 'Zadez');
+insert into brand values(NULL, 'Anitech');
+insert into brand values(NULL, 'Microsoft');
+insert into brand values(NULL, 'Fenda');
+insert into brand values(NULL, 'Enkor');
+insert into brand values(NULL, 'Mozard');
+insert into brand values(NULL, 'Wetop');
+
+insert into category_brand values(1,1);
+insert into category_brand values(1,2);
+insert into category_brand values(1,3);
+insert into category_brand values(1,4);
+insert into category_brand values(1,5);
+insert into category_brand values(1,6);
+insert into category_brand values(2,8);
+insert into category_brand values(2,7);
+insert into category_brand values(2,9);
+insert into category_brand values(2,5);
+insert into category_brand values(2,10);
+insert into category_brand values(3,11);
+insert into category_brand values(3,12);
+insert into category_brand values(3,13);
+insert into category_brand values(3,14);
