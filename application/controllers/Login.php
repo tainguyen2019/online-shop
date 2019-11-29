@@ -42,7 +42,7 @@ class Login extends CI_Controller{
                 }
                 else{
                    // $this->session->set_userdata('islogged',false);
-                    $this->session->set_flashdata('error', 'Invalid username add password');
+                    $this->session->set_flashdata('error', 'Invalid username or password');
                     redirect(base_url().'Login/login_order');
                 }
             }

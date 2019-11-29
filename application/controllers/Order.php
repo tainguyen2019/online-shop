@@ -5,20 +5,34 @@ class Order extends MY_Controller
     {
         parent::__construct();
         $this->load->library('cart');   
+        $this->load->model('order_model');
     }
     public function index()
     {
         $data['cartItems'] = $this->cart->contents();
         $email = $this->session->userdata('user_email');
-        $this->load->model('order_model');
         $data['user_info'] = $this->order_model->get_info_customer($email);
         $this->load->view('order',$data);
     }
    public function order_save()
    {
-    $info_order =  $this->cart->contents();
+    //$info_order =  $this->cart->contents();
     $total = $this->cart->total();
-    $email = $this->session->userdata('user_email');
+    $customer_id = $_GET['id'];
+    if($this->order_model->order_save($total,$customer_id))
+    {
+        $order_id = $this->order_model->get_order_id_latest();
+        foreach($this->cart->contents() as $info_order)
+        {
+            $product_id = $info_order['id'];
+            $quantity = $info_order['qty'];
+            $price = $info_order['price'];
+            $this->order_model-> order_line_save($order_id,$product_id,$quantity,$price);
+        }
+    }
+    else{
+        $this->session->set_flashdata('error','Đơn hàng gặp lỗi không lưu được');
+    }
     
    }
     

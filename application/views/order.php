@@ -59,8 +59,11 @@
                 </div>
             </div>
             <div class="btn-order-box">
-                <a href="#" type="button" class="btn btn-large btn-danger btn-order">ĐẶT MUA</a>
+                <a href="<?php echo base_url('Order/order_save?id='.$user_info[0]['customer_id'])?>" type="button" class="btn btn-large btn-danger btn-order">ĐẶT MUA</a>
             </div>
+            <?php 
+            echo '<label class="text-danger">'. $this->session->flashdata("error").'</label>';
+            ?>
         </div>
         <div class="col-4">
             <div class="address-box">
