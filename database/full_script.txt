@@ -8,7 +8,7 @@ role enum('1', '2')
 CREATE TABLE customer(
 customer_id int auto_increment primary key,
 customer_name varchar(255),
-phone char(11)
+phone char(11),
 account_id int
 );
 
