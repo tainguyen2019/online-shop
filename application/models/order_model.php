@@ -15,27 +15,36 @@ class order_model extends CI_Model
     }
     public function get_order_id_latest()
     {
-        $result = $this->db->query("SELECT order_id FROM sale_order ORDER BY order_id DESC LIMIT 1");
-        return $result;
+        return $this->db->select('order_id')
+                        ->from('sale_order')
+                        ->order_by('order_id', 'DESC')
+                        ->limit(1)
+                        ->get()
+                        ->row();
     }
     public function get_address($customer_id)
     {
-        $this->db->select('address');
-        $this->db->from('customer');
-        $this->db->where('customer_id',$customer_id);
-        $query = $this->db->get(); 
-        return $query;
+        return $this->db->select('address')
+                        ->from('customer')
+                        ->where('customer_id', $customer_id)
+                        ->get()
+                        ->row();
     }
     public function order_save($total,$customer_id)
     {
-        $get_address = $this->db->query("SELECT address FROM customer WHERE customer_id ='".$customer_id."'");
-        $query = "INSERT INTO sale_order (address,total) VALUES ('".$get_address."', ".$total.")";
-        $result = $this->db->query($query);
+        // $get_address = $this->db->query("SELECT address FROM customer WHERE customer_id ='".$customer_id."'");
+        // $query = "INSERT INTO sale_order (address,total) VALUES ('$get_address', $total)";
+        // $result = $this->db->query($query);
         /**$data = array(
             'address' => $this->get_address($customer_id),
             'total' => $total
         );
         $this->db->insert('sale_order',$data); */ 
+        $data = array(
+            'address' => $this->get_address($customer_id)->address,
+            'total' => $total
+        );
+        $this->db->insert('sale_order', $data);
         return ($this->db->affected_rows() > 0 ) ? true : false;
     }
     public function order_line_save($order_id,$product_id,$quantity,$price,$discount=0)
