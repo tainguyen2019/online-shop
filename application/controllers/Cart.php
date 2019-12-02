@@ -52,8 +52,7 @@ class Cart extends CI_Controller
         ];
         $this->cart->insert($Item_detail);
         $url = base_url().'cart';
-        redirect($url);
-        
+        redirect($url); 
     }
 }
 ?>

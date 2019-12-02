@@ -17,5 +17,10 @@ class login_model extends CI_Model
             return false;
         }
     }
+    public function register($account_info,$customer_info)
+    {
+        $this->db->insert('account',$account_info);
+        $this->db->insert('customer',$customer_info);
+    }
 }
 ?>

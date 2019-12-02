@@ -15,6 +15,7 @@
                 <span>(<?php echo $this->cart->total_items() .' sản phẩm'?>)</span>
             </h5>
         </div>
+        
         <div class="col-xs-8 cart-col-1">
             <form id="shopping cart">
                 <?php 

@@ -28,7 +28,23 @@
                     <ul class="utility-items nav">
                         <li class="nav-item">
                             <!--điều hướng đến trang đăng nhập-->
-                            <a href="<?php echo base_url(); ?>login" class="nav-link login">Tài khoản của tôi</a>
+                            <a href="#" class="nav-link login">Tài khoản
+                                <i class="fas fa-user"></i>
+                            </a>
+                            <ul class="sub-list">
+                                <li class="sub-list-item">
+                                    <a href="<?php echo base_url(); ?>login" class="items">ĐĂNG NHẬP</a>
+                                </li>
+                                <li class="sub-list-item">
+                                    <a href="#"  class="items">TẠO TÀI KHOẢN</a>
+                                </li>
+                                <li class="sub-list-item">
+                                    <a href="#"  class="items">XEM ĐƠN HÀNG</a>
+                                </li>
+                                <li class="sub-list-item">
+                                    <a href="<?php echo base_url(); ?>login/logout"  class="items">ĐĂNG XUẤT</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <!--điều hướng đến trang giỏ hàng-->
@@ -231,6 +247,9 @@
     <script src="<?php echo base_url(); ?>public/js/template.js"></script>
     <script type="text/javascript">
     AOS.init();
+    </script>
+    <script> 
+
     </script>
 </body>
 

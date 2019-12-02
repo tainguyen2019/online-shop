@@ -17,13 +17,13 @@
                     <h3 class="title-header">Đăng nhập bằng tài khoản của bạn</h3>
                 </div>
                 <div class="login-form-content">
-                    <form action="<?php base_url('Login/login')?>" id="email-sign-in-form" class="login" method="POST">
+                    <form action="<?php echo base_url('Login/login_confirm/y')?>" id="email-sign-in-form" class="login" method="POST">
                         <div class="form-field-box">
                             <label for="signin-email" class="email-label">
                                 <img src="https://img.icons8.com/windows/25/000000/user.png">
                             </label>
                             <div class="form-field">
-                                <input id="signin-email" type="text" name="email" placeholder="Địa chỉ email">
+                                <input id="signin-email" type="text" name="username" placeholder="Địa chỉ email">
                             </div>
                         </div>
                         <div class="form-field-box">

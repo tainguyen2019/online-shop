@@ -14,6 +14,7 @@ class Order extends MY_Controller
         $data['user_info'] = $this->order_model->get_info_customer($email);
         $this->load->view('order',$data);
     }
+ 
    public function order_save()
    {
     $info_order =  $this->cart->contents();
@@ -29,13 +30,12 @@ class Order extends MY_Controller
             $price = $info_order['price'];
             $this->order_model->order_line_save($order_id,$product_id,$quantity,$price);
         }
+        $this->cart->destroy();
+        redirect('cart');
     }
     else{
         $this->session->set_flashdata('error','Đơn hàng gặp lỗi không lưu được');
-    }
-
-    
-    
+    }    
    }
     
 }

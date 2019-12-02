@@ -52,10 +52,10 @@
                         </form>
                     </div>
                     <div id="register-form" style="display:none">
-                        <form class="register-form-content form" action="#" method="POST">
+                        <form class="register-form-content form" action="<?php echo base_url('Login/register')?>" method="POST">
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" name="hoten" class="form-control" placeholder="Nhập Email">
+                                <input type="text" name="user_email" class="form-control" placeholder="Nhập Email">
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
@@ -63,17 +63,16 @@
                             </div>
                             <div class="form-group">
                                 <label>Họ Tên</label>
-                                <input type="text" name="hoten" class="form-control" placeholder="Nhập Họ và Tên">
+                                <input type="text" name="username" class="form-control" placeholder="Nhập Họ và Tên">
                             </div>
-                            <!--
                             <div class="form-group">
                                 <label>Số Điện Thoại</label>
-                                <input type="text" name="sdt" class="form-control"
+                                <input type="text" name="phone" class="form-control"
                                 placeholder="Nhập Số Điện Thoại">
-                            </div>  -->
+                            </div>  
                             <div class="form-group">
                                 <label>Địa Chỉ Giao Hàng</label>
-                                <input type="text" name="diachi" class="form-control"
+                                <input type="text" name="address" class="form-control"
                                     placeholder="Nhập Địa Chỉ Giao Hàng">
                             </div>
                             <button type="submit" class="btn btn-large btn-warning btn-submit">TẠO TÀI KHOẢN</button>

@@ -32,14 +32,6 @@ class order_model extends CI_Model
     }
     public function order_save($total,$customer_id)
     {
-        // $get_address = $this->db->query("SELECT address FROM customer WHERE customer_id ='".$customer_id."'");
-        // $query = "INSERT INTO sale_order (address,total) VALUES ('$get_address', $total)";
-        // $result = $this->db->query($query);
-        /**$data = array(
-            'address' => $this->get_address($customer_id),
-            'total' => $total
-        );
-        $this->db->insert('sale_order',$data); */ 
         $data = array(
             'address' => $this->get_address($customer_id)->address,
             'total' => $total
@@ -50,9 +42,6 @@ class order_model extends CI_Model
     public function order_line_save($order_id,$product_id,$quantity,$price,$discount=0)
     {
         $amount = $quantity * $price*(1-$discount);
-        /**$query =" INSERT INTO sale_order_line (order_id,product_id,quantity,price,discount,amount)
-        VALUES ($order_id,$product_id,$quantity,$price,$discount,$amount)";
-        $result = $this->db->query($query);*/
         $data = array(
             'order_id' => $order_id,
             'product_id' => $product_id,

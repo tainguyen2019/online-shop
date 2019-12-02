@@ -40,10 +40,9 @@ class product_model extends CI_Model
    }
    public function make_query($category_id,$brand)
    {
-      $result = "SELECT product.product_id, product_name, price FROM product,category,brand 
-      WHERE product.category_id = category.category_id
-      AND product.brand_id = brand.brand_id
-      AND category.category_id = ".$category_id;
+      $result = "SELECT product.product_id, product_name, price FROM product,brand 
+      WHERE  product.brand_id = brand.brand_id
+      AND category_id = ".$category_id;
       if(isset($brand) && !empty($brand))
       {
          $result.=" AND brand_name = '".$brand."'";

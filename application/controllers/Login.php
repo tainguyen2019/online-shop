@@ -7,22 +7,15 @@ class Login extends CI_Controller{
         $this->load->library('form_validation');
        // $this->load->library('session');
     }
-    public function index(){
-        // goi view - login
-        $this->load->view("Login");
-    }
-    public function login()
+    public function index()
     {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $this->confirm_login($email,$password);
-        redirect('Home');
+        $this->load->view("Login");
     }
     public function  login_order()
     {
         $this->load->view('order_login');
     }
-    public function login_confirm()
+    public function login_confirm($flag='')
     {
             $this->form_validation->set_rules('username','Username','required');
             $this->form_validation->set_rules('password','Password','required');
@@ -38,7 +31,14 @@ class Login extends CI_Controller{
                         'user_email' => $username
                     );
                     $this->session->set_userdata($user_email);
-                    redirect(base_url('Login/GotoOrder'));
+                    if($flag == '')
+                    {
+                        redirect(base_url('Login/GotoOrder'));
+                    }
+                    else{
+                        redirect(base_url('Login/GotoHome'));
+                    }
+                    
                 }
                 else{
                    // $this->session->set_userdata('islogged',false);
@@ -51,6 +51,30 @@ class Login extends CI_Controller{
                 $this->login_order();
             } 
     }
+    public function register()
+    {
+        $this->form_validation->set_rules('user_email','Email','required|trim|valid_email
+        |is_unique[codeigniter_register.email]');
+        $this->form_validation->set_rules('password','Password','required');
+        $this->form_validation->set_rules('username','Name','required|trim');
+        $this->form_validation->set_rules('phone','Phone','required');
+        $this->form_validation->set_rules('address','Address','required');
+        if($this->form_validation->run())
+        {// true => insert info of new customer
+            $account_info = array(
+                'email' => $this->input->post('user_email'),
+                'password' => $this->input->post('password'),
+            );
+            $customer_info  = array(
+                'username' =>  $this->input->post('username'),
+                'phone' => $this->input->post('phone'),
+                'address' => $this->input->post('address')
+            );
+            $this->login_model->register($account_info,$customer_info);
+        }else{
+            $this->login_order();
+        }
+    }
     public function GotoOrder()
     {
         if($this->session->userdata('user_email') != '')
@@ -59,6 +83,16 @@ class Login extends CI_Controller{
         }
         else{
             redirect(base_url('Login/login_order'));
+        }
+    }
+    public function GotoHome()
+    {
+        if($this->session->userdata('user_email') != '')
+        {
+            redirect(base_url());
+        }
+        else{
+            redirect(base_url('Login'));
         }
     }
     public function logout()

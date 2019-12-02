@@ -69,7 +69,6 @@
             <div class="address-box">
                 <div class="address-header">
                     <label> Địa chỉ giao hàng</label>
-                    <a href="#" type="button" class="btn btn-warning btn-sm btn-update"> Sửa </a>
                 </div>
                 <div class="address-content">
                     <span class="name"><?=$user_info[0]['customer_name']?></span>
