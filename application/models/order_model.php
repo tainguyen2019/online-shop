@@ -53,5 +53,9 @@ class order_model extends CI_Model
         $this->db->insert('sale_order_line',$data);
         return ($this->db->affected_rows() > 0 ) ? true : false;
     }
+    public function get_order($customer_name)
+    {
+        $query = "SELECT order_id,create_date,total,status FROM sale_order";
+    }
 }
 ?>

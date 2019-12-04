@@ -37,6 +37,11 @@ class Order extends MY_Controller
         $this->session->set_flashdata('error','Đơn hàng gặp lỗi không lưu được');
     }    
    }
-    
+   function GotoOrderView()
+   {
+    $email = $this->session->userdata('user_email');
+    $data['user_info'] = $this->order_model->get_info_customer($email);
+    $this->load->view('Order_view',$data);
+   }
 }
 ?>

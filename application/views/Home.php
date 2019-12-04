@@ -17,63 +17,25 @@
 
 <body>
     <header>
-        <nav class="global-nav navbar navbar-expand-sm bg-dark text-white-50 flex-center">
-            <div class="container">
-                <div class="left">
-                    <a class="navbar-brand">
-                        <h2 class="logo display2">BRAND</h2>
-                    </a>
-                </div>
-                <div class="right">
-                    <ul class="utility-items nav">
-                        <li class="nav-item">
-                            <!--điều hướng đến trang đăng nhập-->
-                            <a href="#" class="nav-link login">Tài khoản
-                                <i class="fas fa-user"></i>
-                            </a>
-                            <ul class="sub-list">
-                                <li class="sub-list-item">
-                                    <a href="<?php echo base_url(); ?>login" class="items">ĐĂNG NHẬP</a>
-                                </li>
-                                <li class="sub-list-item">
-                                    <a href="#"  class="items">TẠO TÀI KHOẢN</a>
-                                </li>
-                                <li class="sub-list-item">
-                                    <a href="#"  class="items">XEM ĐƠN HÀNG</a>
-                                </li>
-                                <li class="sub-list-item">
-                                    <a href="<?php echo base_url(); ?>login/logout"  class="items">ĐĂNG XUẤT</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <!--điều hướng đến trang giỏ hàng-->
-                            <a href="<?php echo base_url(); ?>Cart/" class="nav-link login">Giỏ hàng</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php include_once 'template/navbar.php'?>
         <?php include_once 'template/category_list.php'?>
-    </header>
-    <main>
         <!--carousel-->
         <div id="myCarousel" class="carousel slide border" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="<?php echo base_url(); ?>public/images/slide_show-1.jpeg" alt="Cat">
+                    <img class="d-block w-100 img-fluid" src="<?php echo base_url(); ?>public/images/slide_show-1.jpeg"
+                        alt="Cat">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="<?php echo base_url(); ?>public/images/slide_show-2.jpeg"
+                    <img class="d-block w-100 img-fluid" src="<?php echo base_url(); ?>public/images/slide_show-2.jpeg"
                         alt="Lion">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="<?php echo base_url(); ?>public/images/slide_show-3.jpeg"
+                    <img class="d-block w-100 img-fluid" src="<?php echo base_url(); ?>public/images/slide_show-3.jpeg"
                         alt="Lion">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="<?php echo base_url(); ?>public/images/slide_show-4.jpeg"
+                    <img class="d-block w-100 img-fluid" src="<?php echo base_url(); ?>public/images/slide_show-4.jpeg"
                         alt="Lion">
                 </div>
                 <!-- Controls -->
@@ -86,106 +48,260 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            <!--list ultilities-->
-            <div class="list-ultility container-fluid">
-                <div class="container flex-column">
-                    <div class="title flex-center">
-                        <h2 class="main-title">
-                            WEBSITE CHUYÊN VỀ CÁC PHỤ KIỆN ĐIỆN TỬ
-                        </h2>
-                        <h5 class="sub-title ">
-                            Luôn mang lại cho khách hàng những sản phẩm chất lượng nhất.
-                        </h5>
-                    </div>
-                    <div class="col-md-12 ">
-                        <div id="product-utilities">
-                            <div class="col-3 full-size">
-                                <div class="product-items  contain-img full-size">
-                                    <a href="<?php echo base_url();?>product/show_products/1" class="full-size">
-                                        <p class="product-item-name">ÂM THANH TRÒ CHƠI</p>
-                                        <img src="<?php echo base_url(); ?>public/images/tainghe_button.jpeg" alt="1">
-                                        <button id="btn-muasam" class="btn-muasam-tainghe">MUA SẮM TAI NGHE</button>
-                                    </a>
-                                </div>
+        </div>
+    </header>
+    <main>
+        <!--list ultilities-->
+        <div class="list-ultility container-fluid">
+            <div class="container flex-column">
+                <div class="title flex-center">
+                    <h2 class="main-title">
+                        WEBSITE CHUYÊN VỀ CÁC PHỤ KIỆN ĐIỆN TỬ
+                    </h2>
+                    <h5 class="sub-title ">
+                        Luôn mang lại cho khách hàng những sản phẩm chất lượng nhất.
+                    </h5>
+                </div>
+                <div class="col-md-12 ">
+                    <div id="product-utilities">
+                        <div class="col-3 full-size">
+                            <div class="product-items  contain-img full-size">
+                                <a href="<?php echo base_url();?>product/show_products/1" class="full-size">
+                                    <p class="product-item-name">ÂM THANH TRÒ CHƠI</p>
+                                    <img src="<?php echo base_url(); ?>public/images/tainghe_button.jpeg" alt="1">
+                                    <button id="btn-muasam" class="btn-muasam-tainghe">MUA SẮM TAI NGHE</button>
+                                </a>
                             </div>
-                            <div class="col-3 full-size">
-                                <div class="product-items contain-img full-size">
-                                    <a href="<?php echo base_url();?>product/show_products/2" class="full-size">
-                                        <p class="product-item-name">CHUỘT CHƠI GAME</p>
-                                        <img src="<?php echo base_url(); ?>public/images/chuot_button.jpeg" alt="2">
-                                        <button id="btn-muasam" class="btn-muasam-chuot">MUA SẮM CHUỘT</button>
-                                    </a>
-                                </div>
+                        </div>
+                        <div class="col-3 full-size">
+                            <div class="product-items contain-img full-size">
+                                <a href="<?php echo base_url();?>product/show_products/2" class="full-size">
+                                    <p class="product-item-name">CHUỘT CHƠI GAME</p>
+                                    <img src="<?php echo base_url(); ?>public/images/chuot_button.jpeg" alt="2">
+                                    <button id="btn-muasam" class="btn-muasam-chuot">MUA SẮM CHUỘT</button>
+                                </a>
                             </div>
-                            <div class="col-3 full-size">
-                                <div class="product-items contain-img full-size">
-                                    <a href="<?php echo base_url();?>product/show_products/4" class="full-size">
-                                        <p class="product-item-name">BÀN PHÍM CHUYÊN DỤNG</p>
-                                        <img src="<?php echo base_url(); ?>public/images/banphim_button.jpeg" alt="3">
-                                        <button id="btn-muasam" class="btn-muasam-banphim">MUA SẮM BÀN PHÍM</button>
-                                    </a>
-                                </div>
+                        </div>
+                        <div class="col-3 full-size">
+                            <div class="product-items contain-img full-size">
+                                <a href="<?php echo base_url();?>product/show_products/4" class="full-size">
+                                    <p class="product-item-name">BÀN PHÍM CHUYÊN DỤNG</p>
+                                    <img src="<?php echo base_url(); ?>public/images/banphim_button.jpeg" alt="3">
+                                    <button id="btn-muasam" class="btn-muasam-banphim">MUA SẮM BÀN PHÍM</button>
+                                </a>
                             </div>
-                            <div class="col-3  speaker-contain-img full-size">
-                                <div class="product-items contain-img full-size">
-                                    <a href="<?php echo base_url();?>product/show_products/3" class="full-size">
-                                        <p class="product-item-name">LOA CHUYÊN DỤNG</p>
-                                        <img class="speaker-img"
-                                            src="<?php echo base_url(); ?>public/images/loa_button.jpg" alt="4">
-                                        <button id="btn-muasam" class="btn-muasam-loa">MUA SẮM LOA</button>
-                                    </a>
+                        </div>
+                        <div class="col-3  speaker-contain-img full-size">
+                            <div class="product-items contain-img full-size">
+                                <a href="<?php echo base_url();?>product/show_products/3" class="full-size">
+                                    <p class="product-item-name">LOA CHUYÊN DỤNG</p>
+                                    <img class="speaker-img" src="<?php echo base_url(); ?>public/images/loa_button.jpg"
+                                        alt="4">
+                                    <button id="btn-muasam" class="btn-muasam-loa">MUA SẮM LOA</button>
+                                </a>
 
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         </div>
         <div id="khoangtrang"></div>
 
-        <section id="introduction">
-            <div class="intro intro-headphone">
-                <div class="headphone-content position" data-aos="fade-down">
-                    <h1 class="headphone-title">ÂM THANH TRÒ CHƠI</h1>
-                    <p class="headphone-subtitle">Mang đến cho người dùng những trải nghiệm chân thực, sống động vượt
-                        trội.</p>
-                    <a href="#">Mua sắm tất cả thiết bị âm thanh</a>
+        <div class="introduction-box">
+            <section id="headphone" class="introduction">
+                <div class="intro-header">
+                    <div class="intro-header-title">
+                        <div class="intro-header-name">
+                            TAI NGHE CỰC ĐỈNH
+                        </div>
+                        <div class="intro-header-img">
+                            <img src="https://img.icons8.com/dusk/40/000000/headphones.png">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section id="introduction">
-            <div class="intro intro-mouse">
-                <div class="mouse-content position" data-aos="fade-right">
-                    <h1 class="mouse-title">CHUỘT CHƠI GAME</h1>
-                    <p class="mouse-subtitle">Dẫn đầu xu hướng với thiết kế hiện đại từ kiểu dáng đến cảm ứng.</p>
-                    <a href="#">Mua sắm tất cả chuôt</a>
-                </div>
-            </div>
-        </section>
-        <section id="introduction">
-            <div class="intro intro-keyboard">
-                <div class="keyboard-content position" data-aos="fade-down-right">
-                    <h1 class="keyboard-title">BÀN PHÍM CHUYÊN DỤNG</h1>
-                    <p class="keyboard-subtitle"> Tốc độ-Độ chính xác-Độ bền được thiết kế hoàn hảo và có khả năng tùy
-                        chỉnh mạnh mẽ.</p>
-                    <a href="#">Mua sắm tất cả bàn phím</a>
-                </div>
-            </div>
-        </section>
-        <section id="introduction">
-            <div class="intro intro-speaker">
-                <div class="speaker-content position" data-aos="fade-left">
-                    <h1 class="speaker-title">LOA CHUYÊN DỤNG</h1>
-                    <p class="speaker-subtitle"> Tốc độ-Độ chính xác-Độ bền được thiết kế hoàn hảo và có khả năng tùy
-                        chỉnh mạnh mẽ.</p>
-                    <a href="#">Mua sắm tất cả loa</a>
-                </div>
-            </div>
-        </section>
+                <div class="intro-content">
+                    <div class="left advertisement-img col-4">
+                        <img class="card-img-top bg-light img-product-effect"
+                            src="<?php echo base_url(); ?>public/images/other_images/mouse_ad.png">
+                    </div>
+                    <div class="right list-product col-8">
+                        <div class="list-product">
+                            <?php
+                    foreach($show_headphone as $key=>$val)
+                    {
+                  ?>
+                            <div class="card product-card">
+                                <a href="<?php echo base_url('product/show_product_info/'.$val['product_id'])?>">
+                                    <img class="card-img-top bg-light img-product-effect"
+                                        src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg">
+                                    <img class="sale-img" src="https://img.icons8.com/color/64/000000/sale--v2.png">
+                                </a>
+                                <div class="card-body card-body-size" style="position : relative">
+                                    <p class="card-title product-name"><?php echo $val['product_name']?></p>
+                                    <p class="card-text product-price"><?php echo $val['price']?></p>
+                                    <a class="btn btn-effect btn-outline-dark"
+                                        href="<?php echo base_url('cart/AddtoCart/'.$val['product_id'])?>">
+                                        Mua ngay
+                                    </a>
+                                    <img src="https://img.icons8.com/bubbles/70/000000/gift.png"
+                                        style="margin-left: 20px;">
+                                </div>
+                            </div>
+                            <?php }?>
 
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="introduction-box">
+            <section id="mouse" class="introduction">
+                <div class="intro-header">
+                    <div class="intro-header-title">
+                        <div class="intro-header-name">
+                            CHUỘT CHƠI GAME
+                        </div>
+                        <div class="intro-header-img">
+                            <img src="https://img.icons8.com/dusk/40/000000/mouse.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-content">
+                    <div class="left advertisement-img col-4">
+                        <img class="card-img-top bg-light img-product-effect"
+                            src="<?php echo base_url(); ?>public/images/other_images/mouse_ad.png">
+                    </div>
+                    <div class="right list-product col-8">
+                        <div class="list-product">
+                            <?php
+                    foreach($show_mouse as $key=>$val)
+                    {
+                  ?>
+                            <div class="card product-card">
+                                <a href="<?php echo base_url('product/show_product_info/'.$val['product_id'])?>">
+                                    <img class="card-img-top bg-light img-product-effect"
+                                        src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg">
+                                    <img class="sale-img" src="https://img.icons8.com/color/64/000000/sale--v2.png">
+                                </a>
+                                <div class="card-body card-body-size" style="position : relative">
+                                    <p class="card-title product-name"><?php echo $val['product_name']?></p>
+                                    <p class="card-text product-price"><?php echo $val['price']?></p>
+                                    <a class="btn btn-effect btn-outline-dark"
+                                        href="<?php echo base_url('cart/AddtoCart/'.$val['product_id'])?>">
+                                        Mua ngay
+                                    </a>
+                                    <img src="https://img.icons8.com/bubbles/70/000000/gift.png"
+                                        style="margin-left: 20px;">
+                                </div>
+                            </div>
+                            <?php }?>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="introduction-box">
+            <section id="keyboard" class="introduction">
+                <div class="intro-header">
+                    <div class="intro-header-title">
+                        <div class="intro-header-name">
+                            BÀN PHÍM CHUẨN
+                        </div>
+                        <div class="intro-header-img">
+                            <img src="https://img.icons8.com/dusk/40/000000/keyboard.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-content">
+                    <div class="left advertisement-img col-4">
+                        <img class="card-img-top bg-light img-product-effect"
+                            src="<?php echo base_url(); ?>public/images/other_images/mouse_ad.png">
+                    </div>
+                    <div class="right list-product col-8">
+                        <div class="list-product">
+                            <?php
+                    foreach($show_keyboard as $key=>$val)
+                    {
+                  ?>
+                            <div class="card product-card">
+                                <a href="<?php echo base_url('product/show_product_info/'.$val['product_id'])?>">
+                                    <img class="card-img-top bg-light img-product-effect"
+                                        src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg">
+                                    <img class="sale-img" src="https://img.icons8.com/color/64/000000/sale--v2.png">
+                                </a>
+                                <div class="card-body card-body-size" style="position : relative">
+                                    <p class="card-title product-name"><?php echo $val['product_name']?></p>
+                                    <p class="card-text product-price"><?php echo $val['price']?></p>
+                                    <a class="btn btn-effect btn-outline-dark"
+                                        href="<?php echo base_url('cart/AddtoCart/'.$val['product_id'])?>">
+                                        Mua ngay
+                                    </a>
+                                    <img src="https://img.icons8.com/bubbles/70/000000/gift.png"
+                                        style="margin-left: 20px;">
+                                </div>
+                            </div>
+                            <?php }?>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="introduction-box">
+            <section id="speaker" class="introduction">
+                <div class="intro-header">
+                    <div class="intro-header-title">
+                        <div class="intro-header-name">
+                            LOA CHUYÊN DỤNG
+                        </div>
+                        <div class="intro-header-img">
+                            <img src="https://img.icons8.com/dusk/40/000000/portable-speaker2.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-content">
+                    <div class="left advertisement-img col-4">
+                        <img class="card-img-top bg-light img-product-effect"
+                            src="<?php echo base_url(); ?>public/images/other_images/mouse_ad.png">
+                    </div>
+                    <div class="right list-product col-8">
+                        <div class="list-product">
+                            <?php
+                    foreach($show_speaker as $key=>$val)
+                    {
+                  ?>
+                            <div class="card product-card">
+                                <a href="<?php echo base_url('product/show_product_info/'.$val['product_id'])?>">
+                                    <img class="card-img-top bg-light img-product-effect"
+                                        src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg">
+                                    <img class="sale-img" src="https://img.icons8.com/color/64/000000/sale--v2.png">
+                                </a>
+                                <div class="card-body card-body-size" style="position : relative">
+                                    <p class="card-title product-name"><?php echo $val['product_name']?></p>
+                                    <p class="card-text product-price"><?php echo $val['price']?></p>
+                                    <a class="btn btn-effect btn-outline-dark"
+                                        href="<?php echo base_url('cart/AddtoCart/'.$val['product_id'])?>">
+                                        Mua ngay
+                                    </a>
+                                    <img src="https://img.icons8.com/bubbles/70/000000/gift.png"
+                                        style="margin-left: 20px;">
+                                </div>
+                            </div>
+                            <?php }?>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
+
     <footer>
         <div class="container-fluid">
             <div class="row bg-white ">
@@ -206,7 +322,6 @@
                     <img src="https://img.icons8.com/doodle/48/000000/facebook-new.png">
                     <img src="https://img.icons8.com/dusk/48/000000/instagram-new.png">
                     <img src="https://img.icons8.com/dusk/48/000000/email.png">
-                    <img src="https://img.icons8.com/doodle/64/000000/skype.png">
                 </div>
                 <div class="col-md-4">
                     <hr class="bg-dark">
@@ -248,7 +363,7 @@
     <script type="text/javascript">
     AOS.init();
     </script>
-    <script> 
+    <script>
 
     </script>
 </body>

@@ -5,14 +5,11 @@
     <i class="fa fa-bars"  style="font-size:36px" ></i>
     <!--<i class="fa fa-times" aria-hidden="true"></i>  -->
     </button>   
-    <form class="form-inline">
-      <input type="search" class="form-control search-text" placeholder="Nhập tên sản phẩm" aria-label="Search">
-      <button class="btn btn-outline-primary "><i class="fa fa-search" style="font-size:36px"></i></button>
-    </form>
+    
     <!-- collapsible content-->
     <div class="collapse navbar-collapse " id="list-category">
       <ul class="nav col-12">
-          <li class="nav-item col-3 acitve">
+          <li class=" col-3 acitve">
                   <div class="product-items contain-img full-size">
                     <a href="<?php echo base_url();?>product/show_products/1" class="full-size">
                      <span class="category-img">
@@ -22,7 +19,7 @@
                     </a>
                   </div>
           </li>
-          <li class="nav-item col-3">
+          <li class="col-3">
                <div class="product-items contain-img full-size">
                   <a href="<?php echo base_url();?>product/show_products/2" class="full-size">
                     <span class="category-img">
@@ -32,7 +29,7 @@
                   </a>
                 </div>
           </li>
-          <li class="nav-item col-3">
+          <li class=" col-3">
                 <div class="product-items contain-img full-size">
                   <a href="<?php echo base_url();?>product/show_products/4" class="full-size">
                     <span class="category-img">
@@ -42,7 +39,7 @@
                   </a>
                 </div>
           </li>
-          <li class="nav-item col-3">
+          <li class=" col-3">
               <div class="product-items contain-img full-size">
                   <a href="<?php echo base_url();?>product/show_products/3" class="full-size">
                     <span class="category-img">

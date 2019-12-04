@@ -1,4 +1,6 @@
-
+body{
+    background-color:  whitesmoke;
+}
 .flex-col{
     display: flex;
     flex-direction: column;
@@ -6,43 +8,35 @@
     align-content: center;
 }
 .wrapped{
-    background: url(../images/bg-form-login.jpg);
-    background-size: cover;
     width:100%;
-    height: 100vh;
-    min-height : 100vh;
+    height: 100%;
     z-index: 0;  
-}
-a{
-    color: rgba(255,255,255,.5) !important;
-
-    cursor: pointer;
 }
 input[type="submit"],button{
     cursor: pointer;
 }
-
 .form-wrapped{
     width : 430px;
     height: auto;
     display: block;
-    position: absolute;
-    top: 12%;
-    left: 35%;
-    background-color: whitesmoke;
+    background-color: #fff;
+    margin-bottom: 50px;
+    transform: translate(100%, 7%);
 }
 
 .login-form,.signup-form{
     width : 100%;
     height: 100%;
-    padding : 10px 10px 0px 10px
+    padding : 10px;
 }
-
+.component-btn-submit{
+    margin: 17px 0;
+}
 .login-form{
     border : 1px solid rgba(0,0,0,0.8);
 }
 .signup-form{
-    display: none;
+    display: block;
 }
 .login-form-header,.signup-header{
     width : 100%;
@@ -53,15 +47,13 @@ input[type="submit"],button{
     margin: 10px auto;
     font-weight: normal;
     color: #6f7678;
-}
+}   
 .form-field{
     position: relative;
     display: block;
     width : 100%;
-    height: auto;
+    height: 54px;
     text-align: center;
-    margin : auto;
-   
 }
 .form-field label{
     text-transform: initial;
@@ -123,41 +115,22 @@ input:focus label{
 }
 .btn-submit,#create-user{
     width: 80%;
-    height: 40px;
+    height: 49px;
     font-weight: bold;
     border : 1px solid #e1e2e3 ;
     background : none;
+    font-size: 22px;
 }
 .btn-submit{
-    margin : 15px auto;
     text-align: center;
-    padding : 12px auto !important;
     background: #00b8fc;
     border: #00b8fc ;
     color: black;
 }
 #create-user{
     border: none;
-    color: #00b8fc;
+    color: #fff;
+    background: #ffd907;
     font-family: "Brown-Pro-Bold";
-    font-size: 13px;
     text-transform: uppercase;
-    margin-top : 20px
-}
-#arrow-link
-{
-    position: absolute;
-}
-#or{
-    padding-top: 10px;
-    font-family: "Brown-Pro-Bold";
-    font-size: 20px;
-}
-#or::before,#or::after{
-    content: '';
-    display: inline-block;
-    width:80px;
-    height: 1px;
-    background-color: gray;
-    margin: 5px;
 }

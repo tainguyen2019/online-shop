@@ -10,6 +10,7 @@
 
 <body>
     <?php include_once "template/navbar.php" ?>
+    <?php include_once "template/category_list.php"?>
     <div class="container-box">
         <div class="Product_name">
             <h2> <?=$info[0]['product_name']?> </h2>

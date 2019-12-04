@@ -7,9 +7,11 @@ class Login extends CI_Controller{
         $this->load->library('form_validation');
        // $this->load->library('session');
     }
-    public function index()
+    public function index($register='')
     {
-        $this->load->view("Login");
+        ($register == '')?$data['register'] = false
+        :$data['register'] = true;
+        $this->load->view('Login',$data);
     }
     public function  login_order()
     {
@@ -37,8 +39,7 @@ class Login extends CI_Controller{
                     }
                     else{
                         redirect(base_url('Login/GotoHome'));
-                    }
-                    
+                    }                  
                 }
                 else{
                    // $this->session->set_userdata('islogged',false);
@@ -51,12 +52,11 @@ class Login extends CI_Controller{
                 $this->login_order();
             } 
     }
-    public function register()
+    public function register($flag='')
     {
-        $this->form_validation->set_rules('user_email','Email','required|trim|valid_email
-        |is_unique[codeigniter_register.email]');
+        $this->form_validation->set_rules('user_email','Email','required|valid_email');
         $this->form_validation->set_rules('password','Password','required');
-        $this->form_validation->set_rules('username','Name','required|trim');
+        $this->form_validation->set_rules('username','Username','required|trim');
         $this->form_validation->set_rules('phone','Phone','required');
         $this->form_validation->set_rules('address','Address','required');
         if($this->form_validation->run())
@@ -64,13 +64,23 @@ class Login extends CI_Controller{
             $account_info = array(
                 'email' => $this->input->post('user_email'),
                 'password' => $this->input->post('password'),
+                'role'      => '2'
             );
+            $this->login_model->account_insert($account_info);
             $customer_info  = array(
-                'username' =>  $this->input->post('username'),
+                'customer_name' =>  $this->input->post('username'),
                 'phone' => $this->input->post('phone'),
+                'account_id' => $this->login_model->get_account_id_latest()->account_id,
                 'address' => $this->input->post('address')
             );
-            $this->login_model->register($account_info,$customer_info);
+            $this->login_model->customer_insert($customer_info);
+            if($flag == '')
+            {
+                redirect(base_url('Login/login_order'));
+            }
+            else{
+                redirect(base_url('Login'));
+            }
         }else{
             $this->login_order();
         }

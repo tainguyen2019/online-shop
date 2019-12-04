@@ -1,3 +1,6 @@
+body{
+    box-sizing: border-box;
+}
 input[type=checkbox]::selection {
     background-color: rgba(0,184,252,0.99) !important;
     color: #2f3132 !important;
@@ -5,9 +8,6 @@ input[type=checkbox]::selection {
 
 .border-none{
     border: none !important;
-}
-.border-bottom-none{
-    border-bottom: none !important;
 }
 .bg-color-none{
     background-color: none !important;
@@ -67,9 +67,10 @@ input[type=checkbox]::selection {
 .card-header
 {
     border-top: 1px dashed;
+    border-bottom: 1px dashed;
 }
 .btn-size{
-    font-size: 18px;
+    font-size: 20px;
     background-color: transparent;
     color : #676767;
     font-weight: 700;
@@ -108,40 +109,6 @@ input[type=checkbox]::selection {
    width : 25px;
    background-color: #eee;
 }
-.list-product{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: auto;
-}
-.product-card{
-    width: 17rem;
-    margin: 15px 22px;
-}
-.product-name{
-    position: absolute;
-    top: 20px;
-    left: 7px;
-    font-size: 18px;
-}
-.product-price{
-    position: absolute;
-    top: 80px;
-    left: 7px;
-    font-size: 24px;
-}
-.card-body-size{
-height : 180px;
-}
-.btn-effect{
-    box-shadow: 0 0 14px rgb(0, 123, 255, 0.4);
-    position: absolute;
-    bottom: 7px;
-}
-label .filter-text{
-    margin-left: 30px;
-}
-
 /* On mouse-over, add a grey background color */
 .checkbox-inline:hover input ~ .checkmark {
     background-color: #ccc;
@@ -176,6 +143,49 @@ label .filter-text{
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+/*.list-product*/
+.list-product{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+.product-card{
+    width: 17rem;
+    margin: 15px 22px;
+}
+.product-name{
+    position: absolute;
+    top: 20px;
+    left: 7px;
+    font-size: 18px;
+}
+.product-price{
+    position: absolute;
+    top: 80px;
+    left: 7px;
+    font-size: 24px;
+}
+.card-body-size{
+    height : 180px;
+}
+.btn-submit{
+    width: 200px;
+    height: 46px;
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight : bold
+}
+.btn-effect{
+    box-shadow: 0 0 14px rgb(0, 123, 255, 0.4);
+    position: absolute;
+    bottom: 7px;
+}
+label .filter-text{
+    margin-left: 30px;
+}
+
+
 .img-product-effect{
     transform : translateY(-10px);
     transition : transform 250ms ease-in;

@@ -17,10 +17,24 @@ class login_model extends CI_Model
             return false;
         }
     }
-    public function register($account_info,$customer_info)
+    public function account_insert($account_info)
     {
         $this->db->insert('account',$account_info);
+        return ($this->db->affected_rows() > 0 )?true:false;
+    }
+    public function customer_insert($customer_info)
+    {   
         $this->db->insert('customer',$customer_info);
+        return ($this->db->affected_rows() > 0 )?true:false;
+    }
+    public function get_account_id_latest()
+    {
+        return $this->db->select('account_id')
+                        ->from('account')
+                        ->order_by('account_id', 'DESC')
+                        ->limit(1)
+                        ->get()
+                        ->row();
     }
 }
 ?>

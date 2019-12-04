@@ -11,6 +11,10 @@
     <div class="wrapped">
         <?php include "template/navbar.php" ?>
         <div class="form-wrapped">
+            <?php 
+                if($register == false)
+                {
+            ?>
             <div class="login-form">
                 <div class="login-form-header">
                     <img src="https://img.icons8.com/doodle/64/000000/skype.png" class="logo">
@@ -19,17 +23,11 @@
                 <div class="login-form-content">
                     <form action="<?php echo base_url('Login/login_confirm/y')?>" id="email-sign-in-form" class="login" method="POST">
                         <div class="form-field-box">
-                            <label for="signin-email" class="email-label">
-                                <img src="https://img.icons8.com/windows/25/000000/user.png">
-                            </label>
                             <div class="form-field">
                                 <input id="signin-email" type="text" name="username" placeholder="Địa chỉ email">
                             </div>
                         </div>
                         <div class="form-field-box">
-                            <label for="signin-password">
-                                <img src="https://img.icons8.com/wired/25/000000/password.png">
-                            </label>
                             <div class="form-field">
                                 <input type="password" id="signin-password" name="password" placeholder="Mật Khẩu">
                                 <button class="show-password"></button>
@@ -41,21 +39,15 @@
                         </div>
                     </form>
                 </div>
-
-                <div style="text-align: center">
-                    <p id="or">OR</p>
-                </div>
-                <div class="form-field create-user">
-                    <button id="create-user">Tạo tài khoản</button>
-                </div>
             </div>
+            <?php } else{?>
             <div class="signup-form">
                 <div class="signup-header">
                     <img src="https://img.icons8.com/dusk/64/000000/sign-up.png" class="logo">
                     <h3 class="title-header">Hoàn thành các trường sau để tạo tài khoản </h3>
                 </div>
                 <div class="signup-content">
-                    <form action="" id="user-signup-form" class="register">
+                    <form action="<?php echo base_url('Login/register/y')?>" id="user-signup-form" class="register">
                         <div class="form-field-box">
                             <label for="signup-email">
                             </label>
@@ -68,14 +60,6 @@
                             </label>
                             <div class="form-field ">
                                 <input id="signup-password" type="password" name="password" placeholder="Mật khẩu">
-                            </div>
-                        </div>
-                        <div class="form-field-box">
-                            <label for="signup-confirm-password">
-                            </label>
-                            <div class="form-field ">
-                                <input id="signup-confirm-password" type="password" name="confirm-password"
-                                    placeholder="Xác nhận mật khẩu">
                             </div>
                         </div>
                         <div class="form-field-box">
@@ -92,6 +76,7 @@
                     </form>
                 </div>
             </div>
+            <?php }?>
         </div>
     </div>
     <div>

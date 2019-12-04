@@ -14,9 +14,11 @@ $category_id = $url[0];
 </head>
 
 <body>
-    <div id="product-panel">
+    <header>
         <?php include_once "template/navbar.php" ?>
         <?php include_once 'template/category_list.php'?>
+    </header>
+    <div id="product-panel">
         <img src="<?php echo base_url(); ?>public/images/other_images/jsss-homepage-desktop.png.imgw.1888.1888.jpeg"
             alt="panel">
         <div id="intro-panel">
@@ -38,48 +40,49 @@ $category_id = $url[0];
     <div class="content">
         <div class="sidebar float-left">
             <form action="<?php echo base_url('product/show_products/'.$category_id)?>" method="GET">
-                <input type="submit" class="btn btn-info btn-large" value="Search" style="margin-left: 70px;">
+                <input type="submit" class="btn btn-info btn-large btn-outline-info btn-submit" value="LỌC" style="margin-left: 70px;">
                 <div id="accordion">
                     <div class="card card-size border-none">
-                    <div class="card card-size border-none">
-                        <div class="card-header bg-white border-bottom-none" id="headingOne">
-                            <h5 class="mb-0">
-                                <button class="btn btn-size collapsed" data-toggle="collapse" data-target="#collapseOne"
-                                    aria-expanded="false" aria-controls="collapseOne">
-                                    THƯƠNG HIỆU
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                            data-parent="#accordion">
-                            <div class="card-body column">
-                                <ul>
-                                    <li>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" name="brand" class="checkbox-form border-primary brand"
-                                                value="">
-                                            <span class="checkmark"></span>
-                                            <p class="filter-text brand-text">Chọn Tất Cả</p>
-                                        </label>
-                                    </li>
-                                    <?php
+                        <div class="card card-size border-none">
+                            <div class="card-header bg-white border-bottom-none" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-size collapsed" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        THƯƠNG HIỆU
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordion">
+                                <div class="card-body column">
+                                    <ul>
+                                        <li>
+                                            <label class="checkbox-inline">
+                                                <input type="radio" name="brand"
+                                                    class="checkbox-form border-primary brand" value="">
+                                                <span class="checkmark"></span>
+                                                <p class="filter-text brand-text">Chọn Tất Cả</p>
+                                            </label>
+                                        </li>
+                                        <?php
                   foreach($show_brand as $key=>$val)
                   {
                 ?>
-                                    <li>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" name="brand" class="checkbox-form border-primary brand"
-                                                value="<?=$val['brand_name']?>">
-                                            <span class="checkmark"></span>
-                                            <p class="filter-text brand-text"><?=$val['brand_name']?></p>
-                                        </label>
-                                    </li>
-                                    <?php }?>
-                                </ul>
+                                        <li>
+                                            <label class="checkbox-inline">
+                                                <input type="radio" name="brand"
+                                                    class="checkbox-form border-primary brand"
+                                                    value="<?=$val['brand_name']?>">
+                                                <span class="checkmark"></span>
+                                                <p class="filter-text brand-text"><?=$val['brand_name']?></p>
+                                            </label>
+                                        </li>
+                                        <?php }?>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- 
+                        <!-- 
           <div class="card card-size border-none">
             <div class="card-header bg-white border-bottom-none" id="headingFour">
               <h5 class="mb-0">
@@ -103,10 +106,10 @@ $category_id = $url[0];
               </div>
             </div>
             -->
+                    </div>
                 </div>
+            </form>
         </div>
-        </form>
-                  </div>
         <div class="main-content  float-right">
             <div class="list-product">
                 <?php
@@ -128,7 +131,7 @@ $category_id = $url[0];
                     </div>
                 </div>
                 <?php }?>
-                   
+
             </div>
             <div class="pagination-container">
                 <ul class="pagination">
@@ -156,7 +159,7 @@ $category_id = $url[0];
             </div>
             <?php } else {?>
             <p> KHÔNG TÌM THẤY SẢN PHẨM </p>
-                <?php }?>
+            <?php }?>
         </div>
     </div>
     </div>
