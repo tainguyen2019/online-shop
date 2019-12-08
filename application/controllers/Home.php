@@ -20,6 +20,7 @@ class Home extends CI_Controller
     function search()
     {
         $product_name = $this->input->post('product_name');
+        echo $product_name;
         $data['info'] = $this->home_model->get_product_info($product_name);
         $this->load->view('detail',$data);
     }

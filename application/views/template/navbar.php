@@ -5,8 +5,8 @@
                 <h2 class="logo display2">BRAND</h2>
             </a>
             <form class="form-search" action="<?php echo base_url('Home/search')?>" method="POST">
-                <input type="search" name="product_name" class="search-text" placeholder=" Nhập tên sản phẩm" aria-label="Search">
-                <button type="submit" class="btn btn-outline-primary "><i class="fa fa-search" style="font-size:36px"></i></button>
+                <input type="search" name="product_name" class="search-text" placeholder=" Nhập tên sản phẩm">
+                <button type="submit" class="btn btn-outline-primary"><i class="fa fa-search" style="font-size:36px"></i></button>
             </form>
         </div>
         <div class="right">
