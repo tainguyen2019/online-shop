@@ -41,7 +41,12 @@ class Order extends MY_Controller
    {
     $email = $this->session->userdata('user_email');
     $data['user_info'] = $this->order_model->get_info_customer($email);
+    $data['sale_order'] = $this->order_model->get_order($data['user_info'][0]['customer_id']);
     $this->load->view('Order_view',$data);
+   }
+   function del_order($order_id)
+   {
+       $this->order_model->delete_order($order_id);
    }
 }
 ?>

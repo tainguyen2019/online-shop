@@ -136,7 +136,7 @@
                             <div class="card product-card">
                                 <a href="<?php echo base_url('product/show_product_info/'.$val['product_id'])?>">
                                     <img class="card-img-top bg-light img-product-effect"
-                                        src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg">
+                                        src="<?php echo base_url('public/images/').$val['image']; ?>">
                                     <img class="sale-img" src="https://img.icons8.com/color/64/000000/sale--v2.png">
                                 </a>
                                 <div class="card-body card-body-size" style="position : relative">
@@ -184,7 +184,7 @@
                             <div class="card product-card">
                                 <a href="<?php echo base_url('product/show_product_info/'.$val['product_id'])?>">
                                     <img class="card-img-top bg-light img-product-effect"
-                                        src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg">
+                                        src="<?php echo base_url('public/images/').$val['image']; ?>">
                                     <img class="sale-img" src="https://img.icons8.com/color/64/000000/sale--v2.png">
                                 </a>
                                 <div class="card-body card-body-size" style="position : relative">
@@ -231,7 +231,7 @@
                             <div class="card product-card">
                                 <a href="<?php echo base_url('product/show_product_info/'.$val['product_id'])?>">
                                     <img class="card-img-top bg-light img-product-effect"
-                                        src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg">
+                                        src="<?php echo base_url('public/images/').$val['image']; ?>">
                                     <img class="sale-img" src="https://img.icons8.com/color/64/000000/sale--v2.png">
                                 </a>
                                 <div class="card-body card-body-size" style="position : relative">
@@ -279,7 +279,7 @@
                             <div class="card product-card">
                                 <a href="<?php echo base_url('product/show_product_info/'.$val['product_id'])?>">
                                     <img class="card-img-top bg-light img-product-effect"
-                                        src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg">
+                                        src="<?php echo base_url('public/images/').$val['image']; ?>">
                                     <img class="sale-img" src="https://img.icons8.com/color/64/000000/sale--v2.png">
                                 </a>
                                 <div class="card-body card-body-size" style="position : relative">

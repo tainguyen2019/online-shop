@@ -53,9 +53,20 @@ class order_model extends CI_Model
         $this->db->insert('sale_order_line',$data);
         return ($this->db->affected_rows() > 0 ) ? true : false;
     }
-    public function get_order($customer_name)
+    public function get_order($customer_id)
     {
-        $query = "SELECT order_id,create_date,total,status FROM sale_order";
+        return $this->db->select('*')
+                        ->from('sale_order')
+                        ->where('customer_id', $customer_id)
+                        ->get()
+                        ->result_array();
+    }
+    public function delete_order($order_id)
+    {
+        $del_order_line = "DELETE FROM sale_order_line where order_id = ".$order_id;
+        $del_order = "DELETE FROM sale_order where order_id = ".$order_id;
+        $this->db->query($del_order_line);
+        $this->db->query($del_order);
     }
 }
 ?>

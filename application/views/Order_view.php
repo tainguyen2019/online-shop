@@ -34,22 +34,33 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Mã đơn hàng</th>
-                        <th scope="col">Ngày mua</th>
-                        <th scope="col">Sản phẩm</th>
-                        <th scope="col">Tổng tiền</th>
+                        <th scope="col">Ngày mua</th> 
+                        <th scope="col">Địa chỉ</th>                    
+                        <th scope="col">Tổng tiền</th> 
                         <th scope="col">Trạng thái đơn hàng</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach($sale_order as $key=>$val)
+                    {?>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <th scope="row"><?=$val['order_id']?></th>
+                        <td><?php echo $val['create_date']?></td>
+                        <td><?php echo $val['address']?></td>
+                        <td><?php echo $val['total']?></td>
+                        <td><?php if($val['total'] == 1)
+                        echo "Đang xử lí";
+                        else echo "Đã giao";
+                        ?></td>
                         <td>
-                            
+                            <a href="<?echo base_url('Order/del_order/'.$val['order_id'])?>"
+                            onclick="return confirm('Bạn muốn xoa đơn hàng này ? ')"
+                            ><i class="fas fa-trash-alt" style="color : red; font-size : 20px; margin-right : 10px"></i></a>
+                            <a href="#"><i class="fas fa-info-circle" style="color : blue; font-size : 20px;"></i></a>
                         </td>
                     </tr>
+                    <?php }?>
                 </tbody>
             </table>
 

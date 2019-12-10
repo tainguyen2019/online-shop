@@ -120,7 +120,7 @@ $category_id = $url[0];
                 <div class="card product-card">
                     <a href="<?php echo base_url('product/show_product_info/'.$val['product_id'])?>">
                         <img class="card-img-top bg-light img-product-effect"
-                            src="<?php echo base_url(); ?>public/images/chuot/chuot1-1.jpg"
+                            src="<?php echo base_url('public/images/'.$val['image']); ?>"
                             alt="Chuột có dây Genius DX-125 Đen">
                     </a>
                     <div class="card-body card-body-size" style="position : relative">
