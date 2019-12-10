@@ -21,9 +21,9 @@
             <select class="custom-select col-md-5 rounded " id="category" name="category">
               <option value="0" selected>Tất cả sản phẩm</option>
               <?php foreach ($categories as $category) {?>
-              <option value="<?php echo $category['CategoryID']; ?>"
-                <?php if($category['CategoryID'] == $cate) echo 'selected' ?>>
-                <?php echo $category['CategoryName']; ?>
+              <option value="<?php echo $category['category_id']; ?>"
+                <?php if($category['category_id'] == $cate) echo 'selected' ?>>
+                <?php echo $category['category_name']; ?>
               </option>
               <?php } ?>
             </select><br />
@@ -61,20 +61,20 @@
 					foreach ($records as $record) { ?>
           <tr>
             <td>
-              <a href="<?php echo base_url('admin/products/detail?id=' . $record['ProductID']) ?>"
+              <a href="<?php echo base_url('admin/products/detail?id=' . $record['product_id']) ?>"
                 class="text-decoration-none" title="Xem chi tiết">
-                <?php echo $record['ProductName'] ?>
+                <?php echo $record['product_name'] ?>
               </a>
             </td>
-            <td><?php echo $record['CategoryName'] ?></td>
-            <td><?php echo $record['Quantity'] ?></td>
-            <td><?php echo number_format($record['Cost'], 0, '', '.') . ' VND'; ?></td>
+            <td><?php echo $record['category_name'] ?></td>
+            <td><?php echo $record['quantity'] ?></td>
+            <td><?php echo number_format($record['price'], 0, '', '.') . ' VND'; ?></td>
             <td>
-              <a href="<?php echo base_url('admin/products/edit?id=' . $record['ProductID']) ?>"
+              <a href="<?php echo base_url('admin/products/edit?id=' . $record['product_id']) ?>"
                 class="text-decoration-none m-4" title="Sửa">
                 <i class="far fa-edit"></i>
               </a>
-              <a href="<?php echo base_url('admin/products/delete?id=' . $record['ProductID']) ?>"
+              <a href="<?php echo base_url('admin/products/delete?id=' . $record['product_id']) ?>"
                 class="text-decoration-none" title="Xóa">
                 <i class="far fa-trash-alt"></i>
               </a>
