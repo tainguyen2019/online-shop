@@ -24,48 +24,36 @@
     </header>
     <div class="container-fluid">
         <div class="title">
-            <i class="fas fa-users" style="font-size : 24px"></i>
-            <span><small>Tài khoản của</small></span>
-            <p class="name-user"><?php echo $user_info[0]['customer_name']?></p>
+            <h2> CHI TIẾT ĐƠN HÀNG</h2>
         </div>
-        <h3> ĐƠN HÀNG CỦA TÔI</h3>
+        <div>
+            <h4> ĐƠN HÀNG SỐ <?php echo $detail_order[0]['order_id']?></h4>
+        </div>
         <div class="order-table">
             <table class="table table-striped ">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Mã đơn hàng</th>
-                        <th scope="col">Ngày mua</th> 
-                        <th scope="col">Địa chỉ</th>                    
-                        <th scope="col">Tổng tiền</th> 
-                        <th scope="col">Trạng thái đơn hàng</th>
-                        <th scope="col"></th>
+                        <th scope="col">Tên sản phẩm</th>
+                        <th scope="col">Số lượng</th> 
+                        <th scope="col">Giá bán</th>                    
+                        <th scope="col">Giảm giá</th> 
+                        <th scope="col">Thành tiền</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($sale_order as $key=>$val)
-                    { 
-                        if($val['status'] != 3){
-                        ?>
+                    <?php foreach($detail_order as $val)
+                    {?>
                     <tr>
-                        <th scope="row"><?=$val['order_id']?></th>
-                        <td><?php echo $val['create_date']?></td>
-                        <td><?php echo $val['address']?></td>
-                        <td><?php echo $val['total']?></td>
-                        <td><?php if($val['total'] == 1)
-                        echo "Đang xử lí";
-                        else echo "Đã giao";
-                        ?></td>
-                        <td>
-                            <a href="<?php echo base_url('Order/del_order/'.$val['order_id'])?>"
-                            onclick="return confirm('Bạn muốn xoa đơn hàng này ? ')"
-                            ><i class="fas fa-trash-alt" style="color : red; font-size : 20px; margin-right : 10px"></i></a>
-                            <a href="<?php echo base_url('Order/ShowDetailOrder/'.$val['order_id'])?>"><i class="fas fa-info-circle" style="color : blue; font-size : 20px;"></i></a>
-                        </td>
+                        <th scope="row"><?php echo $val['product_name']?></th>
+                        <td><?php echo $val['quantity']?></td>
+                        <td><?php echo $val['price']?></td>
+                        <td><?php echo $val['discount']?></td>
+                        <td><?php echo ($val['amount'])?></td>
                     </tr>
-                    <?php }}?>
+                    <?php }?>
                 </tbody>
             </table>
-         
+            <h3 class="total" style="float : right">TỔNG TIỀN : <?php echo $detail_order[0]['total']?></h3>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

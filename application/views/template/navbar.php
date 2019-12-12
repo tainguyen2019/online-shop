@@ -18,18 +18,22 @@
                         TÀI KHOẢN
                     </a>
                     <ul class="sub-list">
+                        <?php if($this->session->userdata('isLogged') == false)
+                        {?>
                         <li class="sub-list-item">
                             <a href="<?php echo base_url(); ?>Login/index" class="items">ĐĂNG NHẬP</a>
                         </li>
                         <li class="sub-list-item">
                             <a href="<?php echo base_url(); ?>Login/index/register" class="items">TẠO TÀI KHOẢN</a>
                         </li>
+                        <?php } else {?>
                         <li class="sub-list-item">
                             <a href="<?php echo base_url();?>Order/GotoOrderView" class="items">XEM ĐƠN HÀNG</a>
                         </li>
                         <li class="sub-list-item">
                             <a href="<?php echo base_url(); ?>login/logout" class="items">ĐĂNG XUẤT</a>
                         </li>
+                        <?php }?>
                     </ul>
                 </li>
                 <li class="nav-item">

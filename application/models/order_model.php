@@ -61,12 +61,24 @@ class order_model extends CI_Model
                         ->get()
                         ->result_array();
     }
-    public function delete_order($order_id)
+    public function getDetailOrder($order_id)
+    {
+        $query = "SELECT sale_order.order_id, create_date, product_name, sale_order_line.quantity, sale_order_line.price, discount, amount, total
+                    FROM sale_order, sale_order_line, product
+                    WHERE sale_order.order_id = sale_order_line.order_id
+                    and sale_order_line.product_id= product.product_id
+                    and sale_order_line.order_id = ".$order_id;
+         return $this->db->query($query)->result_array();
+    }
+    public function del_order($order_id)
+    {
+        $del_order = "UPDATE sale_order SET status = 3 WHERE order_id = ".$order_id;
+        return $this->db->query($del_order);
+    }
+    public function del_detail_order($order_id)
     {
         $del_order_line = "DELETE FROM sale_order_line where order_id = ".$order_id;
-        $del_order = "DELETE FROM sale_order where order_id = ".$order_id;
-        $this->db->query($del_order_line);
-        $this->db->query($del_order);
+        return  $this->db->query($del_order_line);
     }
 }
 ?>

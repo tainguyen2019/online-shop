@@ -126,8 +126,11 @@ $category_id = $url[0];
                     <div class="card-body card-body-size" style="position : relative">
                         <strong class="card-title product-name"><?php echo $val['product_name']?></strong>
                         <p class="card-text product-price"><?php echo $val['price']?></p>
-                        <a class="btn btn-effect btn-primary" type="button"
-                            href="<?php echo base_url('cart/AddtoCart/'.$val['product_id'])?>">Mua ngay</a>
+                        <a class="btn btn-effect btn-outline-primary" 
+                            href="<?php echo base_url('cart/AddtoCart/'.$val['product_id'])?>">
+                            <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 20px"></i>
+                            Mua ngay
+                        </a>
                     </div>
                 </div>
                 <?php }?>

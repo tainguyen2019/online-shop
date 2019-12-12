@@ -125,7 +125,7 @@
                 <div class="intro-content">
                     <div class="left advertisement-img col-4">
                         <img class="card-img-top bg-light img-product-effect"
-                            src="<?php echo base_url(); ?>public/images/other_images/mouse_ad.png">
+                            src="<?php echo base_url(); ?>public/images/headphone_advertising.jpg">
                     </div>
                     <div class="right list-product col-8">
                         <div class="list-product">
@@ -173,7 +173,7 @@
                 <div class="intro-content">
                     <div class="left advertisement-img col-4">
                         <img class="card-img-top bg-light img-product-effect"
-                            src="<?php echo base_url(); ?>public/images/other_images/mouse_ad.png">
+                            src="<?php echo base_url(); ?>public/images/mouse_advertising.jpg">
                     </div>
                     <div class="right list-product col-8">
                         <div class="list-product">
@@ -220,7 +220,7 @@
                 <div class="intro-content">
                     <div class="left advertisement-img col-4">
                         <img class="card-img-top bg-light img-product-effect"
-                            src="<?php echo base_url(); ?>public/images/other_images/mouse_ad.png">
+                            src="<?php echo base_url(); ?>public/images/keyboard_advertising.jpg">
                     </div>
                     <div class="right list-product col-8">
                         <div class="list-product">
@@ -268,7 +268,7 @@
                 <div class="intro-content">
                     <div class="left advertisement-img col-4">
                         <img class="card-img-top bg-light img-product-effect"
-                            src="<?php echo base_url(); ?>public/images/other_images/mouse_ad.png">
+                            src="<?php echo base_url(); ?>public/images/speaker_advertising.jpg">
                     </div>
                     <div class="right list-product col-8">
                         <div class="list-product">

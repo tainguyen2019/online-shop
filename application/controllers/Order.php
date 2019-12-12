@@ -44,9 +44,16 @@ class Order extends MY_Controller
     $data['sale_order'] = $this->order_model->get_order($data['user_info'][0]['customer_id']);
     $this->load->view('Order_view',$data);
    }
+   public function ShowDetailOrder($order_id)
+   {
+       $data['detail_order'] = $this->order_model->getDetailOrder($order_id);
+       $this->load->view('detail_order',$data);
+   }
    function del_order($order_id)
    {
-       $this->order_model->delete_order($order_id);
+       $this->order_model->del_detail_order($order_id);
+       $this->order_model->del_order($order_id);
+       redirect(base_url('Order/GotoOrderView'));
    }
 }
 ?>
