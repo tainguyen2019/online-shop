@@ -26,7 +26,7 @@
                 <div class="row shopping-cart-item">
                     <div class="col-xs-3 img-thumbnail-custom">
                         <p class="image">
-                            <img class="img-responsive" src=".././public/css/image-folder/chuot/chuot1-1.jpg" alt="">
+                            <img class="img-responsive" src="<?php echo base_url('public/images/'.$Item['image']); ?>" alt="">
                         </p>
                     </div>
                     <div class="col-right">

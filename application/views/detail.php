@@ -12,41 +12,15 @@
     <?php include_once "template/navbar.php" ?>
     <?php include_once "template/category_list.php"?>
     <div class="container-box">
+        <?php if($check_id == true)
+        {?>
         <div class="Product_name">
             <h2> <?=$info[0]['product_name']?> </h2>
         </div>
         <div class="row">
             <div class="col-4">
-                <!-- add carousel -->
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner" style="width : auto; height : 500px">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="<?php echo base_url();?>public/images/Chuot/chuot1-1.jpg"
-                                alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="<?php echo base_url();?>public/images/Chuot/chuot1-2.jpg"
-                                alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="<?php echo base_url();?>public/images/Chuot/chuot1-3.jpg"
-                                alt="Third slide">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+                <img style="    width: 100%; height: 100%;"
+                    src="<?php echo base_url('public/images/'.$info[0]['image'])?>" alt="">
             </div>
             <div class="col-3 price-sale">
                 <div class="price">
@@ -88,7 +62,7 @@
                             <p><?=$val['brand_name']?></p>
                         </li>
                         <li>
-                            <h6> MÔ TẢ  </h6>
+                            <h6> MÔ TẢ </h6>
                             <p><?=$val['description']?></p>
                         </li>
                         <?php }?>
@@ -96,5 +70,8 @@
                 </div>
             </div>
         </div>
+        <?php } else {?>
+            <h1>KHÔNG TÌM THẤY SẢN PHẨM </h1>
+        <?php }?>
     </div>
     <?php require_once "template/footer.php";?>

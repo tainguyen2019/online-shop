@@ -8,7 +8,11 @@ class Product extends CI_Controller{
     }
     public function show_product_info($id)
     {
-         $data['info'] = $this->product_model->GetProductInfo($id);
+         if(empty($data['info'] = $this->product_model->GetProductInfo($id)))
+         {
+            $data['check_id'] = false;
+         }
+         else $data['check_id'] = true;
         $this->load->view('detail',$data);
     }
     public function show_products($category_id = false)

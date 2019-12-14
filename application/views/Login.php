@@ -21,7 +21,8 @@
                     <h3 class="title-header">Đăng nhập bằng tài khoản của bạn</h3>
                 </div>
                 <div class="login-form-content">
-                    <form action="<?php echo base_url('Login/login_confirm/y')?>" id="email-sign-in-form" class="login" method="POST">
+                    <form action="<?php echo base_url('Login/login_confirm/y')?>" id="email-sign-in-form" class="login"
+                        method="POST">
                         <div class="form-field-box">
                             <div class="form-field">
                                 <input id="signin-email" type="text" name="username" placeholder="Địa chỉ email">
@@ -36,6 +37,9 @@
 
                         <div class="component-btn-submit form-field">
                             <input class="btn-submit" type="submit" value="ĐĂNG NHẬP">
+                            <?php
+                                echo '<label class="text-danger">'. $this->session->flashdata("error").'</label>';
+                            ?>
                         </div>
                     </form>
                 </div>
@@ -47,29 +51,37 @@
                     <h3 class="title-header">Hoàn thành các trường sau để tạo tài khoản </h3>
                 </div>
                 <div class="signup-content">
-                    <form action="<?php echo base_url('Login/register/y')?>" id="user-signup-form" class="register">
+                    <form action="<?php echo base_url('Login/register/y')?>" id="user-signup-form" class="register" method="POST">
                         <div class="form-field-box">
-                            <label for="signup-email">
-                            </label>
+                        <label>Email</label>
                             <div class="form-field ">
-                                <input id="signup-email" type="text" name="email" placeholder="Địa chỉ email">
+                                <input id="signup-email" type="text" name="user_email" placeholder="Nhập Email">
                             </div>
                         </div>
                         <div class="form-field-box">
-                            <label for="signup-password">
-                            </label>
+                        <label>Password</label>
                             <div class="form-field ">
-                                <input id="signup-password" type="password" name="password" placeholder="Mật khẩu">
+                                <input id="signup-password" type="password" name="password" placeholder="Nhập Mật khẩu">
                             </div>
                         </div>
                         <div class="form-field-box">
-                            <label for="signup-name">
-                            </label>
+                        <label>Họ Tên</label>
                             <div class="form-field ">
-                                <input id="signup-name" type="text" name="name" placeholder=" Họ và Tên">
+                                <input id="signup-name" type="text" name="username" placeholder="Nhập Họ và Tên">
                             </div>
                         </div>
-
+                        <div class="form-field-box">
+                        <label>Số Điện Thoại</label>
+                            <div class="form-field ">
+                                <input id="signup-name" type="text" name="phone" placeholder="Nhập Số Điện Thoại">
+                            </div>
+                        </div>
+                        <div class="form-field-box">
+                        <label>Địa Chỉ Giao Hàng</label>
+                            <div class="form-field ">
+                                <input id="signup-name" type="text" name="address" placeholder="Nhập Địa Chỉ Giao Hàng">
+                            </div>
+                        </div>
                         <div class="component-btn-submit form-field">
                             <input class="btn-submit" type="submit" value="TẠO TÀI KHOẢN">
                         </div>

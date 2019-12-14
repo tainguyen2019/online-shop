@@ -44,15 +44,27 @@ class Login extends CI_Controller{
                 else{
                    // $this->session->set_userdata('islogged',false);
                     $this->session->set_flashdata('error', 'Invalid username or password');
-                    redirect(base_url().'Login/login_order');
+                    if($flag=='')
+                    {
+                        redirect(base_url().'Login/login_order');
+                    }
+                    else{
+                        redirect(base_url('Login'));
+                    }
                 }
             }
             else
             { // false => echo error
-                $this->login_order();
+                if($flag=='')
+                    {
+                        redirect(base_url().'Login/login_order');
+                    }
+                    else{
+                        redirect(base_url('Login'));
+                    }
             } 
     }
-    public function register($flag='')
+    public function register($flag = '')
     {
         $this->form_validation->set_rules('user_email','Email','required|valid_email');
         $this->form_validation->set_rules('password','Password','required');
@@ -82,7 +94,13 @@ class Login extends CI_Controller{
                 redirect(base_url('Login'));
             }
         }else{
-            $this->login_order();
+            if($flag=='')
+        {
+         redirect(base_url().'Login/login_order');
+            }
+          else{
+         redirect(base_url('Login/index/register'));
+        }
         }
     }
     public function GotoOrder()

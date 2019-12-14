@@ -51,7 +51,7 @@
                         <td><?php echo $val['create_date']?></td>
                         <td><?php echo $val['address']?></td>
                         <td><?php echo $val['total']?></td>
-                        <td><?php if($val['total'] == 1)
+                        <td><?php if($val['status'] == 1)
                         echo "Đang xử lí";
                         else echo "Đã giao";
                         ?></td>

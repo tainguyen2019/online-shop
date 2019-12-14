@@ -55,25 +55,13 @@ input[type="submit"],button{
     height: 54px;
     text-align: center;
 }
-.form-field label{
-    text-transform: initial;
-    position: absolute;
-    left: 52px;
-    top: 12px;
-    font-size: 16px;
-    font-family: "Brown-Pro-Light";
-    font-weight: normal;
-    color: #6f7678;
-    -webkit-transition: all .15s ease-in;
-    transition: all .15s ease-in;
-    cursor: text;
-    
-}
-/*.form-field input
+
+.form-field-box label
 {
-padding-top : 12px;
-padding-bottom : 2px;
-}*/
+    margin-left: 15px;
+    color: #3c763d;
+    font-weight: 700;
+}
 
 .form-field input[type="text"],input[type="password"]
 {
@@ -85,7 +73,7 @@ padding-bottom : 2px;
 #signup-name
 {
     display: block;
-    margin: 14px auto;
+    margin: auto;
     width: 95%;
     height: 40px;
 }

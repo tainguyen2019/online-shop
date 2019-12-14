@@ -33,6 +33,7 @@ class order_model extends CI_Model
     public function order_save($total,$customer_id)
     {
         $data = array(
+            'customer_id' => $customer_id,
             'address' => $this->get_address($customer_id)->address,
             'total' => $total
         );

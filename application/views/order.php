@@ -9,8 +9,6 @@
 
 <body>
     <?php include_once "template/navbar.php" ?>
-    <h1>2. Xác nhận đơn hàng</h1>
-    <a href="<?php echo base_url('Login/logout');?>">LOG OUT</a>
     <div class="row box col-12">
         <div class="col-8 cart-container">
             <div class="cart-header">
@@ -24,7 +22,7 @@
                 <div class="row shopping-cart-item">
                     <div class="col-xs-3 img-thumbnail-custom">
                         <p class="image">
-                            <img class="img-responsive" src="<?php echo base_url();?>public/images/Chuot/chuot1-2.jpg"
+                            <img class="img-responsive" src="<?php echo base_url('public/images/'.$Item['image']);?>"
                                 alt="">
                         </p>
                     </div>

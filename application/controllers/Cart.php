@@ -48,6 +48,7 @@ class Cart extends CI_Controller
             'id' =>  $item_info[0]['product_id'],
             'name' =>  $item_info[0]['product_name'],
             'price' =>   $item_info[0]['price'],
+            'image' => $item_info[0]['image'],
             'qty'   => 1
         ];
         $this->cart->insert($Item_detail);
