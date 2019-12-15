@@ -180,6 +180,9 @@ body{
 .list-info-price strong,.total2 .amount{
     float: right;
 }
+.discount{
+    margin-top: 12px;
+}
 .total2 .amount p{
     margin : 0;
     text-align: right;

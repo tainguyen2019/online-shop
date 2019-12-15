@@ -55,5 +55,12 @@ class Cart extends CI_Controller
         $url = base_url().'cart';
         redirect($url); 
     }
+    public function discount()
+    {
+        if(isset($_POST['discount']))
+        {
+            $discount = $this->input->post('discount');
+        }
+    }
 }
 ?>

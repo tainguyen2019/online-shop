@@ -32,9 +32,11 @@ class Order extends MY_Controller
         }
         $this->cart->destroy();
         $this->send($this->session->userdata('user_email'));
+        
     }
     else{
         $this->session->set_flashdata('error','Đơn hàng gặp lỗi không lưu được');
+        redirect('Order');
     }   
    }
    function GotoOrderView()
@@ -80,7 +82,7 @@ class Order extends MY_Controller
     
        if($this->email->send())
        {
-        redirect(base_url());
+        $this->load->view('order_save');
        }
        else 
        echo $this->email->print_debugger();
@@ -93,6 +95,7 @@ class Order extends MY_Controller
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Demystifying Email Design</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap&subset=vietnamese" rel="stylesheet">
         </head>
         <body style="margin: 0; padding: 0;">
             <table border="0" cellpadding="0" cellspacing="0" width="100%">	
@@ -100,8 +103,8 @@ class Order extends MY_Controller
                     <td style="padding: 10px 0 30px 0;">
                         <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">
                             <tr>
-                                <td align="center"  style="padding: 40px 0 30px 0; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
-                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/h1.gif" alt="Creating Email Magic" width="300" height="230" style="display: block;" />
+                                <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0; color: #153643; font-size: 28px; font-weight: bold; font-family: "Pacifico", cursive;">
+                                   <h1>Thank You For Your Order</h1>
                                 </td>
                             </tr>
                             <tr>

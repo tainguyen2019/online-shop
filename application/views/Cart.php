@@ -71,6 +71,10 @@
                             <span>Tạm tính</span>
                             <strong><?php echo $this->cart->format_number($this->cart->total()).' đ'?></strong>
                         </p>
+                        <p class="list-info-price discount">
+                            <span>Giảm giá</span>
+                            <strong>100000 đ</strong>
+                        </p>
                     </div>
                     <div class="box-style fee">
                         <div class="total2 clearfix">
@@ -100,8 +104,9 @@
                                 </div>
                                 <div id="collapseOne3" class="panel-collapse collapse">
                                     <div class="panel-body">
+                                        <form action="<?php echo base_url('Cart/discount')?>" method="POST"></form>
                                         <div class="input-group">
-                                            <input id="coupon" class="form-control" type="text"
+                                            <input id="coupon" class="form-control" name="discount" type="text"
                                                 placeholder="Nhập ở đây..">
                                             <span class="input-group-btn">
                                                 <button class="btn btn-default btn-coupon" type="button"> Đồng
