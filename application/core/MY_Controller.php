@@ -1,15 +1,14 @@
-<?php 
-class MY_Controller extends CI_Controller{
+<?php
+class MY_Controller extends CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
-        if (!$this->session->userdata('isLogged')) {
-            redirect('admin/login');
-        }
-
+        $this->load->library('session');
+        if(!($this->session->userdata('isLogged')))
+        {
+             redirect(base_url().'Login/login_order');
+        };
     }
-
-
 }
-
 ?>

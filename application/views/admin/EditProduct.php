@@ -19,7 +19,7 @@
         <input class="p-2 m-2 col-md-6 rounded" type="text" name="product_name" id="product_name" 
               value="<?php echo $product->product_name ?>" required autofocus><br />
         <label for="category" class="col-md-2">Loại sản phẩm: </label>
-        <select class="custom-select p-2 m-2 col-md-6 rounded form-control-lg" id="category" name="category">
+        <select class="custom-select p-2 m-2 col-md-6 rounded form-control-lg" id="category" name="category" onchange="load_brands()">
           <?php foreach ($categories as $category) { ?>
             <option value="<?php echo $category['category_id']; ?>" 
             <?php if ($category['category_id'] == $product->category_id){ echo 'selected';} ?>>

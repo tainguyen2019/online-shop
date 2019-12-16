@@ -1,6 +1,8 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Promotions extends MY_Controller
+include_once(APPPATH . 'core/MY_Controller_Admin.php');
+class Promotions extends MY_Controller_Admin
 {
   public function __construct()
   {
@@ -42,33 +44,33 @@ class Promotions extends MY_Controller
   }
 
   public function show_edit_form()
-	{
-		$promtion_code = $_GET['promotion_code'];
+  {
+    $promtion_code = $_GET['promotion_code'];
     $data['products'] = $this->ProductModel->get_all_products();
     $data['promotion'] = $this->PromotionModel->get_promotion($promtion_code);
 
-    
-		$this->load->view('admin/EditPromotion', $data);
-	}
 
-	public function edit_promotion()
-	{
-		$promotion_code = $_POST['promotion_code'];
-		$promotion['product_id'] = $_POST['product'];
-		$promotion['valid_date'] = $_POST['valid_date'];
-		$promotion['expiry_date'] = $_POST['expiry_date'];
-		$promotion['discount'] = $_POST['discount'] / 100;
-		
+    $this->load->view('admin/EditPromotion', $data);
+  }
 
-		$this->PromotionModel->update_promotion($promotion, $promotion_code);
-		redirect('admin/promotions');
-	}
+  public function edit_promotion()
+  {
+    $promotion_code = $_POST['promotion_code'];
+    $promotion['product_id'] = $_POST['product'];
+    $promotion['valid_date'] = $_POST['valid_date'];
+    $promotion['expiry_date'] = $_POST['expiry_date'];
+    $promotion['discount'] = $_POST['discount'] / 100;
 
 
-	public function delete_promotion()
-	{
-		$promotion_code = $_GET['promotion_code'];
-		$this->PromotionModel->delete_promotion($promotion_code);
-		redirect('admin/promotions');
-	}
+    $this->PromotionModel->update_promotion($promotion, $promotion_code);
+    redirect('admin/promotions');
+  }
+
+
+  public function delete_promotion()
+  {
+    $promotion_code = $_GET['promotion_code'];
+    $this->PromotionModel->delete_promotion($promotion_code);
+    redirect('admin/promotions');
+  }
 }

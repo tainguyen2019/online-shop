@@ -6,8 +6,7 @@ class Login extends CI_Controller
         parent::__construct();
     }
 
-    public function index()
-    {
+    public function index(){
         $this->load->view('admin/LoginPage');
     }
 
@@ -20,16 +19,17 @@ class Login extends CI_Controller
         $row = $this->AdminModel->checkAccount($email, $password);
 
         if (count($row) == 1) {
-            $this->session->set_userdata('isLogged', true);
+            $this->session->set_userdata('isLoggedAdmin', true);
         } else {
-            $this->session->set_userdata('isLogged', false);
+            $this->session->set_userdata('isLoggedAdmin', false);
         }
         redirect('admin');
     }
 
     public function logout()
     {
-        $this->session->unset_userdata('isLogged');
+        $this->session->unset_userdata('isLoggedAdmin');
         redirect('admin');
     }
 }
+

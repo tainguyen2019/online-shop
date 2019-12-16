@@ -1,6 +1,7 @@
 <?php
-
-class Products extends MY_Controller
+defined('BASEPATH') OR exit('No direct script access allowed');
+include_once(APPPATH.'core/MY_Controller_Admin.php');
+class Products extends MY_Controller_Admin
 {
 	public function __construct()
 	{
