@@ -151,6 +151,8 @@ insert into brand values(NULL, 'Fenda');
 insert into brand values(NULL, 'Enkor');
 insert into brand values(NULL, 'Mozard');
 insert into brand values(NULL, 'Wetop');
+insert into brand values(NULL, 'Filco');
+insert into brand values(NULL, 'Ducky');
 
 insert into category_brand values(1,1);
 insert into category_brand values(1,2);
@@ -167,6 +169,8 @@ insert into category_brand values(3,11);
 insert into category_brand values(3,12);
 insert into category_brand values(3,13);
 insert into category_brand values(3,14);
+insert into category_brand values(4,15);
+insert into category_brand values(4,16);
 
 alter table product 
 add column description text;
