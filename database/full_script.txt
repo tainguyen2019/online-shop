@@ -14,6 +14,7 @@ account_id int
 
 CREATE TABLE sale_order(
 order_id int auto_increment primary key,
+customer_id int,
 create_date datetime DEFAULT CURRENT_TIMESTAMP,
 write_date datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 address text,
