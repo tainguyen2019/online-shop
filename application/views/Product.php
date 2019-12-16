@@ -19,7 +19,7 @@ $category_id = $url[0];
         <?php include_once 'template/category_list.php'?>
     </header>
     <div id="product-panel">
-        <img src="<?php echo base_url(); ?>public/images/other_images/jsss-homepage-desktop.png.imgw.1888.1888.jpeg"
+        <img src="<?php echo base_url(); ?>public/images/jsss-homepage-desktop.png.imgw.1888.1888.jpeg"
             alt="panel">
         <div id="intro-panel">
             <div id="title">
