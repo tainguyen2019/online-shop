@@ -177,3 +177,11 @@ add column description text;
 
 update product 
 set description = 'Thông tin mô tả cho sản phẩm';
+
+update product
+set brand_id = 15
+where product_id in(45, 46, 47, 48);
+
+update product
+set brand_id = 16
+where product_id in(49, 50, 51);
