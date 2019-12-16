@@ -1,5 +1,7 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
+include_once(APPPATH.'core/MY_Controller_Admin.php');
 class Customer extends MY_Controller
 {
 	public function __construct()

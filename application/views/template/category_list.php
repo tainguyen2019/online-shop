@@ -13,7 +13,7 @@
                   <div class="product-items contain-img full-size">
                     <a href="<?php echo base_url();?>product/show_products/1" class="full-size">
                      <span class="category-img">
-                     <img src="<?php echo base_url(); ?>public/images/other_images/navigation-products-headphone.jpg" alt="1">               
+                     <img src="<?php echo base_url(); ?>public/images/navigation-products-headphone.jpg" alt="1">               
                      </span>                      
                       <span class="category-name">TAI NGHE</span>
                     </a>
@@ -23,7 +23,7 @@
                <div class="product-items contain-img full-size">
                   <a href="<?php echo base_url();?>product/show_products/2" class="full-size">
                     <span class="category-img">
-                     <img src="<?php echo base_url(); ?>public/images/other_images/navigation-products-mice.jpg" alt="2">               
+                     <img src="<?php echo base_url(); ?>public/images/navigation-products-mice.jpg" alt="2">               
                      </span>                      
                     <span class="category-name">MOUSE</span>
                   </a>
@@ -33,7 +33,7 @@
                 <div class="product-items contain-img full-size">
                   <a href="<?php echo base_url();?>product/show_products/4" class="full-size">
                     <span class="category-img">
-                     <img src="<?php echo base_url(); ?>public/images/other_images/navigation-products-keyboard.jpg" alt="3">               
+                     <img src="<?php echo base_url(); ?>public/images/navigation-products-keyboard.jpg" alt="3">               
                      </span>                      
                       <span class="category-name">BÀN PHÍM</span>
                   </a>
@@ -43,7 +43,7 @@
               <div class="product-items contain-img full-size">
                   <a href="<?php echo base_url();?>product/show_products/3" class="full-size">
                     <span class="category-img">
-                     <img src="<?php echo base_url(); ?>public/images/other_images/navigation-products-speaker.png" alt="4">               
+                     <img src="<?php echo base_url(); ?>public/images/navigation-products-speaker.png" alt="4">               
                      </span>                      
                       <span class="category-name">LOA</span>
                   </a>                
