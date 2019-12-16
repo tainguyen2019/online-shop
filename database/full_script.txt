@@ -9,6 +9,7 @@ CREATE TABLE customer(
 customer_id int auto_increment primary key,
 customer_name varchar(255),
 phone char(11),
+address varchar(255),
 account_id int
 );
 
@@ -71,8 +72,8 @@ insert into account values(1, 'admin@gmail.com', '1234', 1);
 insert into account values(NULL, 'customer1@gmail.com', '1234', 2);
 insert into account values(NULL, 'customer2@gmail.com', '1234', 2);
 
-insert into customer values(1, 'customer1',null, 2);
-insert into customer values(NULL, 'customer2',null, 3);
+insert into customer values(1, 'customer1',null,'Địa chỉ 1', 2);
+insert into customer values(NULL, 'customer2',null,'Địa chỉ 2', 3);
 
 insert into product values(NULL,' Tai nghe Earpods Apple MNHF2',1,1, 10, 790000, 'tainghe-1.jpg' , 1);
 insert into product values(NULL,' Tai nghe nhét trong EarPods Lightning Apple MMTN2',1,1, 10, 790000, 'tainghe-2.jpg' , 1);
