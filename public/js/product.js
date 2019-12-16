@@ -1,17 +1,39 @@
 $(document).ready(function()
 {
-    $('#price_range').slider({
-        range : true,
-        min   : 200000,
-        max     : 5000000,
-        values : [200000,5000000],
-        step : 100000,
-        stop : function(event,ui)
-        {
-            $('price_show').html(ui.values[0] +'-'+ ui.values[1]);
-            $('#hidden_minimum_price').val(ui.values[0]);
-            $('#hidden_maximum_price').val(ui.values[1]);
-            // filter_data();
-        }
-    })
+  $('input[type=checkbox]').on('click',function()
+  {
+    filter_data();
+  })
+  
+function get_filter(classname)
+{
+  var filter =[];
+  $('.'+classname+":checked").each(function(index)
+  {
+    filter.push(
+      $(this).val())
+    });
+  return filter;
+}
+function filter_data()
+{
+  var action = 'filterData';
+  //var minimum_price=;
+  //var maximum_price=;
+  var category = JSON.stringify(get_filter('category'));
+  var brand = JSON.stringify(get_filter('brand'));
+  $.ajax({
+    type : 'POST',  
+    url : 'http://localhost/website/Product/filterData',
+    data : {brand : brand ,category:category},
+    success: function(data)
+    {
+      console.log(status);
+      $('.product-list-card').empty().html(data);
+    },
+    error: function (err) {
+      alert("Error:");
+  }
+  }) ;
+}
 })
