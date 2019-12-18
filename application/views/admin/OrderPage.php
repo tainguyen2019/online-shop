@@ -47,10 +47,12 @@
               <td><?php echo $status ?></td>
               <td>
                 <?php if($record['status'] == 1){ ?>
-                <a href="<?php echo base_url('admin/orders/confirm?id=' . $record['order_id']) ?>" class="text-decoration-none m-4" title="Xác nhận">
+                <a href="<?php echo base_url('admin/orders/confirm?id=' . $record['order_id']) ?>" 
+                class="text-decoration-none m-4" title="Xác nhận" onclick="return confirm('Bạn muốn xác nhận đơn hàng này ? ')">
                 <i class="fa fa-check-circle"></i>
                 </a>
-                <a href="<?php echo base_url('admin/orders/cancel?id=' . $record['order_id']) ?>" class="text-decoration-none m-4" title="Hủy bỏ">
+                <a href="<?php echo base_url('admin/orders/cancel?id=' . $record['order_id']) ?>" 
+                class="text-decoration-none m-4" title="Hủy bỏ" onclick="return confirm('Bạn có chắc hủy đơn hàng này ? ')">
                 <i class="fas fa-window-close"></i>
                 </a>
                 <?php } ?>

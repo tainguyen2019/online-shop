@@ -53,7 +53,6 @@ class Order extends MY_Controller
    }
    function del_order($order_id)
    {
-       $this->order_model->del_detail_order($order_id);
        $this->order_model->del_order($order_id);
        redirect(base_url('Order/GotoOrderView'));
    }
@@ -155,4 +154,3 @@ class Order extends MY_Controller
         return $template;
    }
 }
-?>

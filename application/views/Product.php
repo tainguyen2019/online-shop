@@ -125,7 +125,7 @@ $category_id = $url[0];
                     </a>
                     <div class="card-body card-body-size" style="position : relative">
                         <strong class="card-title product-name"><?php echo $val['product_name']?></strong>
-                        <p class="card-text product-price"><?php echo $val['price']?></p>
+                        <p class="card-text product-price"><?php echo number_format($val['price'], 0, '', '.') . ' VND';?></p>
                         <a class="btn btn-effect btn-outline-primary" 
                             href="<?php echo base_url('cart/AddtoCart/'.$val['product_id'])?>">
                             <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 20px"></i>

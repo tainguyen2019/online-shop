@@ -75,7 +75,7 @@
                 <i class="far fa-edit"></i>
               </a>
               <a href="<?php echo base_url('admin/products/delete?id=' . $record['product_id']) ?>"
-                class="text-decoration-none" title="Xóa">
+                class="text-decoration-none" title="Xóa" onclick="return confirm('Bạn muốn xóa sản phẩm này ? ')">
                 <i class="far fa-trash-alt"></i>
               </a>
             </td>

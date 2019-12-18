@@ -13,7 +13,7 @@ class Products extends MY_Controller_Admin
 	public function index()
 	{
 		$page = 1;
-		$limit = 7;
+		$limit = 6;
 		$category = isset($_GET['category']) ? $_GET['category'] : 0;
 		$query = isset($_GET['query']) ? trim($_GET['query']) : '';
 		$request_page = $this->input->get('page', TRUE);
@@ -49,6 +49,7 @@ class Products extends MY_Controller_Admin
 		$product['quantity'] = $_POST['quantity'];
 		$product['price'] = $_POST['cost'];
 		$product['description'] = trim($_POST['description']);
+		$product['status'] = 1;
 		$this->ProductModel->insert_product($product);
 		$product_id =  $this->ProductModel->get_latest_id()->product_id;
 

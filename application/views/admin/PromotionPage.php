@@ -42,7 +42,8 @@
                 <a href="<?php echo base_url('admin/promotions/edit?promotion_code=' . $promotion['promotion_code']) ?>" class="text-decoration-none m-4" title="Sửa">
                   <i class="far fa-edit"></i>
                 </a>
-                <a href="<?php echo base_url('admin/promotions/delete?promotion_code=' . $promotion['promotion_code']) ?>" class="text-decoration-none" title="Xóa">
+                <a href="<?php echo base_url('admin/promotions/delete?promotion_code=' . $promotion['promotion_code']) ?>" 
+                class="text-decoration-none" title="Xóa" onclick="return confirm('Bạn muốn xóa khuyến mãi này ? ')">
                   <i class="far fa-trash-alt"></i>
                 </a>
               </td>
