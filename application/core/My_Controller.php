@@ -10,5 +10,6 @@ class MY_Controller extends CI_Controller
              redirect(base_url().'Login/login_order');
         };
     }
+
+
 }
-?>
