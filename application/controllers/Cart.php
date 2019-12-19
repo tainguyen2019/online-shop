@@ -12,8 +12,9 @@ class Cart extends CI_Controller
         $data = array();
         // retrieve cart data from the session
         $data['cartItems'] = $this->cart->contents();
+        $data['total'] = $this->cart->total();
         // load the cart items
-        $this->load->view('Cart',$data);
+        $this->load->view('Cart', $data);
     }
     public function updateCartItem()
     {
@@ -24,12 +25,11 @@ class Cart extends CI_Controller
         $qty = $_GET['qty'];
 
         // Update item in the cart
-        if(!empty($rowid) && !empty($qty))
-        {
+        if (!empty($rowid) && !empty($qty)) {
             $data = array(
                 'rowid' => $rowid,
                 'qty'   => $qty
-            );  
+            );
             $update = $this->cart->update($data);
         }
         // return response
@@ -37,8 +37,8 @@ class Cart extends CI_Controller
     }
     public function RemoveItem($id)
     {
-       $result =  $this->cart->remove($id);
-       $url = base_url().'cart';
+        $result =  $this->cart->remove($id);
+        $url = base_url() . 'cart';
         redirect($url);
     }
     public function AddtoCart($id)
@@ -52,15 +52,7 @@ class Cart extends CI_Controller
             'qty'   => 1
         ];
         $this->cart->insert($Item_detail);
-        $url = base_url().'cart';
-        redirect($url); 
-    }
-    public function discount()
-    {
-        if(isset($_POST['discount']))
-        {
-            $discount = $this->input->post('discount');
-        }
+        $this->session->set_flashdata('add_success', 'Sản phẩm bạn chọn đã được thêm vào giỏ hàng');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }
-?>

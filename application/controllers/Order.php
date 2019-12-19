@@ -17,7 +17,6 @@ class Order extends MY_Controller
  
    public function order_save()
    {
-    $info_order =  $this->cart->contents();
     $total = $this->cart->total();
     $customer_id = $_GET['id'];
     if($this->order_model->order_save($total,$customer_id))
@@ -155,4 +154,3 @@ class Order extends MY_Controller
         return $template;
    }
 }
-?>
