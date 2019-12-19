@@ -87,20 +87,6 @@ ul, li, p {
     color: #343a40 !important;
 }
 
-.show_total_items {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: #007bff;
-    border-radius: 50%;
-    font-size: 16px;
-    padding: 2px;
-    font-weight: bold;
-    color: whitesmoke;
-}
-
 /*category-list*/
 
 .hamburger {
@@ -179,7 +165,25 @@ ul, li, p {
     color: black
 }
 
+.show_total_items {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #007bff;
+    border-radius: 50%;
+    font-size: 16px;
+    padding: 2px;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
 /*sub-list*/
+
+.nav-item:hover .sub-list {
+    display: block;
+}
 
 .sub-list {
     z-index: 4;

@@ -24,8 +24,7 @@
             </div>
             <div class="col-3 price-sale">
                 <div class="price">
-                    <strong> <?=$info[0]['price'].' đ'?></strong>
-                    <label class="sale">Giảm 300,000 đ</label>
+                    <strong> <?= number_format($info[0]['price'], 0, '', '.') . ' VND';?></strong>
                 </div>
                 <div class="ship">
                     <i class="fa fa-clock-o"></i>

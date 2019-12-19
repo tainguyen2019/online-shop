@@ -7,11 +7,11 @@
   <title>Trang admin</title>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 bg-light">
   <?php include_once('template/navigation.php') ?>
   <div class="row flex-grow-1 m-0">
     <?php include_once('template/sidebar.php') ?>
-    <div class="col-md-10 bg-light h-100">
+    <div class="col-md-10 h-100">
       <h1>Chi tiết đơn hàng</h1>
       <hr>
       <h5>Đơn hàng số <?php echo $order->order_id ?></h5><br>

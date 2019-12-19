@@ -29,15 +29,14 @@ $category_id = $url[0];
   <div class="khoangtrang"></div>
   <div class="alert-add-success">
     <?php
-    if ($this->session->flashdata('add_success')) {
-      echo '<div class="alert alert-success" style="width: 85%;
-                                                                                    margin: 10px auto;"role="alert">'
-        . $this->session->flashdata('add_success') .
-        '</div>';
-    }
-    ?>
+        if ($this->session->flashdata('add_success')) {
+            echo '<div class="alert alert-success" style="width: 85%;
+           margin: 10px auto;"role="alert">'
+                . $this->session->flashdata('add_success') .
+                '</div>';
+        }
+        ?>
   </div>
-  <div class="khoangtrang"></div>
   <div class="content">
     <div class="sidebar float-left">
       <form action="<?php echo base_url('product/show_products/' . $category_id) ?>" method="GET">
@@ -65,8 +64,8 @@ $category_id = $url[0];
                       </label>
                     </li>
                     <?php
-                    foreach ($show_brand as $key => $val) {
-                    ?>
+                                        foreach ($show_brand as $key => $val) {
+                                        ?>
                     <li>
                       <label class="checkbox-inline">
                         <input type="radio" name="brand" class="checkbox-form border-primary brand"
@@ -111,9 +110,9 @@ $category_id = $url[0];
     <div class="main-content  float-right">
       <div class="list-product">
         <?php
-        if ($total_products > 0) {
-          foreach ($show_product as $key => $val) {
-        ?>
+                if ($total_products > 0) {
+                    foreach ($show_product as $key => $val) {
+                ?>
         <div class="card product-card">
           <a href="<?php echo base_url('product/show_product_info/' . $val['product_id']) ?>">
             <img class="card-img-top bg-light img-product-effect"
@@ -121,8 +120,8 @@ $category_id = $url[0];
           </a>
           <div class="card-body card-body-size" style="position : relative">
             <strong class="card-title product-name"><?php echo $val['product_name'] ?></strong>
-            <p class="card-text product-price"><?php echo $val['price'] ?></p>
-            <a class="btn btn-effect btn-outline-primary" id="addtocart"
+            <p class="card-text product-price"><?php echo number_format($val['price'], 0, '', '.') . ' VND'; ?></p>
+            <a class="btn btn-effect btn-outline-primary"
               href="<?php echo base_url('cart/AddtoCart/' . $val['product_id']) ?>">
               <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 20px"></i>
               Mua ngay
@@ -135,18 +134,18 @@ $category_id = $url[0];
       <div class="pagination-container">
         <ul class="pagination">
           <?php
-          $pre_page = $page > 1 ? $page - 1 : $page;
-          $next_page = $page < $total_pages ? $page + 1 : $page;
-          $search = '&brand=' . $brand;
-          $pre_url = base_url('product/show_products/' . $category_id . '?page=' . $pre_page . $search);
-          $next_url = base_url('product/show_products/' . $category_id . '?page=' . $next_page . $search);
-          ?>
+                    $pre_page = $page > 1 ? $page - 1 : $page;
+                    $next_page = $page < $total_pages ? $page + 1 : $page;
+                    $search = '&brand=' . $brand;
+                    $pre_url = base_url('product/show_products/' . $category_id . '?page=' . $pre_page . $search);
+                    $next_url = base_url('product/show_products/' . $category_id . '?page=' . $next_page . $search);
+                    ?>
           <li class="page-item">
             <a class="page-link" href="<?php echo $pre_page ?>">
               <</a> </li> <?php
-                          for ($i = 1; $i <= $total_pages; $i++) {
-                            $url_page = base_url('product/show_products/' . $category_id . '?page=' . $i . $search);
-                          ?> <li class="page-item <?php if ($i == $page) echo 'active'; ?>">
+                                        for ($i = 1; $i <= $total_pages; $i++) {
+                                            $url_page = base_url('product/show_products/' . $category_id . '?page=' . $i . $search);
+                                        ?> <li class="page-item <?php if ($i == $page) echo 'active'; ?>">
                 <a class="page-link" href="<?php echo $url_page ?>"><?php echo $i ?></a>
           </li>
           <?php } ?>
@@ -166,6 +165,7 @@ $category_id = $url[0];
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>public/js/template.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/product.js"></script>
 </body>
 
 </html>

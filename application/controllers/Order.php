@@ -17,6 +17,7 @@ class Order extends MY_Controller
  
    public function order_save()
    {
+    $info_order =  $this->cart->contents();
     $total = $this->cart->total();
     $customer_id = $_GET['id'];
     if($this->order_model->order_save($total,$customer_id))
@@ -52,7 +53,6 @@ class Order extends MY_Controller
    }
    function del_order($order_id)
    {
-       $this->order_model->del_detail_order($order_id);
        $this->order_model->del_order($order_id);
        redirect(base_url('Order/GotoOrderView'));
    }

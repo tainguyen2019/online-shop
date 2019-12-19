@@ -76,10 +76,5 @@ class order_model extends CI_Model
         $del_order = "UPDATE sale_order SET status = 3 WHERE order_id = ".$order_id;
         return $this->db->query($del_order);
     }
-    public function del_detail_order($order_id)
-    {
-        $del_order_line = "DELETE FROM sale_order_line where order_id = ".$order_id;
-        return  $this->db->query($del_order_line);
-    }
+    
 }
-?>

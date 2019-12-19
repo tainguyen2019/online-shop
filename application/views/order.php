@@ -37,7 +37,7 @@
 
                         <div class="box-size">
                             <p>Giá : </p>
-                            <p class="price"><?=$this->cart->format_number($Item['price'])?></p>
+                            <p class="price"><?=number_format($Item['price'], 0, '', '.') . ' VND';?></p>
                         </div>
 
                         <div class="box-size">
@@ -53,7 +53,7 @@
             <div class="order_total-box">
                 <div class="order_total">
                     <span>TỔNG TIỀN : </span>
-                    <span><?=$this->cart->format_number($this->cart->total())?></span>
+                    <span><?=number_format($this->cart->total(), 0, '', '.') . ' VND'?></span>
                 </div>
             </div>
             <div class="btn-order-box">

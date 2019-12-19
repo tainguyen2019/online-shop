@@ -48,12 +48,13 @@
                         <td><?php echo $val['quantity']?></td>
                         <td><?php echo $val['price']?></td>
                         <td><?php echo $val['discount']?></td>
-                        <td><?php echo ($val['amount'])?></td>
+                        <td><?php echo number_format($val['amount'], 0, '', '.') . ' VND';?></td>
                     </tr>
                     <?php }?>
                 </tbody>
             </table>
-            <h3 class="total" style="float : right">TỔNG TIỀN : <?php echo $detail_order[0]['total']?></h3>
+            <h3 class="total" style="float : right">TỔNG TIỀN : 
+            <?php echo number_format($detail_order[0]['total'], 0, '', '.') . ' VND';?></h3>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
