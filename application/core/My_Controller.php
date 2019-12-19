@@ -5,11 +5,8 @@ class MY_Controller extends CI_Controller
     {
         parent::__construct();
         $this->load->library('session');
-        if(!($this->session->userdata('isLogged')))
-        {
-             redirect(base_url().'Login/login_order');
+        if (!($this->session->userdata('isLogged'))) {
+            redirect(base_url() . 'Login/login_order');
         };
     }
-
-
 }
