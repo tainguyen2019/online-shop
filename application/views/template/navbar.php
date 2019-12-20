@@ -42,8 +42,8 @@
             <img src="https://img.icons8.com/cotton/32/000000/shopping-cart--v1.png">
             GIỎ HÀNG
           </a>
+          <span class="show_total_items"><?php echo $this->cart->total_items() ?></span>
         </li>
-        <span class="show_total_items"><?php echo $this->cart->total_items() ?></span>
       </ul>
     </div>
   </div>
