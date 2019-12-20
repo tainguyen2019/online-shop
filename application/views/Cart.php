@@ -9,13 +9,14 @@
 
 <body>
 	<?php include_once 'template/navbar.php' ?>
+	<div id="notice">
+	</div>
 	<div class="cart-container row">
 		<div class="col-xs-12">
 			<h5 class="lbl-shopping-cart"> Giỏ hàng
 				<span>(<?php echo $this->cart->total_items() . ' sản phẩm' ?>)</span>
 			</h5>
 		</div>
-
 		<div class="col-xs-8 cart-col-1">
 			<form id="shopping cart">
 				<?php
@@ -46,6 +47,11 @@
 									<div class="box-size">
 										<p>Giá sản phẩm : </p>
 										<p class="price"><?= number_format($Item['price'], 0, '', '.') . ' VND'; ?></p>
+										<div id="<?= $Item['id'] ?>">
+											<?php if ($Item['discount'] > 0) { ?>
+												<p class="font-weight-bold"><?php echo "- " . ($Item['discount'] * 100) . " %" ?></p>
+											<?php } ?>
+										</div>
 									</div>
 								</div>
 								<div class="badge-cart-a-link"></div>
@@ -64,21 +70,17 @@
 				<div class="each-row">
 					<div class="box-style fee">
 						<p class="list-info-price">
-							<span>Tạm tính</span>
-							<strong><?php echo number_format($this->cart->total(), 0, '', '.') . ' VND'; ?></strong>
-						</p>
-						<p class="list-info-price discount">
-							<span>Giảm giá</span>
-							<strong>100.000 VND</strong>
+							<span>Tạm tính: </span>
+							<strong id="amount1"><?php echo number_format($total, 0, '', ',') . ' VND'; ?></strong>
 						</p>
 					</div>
 					<div class="box-style fee">
 						<div class="total2 clearfix">
 							<span class="text-label">Thành tiền: </span>
 							<div class="amount">
-								<p>
-									<strong><?php echo number_format($this->cart->total(), 0, '', '.') . ' VND'; ?></strong>
-								</p>
+								<div id="amount2">
+									<strong><?php echo number_format($total, 0, '', ',') . ' VND'; ?></strong>
+								</div>
 								<p class="text-right">
 									<small>(Đã bao gồm VAT nếu có)</small>
 								</p>
@@ -99,12 +101,10 @@
 								</div>
 								<div id="collapseOne3" class="panel-collapse collapse">
 									<div class="panel-body">
-										<form action="<?php echo base_url('Cart/discount') ?>" method="POST"></form>
 										<div class="input-group">
-											<input id="coupon" class="form-control" name="discount" type="text" placeholder="Nhập ở đây..">
+											<input id="coupon_code" class="form-control" name="coupon_code" type="text" placeholder="Nhập ở đây..">
 											<span class="input-group-btn">
-												<button class="btn btn-default btn-coupon" type="button"> Đồng
-													ý</button>
+												<button class="btn btn-default btn-coupon" type="button" id="SubmitCode">Đồng ý</button>
 											</span>
 										</div>
 									</div>
@@ -124,9 +124,49 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 	<script src="<?php echo base_url(); ?>public/js/template.js"></script>
+	<script src="<?php echo base_url(); ?>public/js/cart.js"></script>
+	<script>
+		$("#coupon_code").change(function() {
+			$("#SubmitCode").click(function() {
+				$.ajax({
+					url: "<?php echo base_url('cart/discount') ?>",
+					type: "get",
+					dataType: "text",
+					data: {
+						"coupon_code": $("#coupon_code").val()
+					},
+					success: function(result) {
+						var arr = result.split('|');
+						var check = (arr[0] === 'true');
 
-	<script src="<?php echo base_url(); ?>public/js/cart.js">
+						if (!check) {
+							$("#notice").html(`<div class="alert alert-danger alert-dismissible">
+    																<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+																		<strong>Mã giảm giá không hợp lệ !</strong>
+  																	</div>`);
+						} else {
+							total = parseInt(arr[3], 10);
+							var product_id = arr[1];
+							var discount = parseFloat(arr[2], 10);
+							if (discount > 0) {
+								var amount = new Intl.NumberFormat().format(total) + " VND";
+								$("#" + product_id).html(`<p class="font-weight-bold">- ${discount * 100} %</p>`);
+								$("#amount1").html(`<p class="font-weight-bold">${amount}</p>`);
+								$("#amount2").html(`<p class="font-weight-bold">${amount}</p>`);
+								$("#notice").html(`<div class="alert alert-success alert-dismissible">
+    															<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+																	<strong>Mã giảm giá đã áp dụng thành công !</strong>
+  																</div>`);
+							}
+						}
+					}
+				});
+			});
+		});
 	</script>
 </body>
 
 </html>
+
+
+
