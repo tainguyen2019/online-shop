@@ -18,24 +18,19 @@ $category_id = $url[0];
     <?php include_once 'template/category_list.php' ?>
   </header>
   <div id="product-panel">
-    <img src="<?php echo base_url(); ?>public/images/jsss-homepage-desktop.png.imgw.1888.1888.jpeg" alt="panel">
-    <div id="intro-panel">
-      <div id="title">
-        <h1 class="title-text">Âm Thanh Sống Động</h1>
-        <p class="sub-title-text">Đẳng cấp Hiện đại và Chân thực trong từng tiếng động</p>
-      </div>
-    </div>
+    <img src="<?php echo base_url(); ?>public/images/image-panel-<?php echo $category_id ?>.jpeg" alt="panel">
+
   </div>
   <div class="khoangtrang"></div>
   <div class="alert-add-success">
     <?php
-        if ($this->session->flashdata('add_success')) {
-            echo '<div class="alert alert-success" style="width: 85%;
+    if ($this->session->flashdata('add_success')) {
+      echo '<div class="alert alert-success" style="width: 85%;
            margin: 10px auto;"role="alert">'
-                . $this->session->flashdata('add_success') .
-                '</div>';
-        }
-        ?>
+        . $this->session->flashdata('add_success') .
+        '</div>';
+    }
+    ?>
   </div>
   <div class="khoangtrang"></div>
   <div class="content">
@@ -65,8 +60,8 @@ $category_id = $url[0];
                       </label>
                     </li>
                     <?php
-                                        foreach ($show_brand as $key => $val) {
-                                        ?>
+                    foreach ($show_brand as $key => $val) {
+                    ?>
                     <li>
                       <label class="checkbox-inline">
                         <input type="radio" name="brand" class="checkbox-form border-primary brand"
@@ -111,9 +106,9 @@ $category_id = $url[0];
     <div class="main-content  float-right">
       <div class="list-product">
         <?php
-                if ($total_products > 0) {
-                    foreach ($show_product as $key => $val) {
-                ?>
+        if ($total_products > 0) {
+          foreach ($show_product as $key => $val) {
+        ?>
         <div class="card product-card">
           <a href="<?php echo base_url('product/show_product_info/' . $val['product_id']) ?>">
             <img class="card-img-top bg-light img-product-effect"
@@ -135,18 +130,18 @@ $category_id = $url[0];
       <div class="pagination-container">
         <ul class="pagination">
           <?php
-                    $pre_page = $page > 1 ? $page - 1 : $page;
-                    $next_page = $page < $total_pages ? $page + 1 : $page;
-                    $search = '&brand=' . $brand;
-                    $pre_url = base_url('product/show_products/' . $category_id . '?page=' . $pre_page . $search);
-                    $next_url = base_url('product/show_products/' . $category_id . '?page=' . $next_page . $search);
-                    ?>
+          $pre_page = $page > 1 ? $page - 1 : $page;
+          $next_page = $page < $total_pages ? $page + 1 : $page;
+          $search = '&brand=' . $brand;
+          $pre_url = base_url('product/show_products/' . $category_id . '?page=' . $pre_page . $search);
+          $next_url = base_url('product/show_products/' . $category_id . '?page=' . $next_page . $search);
+          ?>
           <li class="page-item">
             <a class="page-link" href="<?php echo $pre_page ?>">
               <</a> </li> <?php
-                                        for ($i = 1; $i <= $total_pages; $i++) {
-                                            $url_page = base_url('product/show_products/' . $category_id . '?page=' . $i . $search);
-                                        ?> <li class="page-item <?php if ($i == $page) echo 'active'; ?>">
+                          for ($i = 1; $i <= $total_pages; $i++) {
+                            $url_page = base_url('product/show_products/' . $category_id . '?page=' . $i . $search);
+                          ?> <li class="page-item <?php if ($i == $page) echo 'active'; ?>">
                 <a class="page-link" href="<?php echo $url_page ?>"><?php echo $i ?></a>
           </li>
           <?php } ?>
