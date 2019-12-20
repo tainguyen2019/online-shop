@@ -52,8 +52,8 @@ class Cart extends CI_Controller
             'qty'   => 1
         ];
         $this->cart->insert($Item_detail);
-        $url = base_url().'cart';
-        redirect($url); 
+        $this->session->set_flashdata('add_success', 'Sản phẩm bạn chọn đã được thêm vào giỏ hàng');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
     public function discount()
     {
@@ -63,4 +63,3 @@ class Cart extends CI_Controller
         }
     }
 }
-?>
