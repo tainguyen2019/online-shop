@@ -13,16 +13,17 @@ class Cart extends CI_Controller
 		// retrieve cart data from the session
 		$data['cartItems'] = $this->cart->contents();
 		$data['total'] = 0;
-		foreach($this->cart->contents() as $item){
+		foreach ($this->cart->contents() as $item) {
 			$data['total'] += $item['price'] * (1 - $item['discount']) * $item['qty'];
 		}
 		// load the cart items
 		$this->load->view('Cart', $data);
 	}
 
-	public function total(){
+	public function total()
+	{
 		$total = 0;
-		foreach($this->cart->contents() as $item){
+		foreach ($this->cart->contents() as $item) {
 			$total += $item['price'] * (1 - $item['discount']) * $item['qty'];
 		}
 		return $total;
@@ -65,30 +66,32 @@ class Cart extends CI_Controller
 			'discount' => 0
 		];
 		$this->cart->insert($Item_detail);
-		$url = base_url() . 'cart';
-		redirect($url);
+		$this->session->set_flashdata('add_success', 'Sản phẩm bạn chọn đã được thêm vào giỏ hàng');
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
 	public function discount()
 	{
 		if (isset($_GET['coupon_code'])) {
 			$coupon_code = trim($_GET['coupon_code']);
 			$detail = $this->cart_model->get_coupon_code($coupon_code);
-			$check = count($detail) > 0 ? true : false;
+			$check1 = count($detail) > 0 ? true : false;
 
-			echo $check ? 'true|'.$detail[0]['product_id'].'|'.$detail[0]['discount'].'|' : 'false|';
-			if($check){
-				foreach($this->cart->contents() as $item){
-					if($item['id'] == $detail[0]['product_id']){
+			$check2 = false;
+			if ($check1) {
+				foreach ($this->cart->contents() as $item) {
+					if ($item['id'] == $detail[0]['product_id']) {
 						$data = array(
 							'rowid' => $item['rowid'],
-							'id' =>$detail[0]['product_id'],
+							'id' => $detail[0]['product_id'],
 							'discount'   => $detail[0]['discount']
 						);
 						$this->cart->update($data);
+						$check2 = true;
 					}
 				}
-				echo $this->total().'|';
 			}
+			echo $check1 && $check2 ? 'true|' . $detail[0]['product_id'] . '|' . $detail[0]['discount'] . '|' : 'false|';
+			echo $this->total() . '|';
 		}
 	}
 }
