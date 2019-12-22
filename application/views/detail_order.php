@@ -46,8 +46,8 @@
                     <tr>
                         <th scope="row"><?php echo $val['product_name']?></th>
                         <td><?php echo $val['quantity']?></td>
-                        <td><?php echo $val['price']?></td>
-                        <td><?php echo $val['discount']?></td>
+                        <td><?php echo number_format($val['price'], 0, '', '.') . ' VND'?></td>
+                        <td><?php echo ($val['discount'] * 100). '%' ?></td>
                         <td><?php echo number_format($val['amount'], 0, '', '.') . ' VND';?></td>
                     </tr>
                     <?php }?>

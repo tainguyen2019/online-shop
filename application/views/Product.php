@@ -27,7 +27,8 @@ $category_id = $url[0];
     if ($this->session->flashdata('add_success')) {
         echo '<div class="alert alert-success" style="width: 85%;
            margin: 10px auto;"role="alert">'
-        . $this->session->flashdata('add_success') .
+        . '<strong>'.$this->session->flashdata('add_success').'</strong>'.
+        '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.
         '</div>';
     }
     ?>

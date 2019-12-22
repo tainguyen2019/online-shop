@@ -21,7 +21,7 @@ input[type="submit"],button{
     display: block;
     background-color: #fff;
     margin-bottom: 50px;
-    transform: translate(100%, 7%);
+    transform: translate(120%, 30%);
 }
 
 .login-form,.signup-form{
