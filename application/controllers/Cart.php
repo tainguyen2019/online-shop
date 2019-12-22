@@ -36,15 +36,23 @@ class Cart extends CI_Controller
 		// get cart item info
 		$rowid = $_GET['rowid'];
 		$qty = $_GET['qty'];
-
+		// return if qty == 0 
+		if (!is_int($qty)) {
+			$qty = (int) $qty;
+		};
 		// Update item in the cart
-		if (!empty($rowid) && !empty($qty)) {
+		if (!empty($rowid) && !empty($qty) || $qty != 0) {
 			$data = array(
 				'rowid' => $rowid,
 				'qty'   => $qty
 			);
-			$update = $this->cart->update($data);
+		} else {
+			$data = array(
+				'rowid' => $rowid,
+				'qty'   => 1
+			);
 		}
+		$update = $this->cart->update($data);
 		// return response
 		echo $update ? 'ok' : 'err';
 	}
