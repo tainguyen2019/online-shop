@@ -13,7 +13,6 @@ class Orders extends MY_Controller_Admin
   {
     $page = 1;
     $limit = 7;
-    $query = isset($_GET['query']) ? trim($_GET['query']) : '';
     $request_page = $this->input->get('page', TRUE);
     if (is_numeric($request_page)) {
       $page = $request_page;

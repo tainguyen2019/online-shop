@@ -41,7 +41,7 @@ class Cart extends CI_Controller
 			$qty = (int) $qty;
 		};
 		// Update item in the cart
-		if (!empty($rowid) && !empty($qty) || $qty != 0) {
+		if (!empty($rowid) && !empty($qty) && $qty > 0) {
 			$data = array(
 				'rowid' => $rowid,
 				'qty'   => $qty

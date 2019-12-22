@@ -5,7 +5,7 @@ class OrderModel extends CI_Model
 	private static $table_name = 'sale_order';
 	public function count_orders()
 	{
-		return $this->db->count_all_results();
+		return $this->db->from(self::$table_name)->count_all_results();
 	}
 	public function get_orders($limit, $offset)
 	{
