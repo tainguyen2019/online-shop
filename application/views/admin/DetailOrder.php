@@ -31,7 +31,7 @@
           <tr>
             <td><?php echo $detail['product_name']?></td>
             <td><?php echo $detail['quantity']?></td>
-            <td><?php echo $detail['price']?></td>
+            <td><?php echo number_format($detail['price'], 0, '', '.') . ' VND'; ?></td>
             <td><?php echo ($detail['discount'] * 100).' % '; ?></td>
             <td><?php echo number_format($detail['amount'], 0, '', '.') . ' VND'; ?></td>
           </tr>
