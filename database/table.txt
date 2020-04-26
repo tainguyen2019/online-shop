@@ -72,3 +72,24 @@ add column description text;
 
 update product 
 set description = 'Thông tin mô tả cho sản phẩm';
+
+ALTER TABLE customer
+add FOREIGN  key(account_id) REFERENCES account(account_id);
+
+ALTER TABLE sale_order_line
+add FOREIGN  key(product_id) REFERENCES product(product_id);
+ALTER TABLE sale_order_line
+add FOREIGN  key(order_id) REFERENCES sale_order(order_id);
+
+ALTER TABLE product
+add FOREIGN  key(category_id) REFERENCES category(category_id);
+ALTER TABLE product
+add FOREIGN  key(brand_id) REFERENCES brand(brand_id);
+
+ALTER TABLE category_brand
+add FOREIGN  key(category_id) REFERENCES category(category_id);
+ALTER TABLE category_brand
+add FOREIGN  key(brand_id) REFERENCES brand(brand_id);
+
+ALTER TABLE promotion
+add FOREIGN  key(product_id) REFERENCES product(product_id);
