@@ -1,4 +1,4 @@
-﻿CREATE TABLE account(
+CREATE TABLE account(
 account_id int auto_increment primary key,
 email varchar(255),
 password varchar(255),
@@ -68,12 +68,56 @@ valid_date date,
 expiry_date date
 );
 
+ALTER TABLE customer
+add FOREIGN  key(account_id) REFERENCES account(account_id);
+
+ALTER TABLE sale_order_line
+add FOREIGN  key(product_id) REFERENCES product(product_id);
+ALTER TABLE sale_order_line
+add FOREIGN  key(order_id) REFERENCES sale_order(order_id);
+
+ALTER TABLE product
+add FOREIGN  key(category_id) REFERENCES category(category_id);
+ALTER TABLE product
+add FOREIGN  key(brand_id) REFERENCES brand(brand_id);
+
+ALTER TABLE category_brand
+add FOREIGN  key(category_id) REFERENCES category(category_id);
+ALTER TABLE category_brand
+add FOREIGN  key(brand_id) REFERENCES brand(brand_id);
+
+ALTER TABLE promotion
+add FOREIGN  key(product_id) REFERENCES product(product_id);
+
 insert into account values(1, 'admin@gmail.com', '1234', 1);
 insert into account values(NULL, 'customer1@gmail.com', '1234', 2);
 insert into account values(NULL, 'customer2@gmail.com', '1234', 2);
 
 insert into customer values(1, 'customer1',null,'Địa chỉ 1', 2);
 insert into customer values(NULL, 'customer2',null,'Địa chỉ 2', 3);
+
+insert into category values(1, 'tai nghe');
+insert into category values(NULL, 'chuột');
+insert into category values(NULL, 'loa');
+insert into category values(NULL, 'bàn phím');
+
+insert into brand values(1, 'Apple');
+insert into brand values(NULL, 'Sony');
+insert into brand values(NULL, 'Samsung');
+insert into brand values(NULL, 'Awei');
+insert into brand values(NULL, 'Logitech');
+insert into brand values(NULL, 'Kanen');
+insert into brand values(NULL, 'Genius');
+insert into brand values(NULL, 'Zadez');
+insert into brand values(NULL, 'Anitech');
+insert into brand values(NULL, 'Microsoft');
+insert into brand values(NULL, 'Fenda');
+insert into brand values(NULL, 'Enkor');
+insert into brand values(NULL, 'Mozard');
+insert into brand values(NULL, 'Wetop');
+insert into brand values(NULL, 'Filco');
+insert into brand values(NULL, 'Ducky');
+
 
 insert into product values(NULL,' Tai nghe Earpods Apple MNHF2',1,1, 10, 790000, 'tainghe-1.jpg' , 1);
 insert into product values(NULL,' Tai nghe nhét trong EarPods Lightning Apple MMTN2',1,1, 10, 790000, 'tainghe-2.jpg' , 1);
@@ -132,29 +176,6 @@ insert into product values(NULL,' Bàn phím Gaming Cliptec RGK817 Đen',4,null,
 insert into product values(NULL,' Bàn phím Gaming Cliptec RGK833 Đen bạc',4,null, 10, 1200000, 'banphim-49.jpg', 1 );
 insert into product values(NULL,' Bàn phím Gaming Cliptec RGK700 Bạc',4,null, 10, 1050000, 'banphim-50.jpg', 1 );
 insert into product values(NULL,' Bàn Phím Game Fuhlen L411',4,null, 10, 230000, 'banphim-51.jpg', 1 );
-
-
-insert into category values(1, 'tai nghe');
-insert into category values(NULL, 'chuột');
-insert into category values(NULL, 'loa');
-insert into category values(NULL, 'bàn phím');
-
-insert into brand values(1, 'Apple');
-insert into brand values(NULL, 'Sony');
-insert into brand values(NULL, 'Samsung');
-insert into brand values(NULL, 'Awei');
-insert into brand values(NULL, 'Logitech');
-insert into brand values(NULL, 'Kanen');
-insert into brand values(NULL, 'Genius');
-insert into brand values(NULL, 'Zadez');
-insert into brand values(NULL, 'Anitech');
-insert into brand values(NULL, 'Microsoft');
-insert into brand values(NULL, 'Fenda');
-insert into brand values(NULL, 'Enkor');
-insert into brand values(NULL, 'Mozard');
-insert into brand values(NULL, 'Wetop');
-insert into brand values(NULL, 'Filco');
-insert into brand values(NULL, 'Ducky');
 
 insert into category_brand values(1,1);
 insert into category_brand values(1,2);
